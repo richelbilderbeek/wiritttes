@@ -30,7 +30,8 @@ Imports:
   PBD,
   phangorn,
   phytools,
-  RBeast
+  RBeast,
+  ribir
 Suggests:
   ape,
   coda,

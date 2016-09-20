@@ -9,6 +9,8 @@ r_github_packages:
   - jimhester/covr
   - jimhester/lintr
   - MangoTheCat/goodpractice
+  - richelbilderbeek/beastscriptr
+  - richelbilderbeek/ribir
   - beast-dev/RBeast
 
 before_script:

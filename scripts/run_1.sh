@@ -21,15 +21,6 @@ done
 txt=$(printf ":%s" "${jobids[@]}")
 txt=${txt:1}
 
-##################
-# Collect n taxa #
-##################
-
-cmd="sbatch --dependency=afterany:$txt collect_n_taxa.sh"
-echo "cmd: "$cmd
-jobid=`$cmd | cut -d ' ' -f 4`
-echo "jobid: "$jobid
-
 ##########################
 # Add species trees
 # This is a parallel job, 

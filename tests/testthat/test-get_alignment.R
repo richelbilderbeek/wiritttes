@@ -4,8 +4,8 @@ test_that("get_alignment: #1", {
   file <- read_file(find_path("toy_example_1.RDa"))
   alignment_1 <- get_alignment(file = file, sti = 1, ai = 1)
   alignment_2 <- get_alignment(file = file, sti = 2, ai = 1)
-  expect_true(is_alignment(alignment_1))
-  expect_true(is_alignment(alignment_2))
+  expect_true(ribir::is_alignment(alignment_1))
+  expect_true(ribir::is_alignment(alignment_2))
 })
 
 test_that("get_alignment: #4", {
@@ -14,10 +14,10 @@ test_that("get_alignment: #4", {
   alignment_2 <- get_alignment(file = file, sti = 2, ai = 2)
   alignment_3 <- get_alignment(file = file, sti = 2, ai = 1)
   alignment_4 <- get_alignment(file = file, sti = 2, ai = 2)
-  expect_true(is_alignment(alignment_1))
-  expect_true(is_alignment(alignment_2))
-  expect_true(is_alignment(alignment_3))
-  expect_true(is_alignment(alignment_4))
+  expect_true(ribir::is_alignment(alignment_1))
+  expect_true(ribir::is_alignment(alignment_2))
+  expect_true(ribir::is_alignment(alignment_3))
+  expect_true(ribir::is_alignment(alignment_4))
 })
 
 test_that("set_alignment_by_index: #4", {
@@ -26,10 +26,10 @@ test_that("set_alignment_by_index: #4", {
   alignment_2 <- get_alignment(file = file, sti = 1, ai = 2)
   alignment_3 <- get_alignment(file = file, sti = 2, ai = 1)
   alignment_4 <- get_alignment(file = file, sti = 2, ai = 2)
-  expect_true(is_alignment(alignment_1))
-  expect_true(is_alignment(alignment_2))
-  expect_true(is_alignment(alignment_3))
-  expect_true(is_alignment(alignment_4))
+  expect_true(ribir::is_alignment(alignment_1))
+  expect_true(ribir::is_alignment(alignment_2))
+  expect_true(ribir::is_alignment(alignment_3))
+  expect_true(ribir::is_alignment(alignment_4))
 
   # All same alignments are identical
   expect_true(identical(alignment_1, alignment_1))
@@ -125,8 +125,8 @@ test_that("get_alignment from fresh file", {
     sequence_length = 10
   )
 
-  expect_true(is_alignment(alignment))
-  expect_true(is_alignment(other_alignment))
+  expect_true(ribir::is_alignment(alignment))
+  expect_true(ribir::is_alignment(other_alignment))
 
   file <- set_alignment(
     file = file,

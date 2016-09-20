@@ -19,11 +19,11 @@ test_that("pbd_output is added", {
   )
   expect_true(file.exists(filename))
   expect_false(
-    is_pbd_sim_output(read_file(filename)$pbd_output)
+    ribir::is_pbd_sim_output(read_file(filename)$pbd_output)
   )
   add_pbd_output(filename)
   expect_true(
-    is_pbd_sim_output(read_file(filename)$pbd_output)
+    ribir::is_pbd_sim_output(read_file(filename)$pbd_output)
   )
   file.remove(filename)
   expect_false(file.exists(filename))
@@ -48,7 +48,7 @@ test_that("add_pbd_output: add twice", {
     filename = filename
   )
   add_pbd_output(filename)
-  testit::assert(is_pbd_sim_output(read_file(filename)$pbd_output))
+  testit::assert(ribir::is_pbd_sim_output(read_file(filename)$pbd_output))
 
   expect_message(
     add_pbd_output(filename = filename, verbose = TRUE),

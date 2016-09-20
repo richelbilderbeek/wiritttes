@@ -4,14 +4,14 @@ test_that("get_alignment_by_index: #1", {
   file <- read_file(find_path("toy_example_1.RDa"))
   i <- 1
   alignment <- get_alignment_by_index(file, i)
-  expect_true(is_alignment(alignment))
+  expect_true(ribir::is_alignment(alignment))
 })
 
 test_that("get_alignment_by_index: #4", {
   file <- read_file(find_path("toy_example_4.RDa"))
   i <- 4
   alignment <- get_alignment_by_index(file, i)
-  expect_true(is_alignment(alignment))
+  expect_true(ribir::is_alignment(alignment))
   expect_true(
     identical(
       alignment,
@@ -26,10 +26,10 @@ test_that("set_alignment_by_index: #4", {
   alignment_2 <- get_alignment_by_index(file, 2)
   alignment_3 <- get_alignment_by_index(file, 3)
   alignment_4 <- get_alignment_by_index(file, 4)
-  expect_true(is_alignment(alignment_1))
-  expect_true(is_alignment(alignment_2))
-  expect_true(is_alignment(alignment_3))
-  expect_true(is_alignment(alignment_4))
+  expect_true(ribir::is_alignment(alignment_1))
+  expect_true(ribir::is_alignment(alignment_2))
+  expect_true(ribir::is_alignment(alignment_3))
+  expect_true(ribir::is_alignment(alignment_4))
 
   # All same alignments are identical
   expect_true(identical(alignment_1, alignment_1))
@@ -112,7 +112,7 @@ test_that("get_alignment_by_index from fresh file", {
     sequence_length = 10
   )
 
-  expect_true(is_alignment(alignment))
+  expect_true(ribir::is_alignment(alignment))
 
   file <- set_alignment_by_index(
     file = file,

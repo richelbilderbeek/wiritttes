@@ -6,8 +6,8 @@ test_that("get_alignments: toy examples 1", {
   file <- read_file(filename)
   alignments <- get_alignments(file)
   expect_equal(length(alignments), 2)
-  expect_true(is_alignment(alignments[[1]][[1]]))
-  expect_true(is_alignment(alignments[[2]][[1]]))
+  expect_true(ribir::is_alignment(alignments[[1]][[1]]))
+  expect_true(ribir::is_alignment(alignments[[2]][[1]]))
 })
 
 test_that("get_alignments: toy examples 3", {
@@ -16,7 +16,7 @@ test_that("get_alignments: toy examples 3", {
   file <- read_file(filename)
   alignments <- get_alignments(file)
   expect_equal(length(alignments), 4)
-  expect_true(is_alignment(alignments[[4]][[1]]))
+  expect_true(ribir::is_alignment(alignments[[4]][[1]]))
 })
 
 

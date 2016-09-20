@@ -58,7 +58,7 @@ pbd_sim_output <- PBD::pbd_sim(
   plotit = TRUE
 )
 names(pbd_sim_output)
-testit::assert(is_pbd_sim_output(pbd_sim_output))
+testit::assert(ribir::is_pbd_sim_output(pbd_sim_output))
 ```
 
 Most of these trees are uninteresting for this demonstration. I will zoom in

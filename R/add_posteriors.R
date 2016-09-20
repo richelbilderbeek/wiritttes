@@ -83,7 +83,7 @@ add_posteriors <- function(
         sti = sti,
         ai = ai
       )
-      testit::assert(wiritttes::is_alignment(alignment))
+      testit::assert(ribir::is_alignment(alignment))
       for (pi in 1:n_beast_runs) {
         posterior <- NA
         testit::assert(!RBeast::is_trees_posterior(posterior))

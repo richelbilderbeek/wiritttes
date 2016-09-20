@@ -16,7 +16,7 @@ get_alignment_by_index <- function(
   }
 
   alignment <- file$alignments[[i]][[1]]
-  if (!wiritttes::is_alignment(alignment)) {
+  if (!ribir::is_alignment(alignment)) {
     # The alignment may not be added yet
     stop(
       "alignment absent at index ",

@@ -58,7 +58,7 @@ add_alignments <- function(filename) {
         stop("need species_trees at index ", sti)
       }
     )
-    testit::assert(wiritttes::is_phylogeny(species_tree))
+    testit::assert(class(species_tree) == "phylo")
   }
 
   parameters <- file$parameters

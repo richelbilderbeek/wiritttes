@@ -27,7 +27,7 @@ alignment <- convert_phylogeny_to_alignment(
    sequence_length = 10,
    mutation_rate = 1
  )
- testit::assert(is_alignment(alignment))
+ testit::assert(ribir::is_alignment(alignment))
 }
 \author{
 Richel Bilderbeek

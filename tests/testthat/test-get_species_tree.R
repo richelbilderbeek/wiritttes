@@ -4,14 +4,15 @@ test_that("get_species_tree_by_index: #1", {
   file <- read_file(find_path("toy_example_1.RDa"))
   sti <- 1
   species_tree <- get_species_tree_by_index(file = file, sti = sti)
-  expect_true(is_phylogeny(species_tree))
+
+  expect_true(class(species_tree) == "phylo")
 })
 
 test_that("get_species_tree_by_index: #4", {
   file <- read_file(find_path("toy_example_4.RDa"))
   sti <- 2
   species_tree <- get_species_tree_by_index(file = file, sti = sti)
-  expect_true(is_phylogeny(species_tree))
+  expect_true(class(species_tree) == "phylo")
   expect_true(
     identical(
       species_tree,
@@ -24,8 +25,8 @@ test_that("set_species_tree_by_index: #4", {
   file <- read_file(find_path("toy_example_4.RDa"))
   species_tree_1 <- get_species_tree_by_index(file, 1)
   species_tree_2 <- get_species_tree_by_index(file, 2)
-  expect_true(is_phylogeny(species_tree_1))
-  expect_true(is_phylogeny(species_tree_2))
+  expect_true(class(species_tree_1) == "phylo")
+  expect_true(class(species_tree_2) == "phylo")
 
   # All same species_trees are identical
   expect_true(identical(species_tree_1, species_tree_1))
@@ -85,8 +86,8 @@ test_that("get_species_tree_by_index from fresh file", {
   species_tree <- phylogeny <- ape::rcoal(n = 5)
   other_species_tree <- ape::rcoal(n = 5)
 
-  expect_true(is_phylogeny(species_tree))
-  expect_true(is_phylogeny(other_species_tree))
+  expect_true(class(species_tree) == "phylo")
+  expect_true(class(other_species_tree) == "phylo")
 
   file <- set_species_tree_by_index(
     file = file,

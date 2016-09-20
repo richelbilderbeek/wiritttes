@@ -53,12 +53,12 @@ alignment_to_beast_posterior <- function(
   skip_if_output_present = FALSE,
   verbose = FALSE
 ) {
-  if (!is_alignment(alignment_dnabin)) {
+  if (!ribir::is_alignment(alignment_dnabin)) {
     stop(
       "alignment must be of class DNAbin"
     )
   }
-  if (!is_whole_number(nspp)) {
+  if (!ribir::is_whole_number(nspp)) {
     stop(
       "nspp must be a whole number"
     )
@@ -73,7 +73,7 @@ alignment_to_beast_posterior <- function(
       "base_filename must be a character string"
     )
   }
-  if (!is_whole_number(rng_seed)) {
+  if (!ribir::is_whole_number(rng_seed)) {
     stop(
       "rng_seed must be a whole number"
     )

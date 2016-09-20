@@ -47,7 +47,7 @@ set_alignment <- function(
   if (ai > napst) {
     stop("ai must at most be napst")
   }
-  if (!is_alignment(alignment)) {
+  if (!ribir::is_alignment(alignment)) {
     stop("alignment must be an alignment")
   }
 

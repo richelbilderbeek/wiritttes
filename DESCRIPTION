@@ -58,6 +58,6 @@ Remotes:
   rsetienne/PBD/PBD,
   MangoTheCat/goodpractice
 RoxygenNote: 5.0.1
-URL: https://github.com/richelbilderbeek/Cer2016
-BugReports: https://github.com/richelbilderbeek/Cer2016/issues
+URL: https://github.com/richelbilderbeek/wiritttes
+BugReports: https://github.com/richelbilderbeek/wiritttes/issues
 VignetteBuilder: knitr

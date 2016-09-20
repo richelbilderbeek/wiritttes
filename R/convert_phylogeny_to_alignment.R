@@ -11,7 +11,7 @@
 #'    sequence_length = 10,
 #'    mutation_rate = 1
 #'  )
-#'  testit::assert(is_alignment(alignment))
+#'  testit::assert(ribir::is_alignment(alignment))
 #' @author Richel Bilderbeek
 #' @export
 convert_phylogeny_to_alignment <- function(
@@ -19,11 +19,8 @@ convert_phylogeny_to_alignment <- function(
   sequence_length,
   mutation_rate = 1
 ) {
-  if (!is_phylogeny(phylogeny)) {
-    stop(
-      "convert_phylogeny_to_alignment: ",
-      "parameter 'phylogeny' must be a phylogeny"
-    )
+  if (class(phylogeny) != "phylo") {
+    stop("parameter 'phylogeny' must be a phylogeny")
   }
   if (sequence_length < 1) {
     stop(

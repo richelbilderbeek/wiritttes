@@ -37,13 +37,13 @@ Adds a pbd_sim result to a file
   )
 
   # File does not have an incipient species tree yet
-  testit::assert(!is_pbd_sim_output(read_file(filename)$pbd_output))
+  testit::assert(!ribir::is_pbd_sim_output(read_file(filename)$pbd_output))
 
   # Add an incipient species tree
   add_pbd_output(filename)
 
   # File does have an incipient species tree now
-  testit::assert(is_pbd_sim_output(read_file(filename)$pbd_output))
+  testit::assert(ribir::is_pbd_sim_output(read_file(filename)$pbd_output))
 
   # Cleanup
   file.remove(filename)

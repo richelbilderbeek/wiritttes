@@ -15,7 +15,7 @@ summary statistic.
 Loading this package
 
 ```{r}
-library(Cer2016)
+library(wiritttes)
 options(warn = 2)
 ```
 

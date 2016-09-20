@@ -1,6 +1,6 @@
-#' Determines if the input is a Cer2016 posterior,
-#' @param p the first Cer2016 posterior
-#' @param q the second Cer2016 posterior
+#' Determines if the input is a wiritttes posterior,
+#' @param p the first wiritttes posterior
+#' @param q the second wiritttes posterior
 #' @return TRUE or FALSE
 #' @examples
 #'   file <- read_file(find_path("toy_example_1.RDa"))
@@ -16,13 +16,13 @@ are_identical_posteriors <- function(p, q) {
 
   if (!RBeast::is_posterior(p)) {
     stop(
-      "are_identical_posteriors: p must be a Cer2016 posterior"
+      "are_identical_posteriors: p must be a wiritttes posterior"
     )
   }
   if (!RBeast::is_posterior(q)) {
     stop(
       "are_identical_posteriors: ",
-      "q must be a Cer2016 posterior"
+      "q must be a wiritttes posterior"
     )
   }
   if (!are_identical_trees_posteriors(p$trees, q$trees)) {

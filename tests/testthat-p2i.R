@@ -1,2 +1,2 @@
 library(testthat)
-test_check("Cer2016", filter = "p2i")
+test_check("wiritttes", filter = "p2i")

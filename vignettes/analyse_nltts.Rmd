@@ -20,7 +20,7 @@ shown in the vignette 'Analyse nLTT statistics'.
 Loading this package
 
 ```{r}
-library(Cer2016)
+library(wiritttes)
 options(warn = 2)
 ```
 

@@ -31,7 +31,7 @@ ape::plot.phylo(phylogeny, edge.width = 3, cex = 2)
 Load the packages we will need:
 
 ```{r}
-library(Cer2016)
+library(wiritttes)
 library(ggplot2)
 library(phytools)
 library(nLTT)

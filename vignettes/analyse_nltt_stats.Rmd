@@ -18,7 +18,7 @@ This vignette shows how analyse the nLTT statistics.
 Loading this package
 
 ```{r}
-library(Cer2016)
+library(wiritttes)
 #library(dplyr)
 #library(tidyr)
 options(warn = 2)
@@ -41,7 +41,7 @@ nltt_stats <- nltt_stats_raw[!is.na(nltt_stats_raw$nltt_stat), ]
 
 ## Are nLTT statistics from the same distribution?
 
-Time to anwer the question [do nLTT statistics differ between posteriors?](https://github.com/richelbilderbeek/Cer2016/issues/103)
+Time to anwer the question [do nLTT statistics differ between posteriors?](https://github.com/richelbilderbeek/wiritttes/issues/103)
 
 First we need to know if nLTT statistics are from the
 same distribution, as this will influence are tests.

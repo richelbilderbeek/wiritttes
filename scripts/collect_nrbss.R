@@ -1,6 +1,6 @@
-library(Cer2016)
+library(wiritttes)
 
-folder <- "/home/p230198/GitHubs/Cer2016/scripts"
+folder <- "/home/p230198/GitHubs/wiritttes/scripts"
 csv_filename_nrbss <- "../inst/extdata/collected_nrbss.csv"
 
 fns <- paste(

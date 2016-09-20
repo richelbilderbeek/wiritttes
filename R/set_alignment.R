@@ -43,7 +43,7 @@ set_alignment <- function(
   if (ai < 1) {
     stop("ai must be at least 1")
   }
-  napst <- Cer2016::extract_napst(file = file)
+  napst <- wiritttes::extract_napst(file = file)
   if (ai > napst) {
     stop("ai must at most be napst")
   }
@@ -51,7 +51,7 @@ set_alignment <- function(
     stop("alignment must be an alignment")
   }
 
-  i <- Cer2016::a2i(sti = sti, ai = ai, nstpist = 2, napst = napst)
+  i <- wiritttes::a2i(sti = sti, ai = ai, nstpist = 2, napst = napst)
 
   return (
     set_alignment_by_index(

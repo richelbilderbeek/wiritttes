@@ -48,8 +48,8 @@ add_pbd_output <- function(
     stop("invalid filename")
   }
 
-  file <- Cer2016::read_file(filename)
-  if (Cer2016::is_pbd_sim_output(file$pbd_output)) {
+  file <- wiritttes::read_file(filename)
+  if (wiritttes::is_pbd_sim_output(file$pbd_output)) {
     if (verbose) {
       message("file already has a pbd_output")
     }

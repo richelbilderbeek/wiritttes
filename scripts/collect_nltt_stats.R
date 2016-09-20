@@ -1,5 +1,5 @@
-library(Cer2016)
-folder <- "/home/p230198/GitHubs/Cer2016/scripts"
+library(wiritttes)
+folder <- "/home/p230198/GitHubs/wiritttes/scripts"
 csv_filename_nltt_stat <- "../inst/extdata/collected_nltt_stats.csv"
 
 # filenames

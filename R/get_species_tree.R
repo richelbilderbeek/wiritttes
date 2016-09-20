@@ -13,7 +13,7 @@ get_species_tree_by_index <- function(file, sti) {
   }
 
   species_tree <- file$species_trees[[sti]][[1]]
-  if (!Cer2016::is_phylogeny(species_tree)) {
+  if (!wiritttes::is_phylogeny(species_tree)) {
     # The species_tree may not be added yet
     stop(
       "species_tree absent at index ",

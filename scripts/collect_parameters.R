@@ -1,9 +1,9 @@
-library(Cer2016)
-folder <- "/home/p230198/GitHubs/Cer2016/scripts"
+library(wiritttes)
+folder <- "/home/p230198/GitHubs/wiritttes/scripts"
 fns <- paste(
   folder, list.files(folder, pattern = "\\.RDa"), sep = "/"
 )
-df <- Cer2016::collect_parameters(fns, verbose = TRUE)
+df <- wiritttes::collect_parameters(fns, verbose = TRUE)
 write.csv(
   x = df,
   file = "../inst/extdata/collected_parameters.csv",

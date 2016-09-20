@@ -20,7 +20,7 @@ has_alignments <- function(file) {
         ),
         error = function(msg) {} # nolint
       )
-      v <- c(v, Cer2016::is_alignment(alignment))
+      v <- c(v, wiritttes::is_alignment(alignment))
     }
   }
   v

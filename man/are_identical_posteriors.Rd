@@ -2,20 +2,20 @@
 % Please edit documentation in R/are_identical_posteriors.R
 \name{are_identical_posteriors}
 \alias{are_identical_posteriors}
-\title{Determines if the input is a Cer2016 posterior,}
+\title{Determines if the input is a wiritttes posterior,}
 \usage{
 are_identical_posteriors(p, q)
 }
 \arguments{
-\item{p}{the first Cer2016 posterior}
+\item{p}{the first wiritttes posterior}
 
-\item{q}{the second Cer2016 posterior}
+\item{q}{the second wiritttes posterior}
 }
 \value{
 TRUE or FALSE
 }
 \description{
-Determines if the input is a Cer2016 posterior,
+Determines if the input is a wiritttes posterior,
 }
 \examples{
   file <- read_file(find_path("toy_example_1.RDa"))

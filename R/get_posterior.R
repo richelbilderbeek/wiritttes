@@ -66,19 +66,19 @@ get_posterior <- function(
   if (ai < 1) {
     stop("ai must be at least 1")
   }
-  napst <- Cer2016::extract_napst(file = file)
+  napst <- wiritttes::extract_napst(file = file)
   if (ai > napst) {
     stop("ai must at most be napst")
   }
   if (pi < 1) {
     stop("pi must be at least 1")
   }
-  nppa <- Cer2016::extract_nppa(file = file)
+  nppa <- wiritttes::extract_nppa(file = file)
   if (pi > nppa) {
     stop("pi must at most be nppa")
   }
 
-  i <- Cer2016::p2i(
+  i <- wiritttes::p2i(
     sti = sti, pi = pi, ai = ai, nstpist = 2, napst = napst, nppa = nppa
   )
 

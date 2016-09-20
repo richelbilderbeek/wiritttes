@@ -12,7 +12,7 @@ vignette: >
 Load the library:
 
 ```{r}
-library(Cer2016)
+library(wiritttes)
 ```
 
 Set warnings to maximum level:

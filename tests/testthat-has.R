@@ -1,2 +1,2 @@
 library(testthat)
-test_check("Cer2016", filter = "has")
+test_check("wiritttes", filter = "has")

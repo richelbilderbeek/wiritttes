@@ -9,7 +9,7 @@
 find_path <- function(filename) {
 
   full_path <- system.file(
-    "extdata", filename, package = "Cer2016"
+    "extdata", filename, package = "wiritttes"
   )
 
   if (file.exists(full_path)) {
@@ -27,7 +27,7 @@ find_path <- function(filename) {
 #' @param filenames the names of files
 #' @return the full path of the filenames if an existing file could be found, stops otherwise
 #' @examples
-#'   filenames <- Cer2016::find_paths(c("toy_example_1.RDa", "toy_example_2.RDa"))
+#'   filenames <- wiritttes::find_paths(c("toy_example_1.RDa", "toy_example_2.RDa"))
 #'   testit::assert(file.exists(filenames[1]))
 #'   testit::assert(file.exists(filenames[2]))
 #' @author Richel Bilderbeek
@@ -36,7 +36,7 @@ find_paths <- function(filenames) {
   filenames <- as.vector(
     vapply(
       filenames,
-      Cer2016::find_path,
+      wiritttes::find_path,
       FUN.VALUE = "string"
     )
   )

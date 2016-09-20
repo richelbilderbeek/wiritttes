@@ -12,7 +12,7 @@ vignette: >
 Loading this package
 
 ```{r}
-library(Cer2016)
+library(wiritttes)
 library(ggplot2)
 options(warn = 2)
 ```

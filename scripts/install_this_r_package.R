@@ -1,3 +1,3 @@
-devtools::install_github("richelbilderbeek/Cer2016")
+devtools::install_github("richelbilderbeek/wiritttes")
 
 warnings()

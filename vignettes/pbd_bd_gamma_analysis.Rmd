@@ -10,7 +10,7 @@ vignette: >
 ---
 
 ```{r load_packages}
-library(Cer2016)
+library(wiritttes)
 library(ggplot2)
 options(warn = 2)
 ```

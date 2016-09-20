@@ -24,7 +24,7 @@ For this vignette, we need these libraries:
 
 ```{r}
 library(ape)
-library(Cer2016)
+library(wiritttes)
 options(warn = 2)
 ```
 
@@ -163,7 +163,7 @@ First, we read a parameter file:
 
 ```
 library(ape)
-library(Cer2016)
+library(wiritttes)
 library(phytools)
 library(apTreeshape) # For colless
 filename <- find_path("toy_example_1.RDa")

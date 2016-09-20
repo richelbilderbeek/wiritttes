@@ -63,7 +63,7 @@ add_posteriors <- function(
   if (!is_valid_file(filename)) {
     stop("invalid filename")
   }
-  file <- Cer2016::read_file(filename)
+  file <- wiritttes::read_file(filename)
   if (!all(has_alignments(file) == TRUE)) {
     stop("alignments absent")
   }
@@ -83,7 +83,7 @@ add_posteriors <- function(
         sti = sti,
         ai = ai
       )
-      testit::assert(Cer2016::is_alignment(alignment))
+      testit::assert(wiritttes::is_alignment(alignment))
       for (pi in 1:n_beast_runs) {
         posterior <- NA
         testit::assert(!RBeast::is_trees_posterior(posterior))

@@ -24,19 +24,19 @@ file_has_valid_parameters <- function(
     if (verbose) message("file_has_valid_parameters: ERG invalid")
     return(FALSE)
   }
-  if (Cer2016::extract_eri(file) < 0.0) {
+  if (wiritttes::extract_eri(file) < 0.0) {
     if (verbose) message("file_has_valid_parameters: ERI invalid")
     return(FALSE)
   }
-  if (Cer2016::extract_scr(file) < 0.0) {
+  if (wiritttes::extract_scr(file) < 0.0) {
     if (verbose) message("file_has_valid_parameters: SCR invalid")
     return(FALSE)
   }
-  if (Cer2016::extract_sirg(file) < 0.0) {
+  if (wiritttes::extract_sirg(file) < 0.0) {
     if (verbose) message("file_has_valid_parameters: SIRG invalid")
     return(FALSE)
   }
-  if (Cer2016::extract_siri(file) < 0.0) {
+  if (wiritttes::extract_siri(file) < 0.0) {
     if (verbose) message("file_has_valid_parameters: SIRI invalid")
     return(FALSE)
   }
@@ -65,7 +65,7 @@ file_has_valid_parameters <- function(
     if (verbose) message("file_has_valid_parameters: n_beast_runs invalid")
     return(FALSE)
   }
-  if (Cer2016::extract_nspp(file) < 1) {
+  if (wiritttes::extract_nspp(file) < 1) {
     if (verbose) message("file_has_valid_parameters: nspp invalid")
     return(FALSE)
   }

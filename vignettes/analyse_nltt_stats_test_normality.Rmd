@@ -19,7 +19,7 @@ per posterior are not always distributed normally
 Loading this package
 
 ```{r}
-library(Cer2016)
+library(wiritttes)
 options(warn = 2)
 ```
 
@@ -39,7 +39,7 @@ nltt_stats <- nltt_stats_raw[!is.na(nltt_stats_raw$nltt_stat), ]
 
 ## Are nLTT statistics distributed normally?
 
-Time to anwer the question [do nLTT statistics differ between posteriors?](https://github.com/richelbilderbeek/Cer2016/issues/103)
+Time to anwer the question [do nLTT statistics differ between posteriors?](https://github.com/richelbilderbeek/wiritttes/issues/103)
 
 First we need to know if nLTT statistics are normally 
 distributed per posterior, as this will influence are tests.

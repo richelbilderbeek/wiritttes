@@ -49,7 +49,7 @@ add_alignments <- function(filename) {
   if (!is_valid_file(filename)) {
     stop("invalid file")
   }
-  file <- Cer2016::read_file(filename)
+  file <- wiritttes::read_file(filename)
   for (sti in 1:2) {
     species_tree <- NA
     tryCatch(
@@ -58,7 +58,7 @@ add_alignments <- function(filename) {
         stop("need species_trees at index ", sti)
       }
     )
-    testit::assert(Cer2016::is_phylogeny(species_tree))
+    testit::assert(wiritttes::is_phylogeny(species_tree))
   }
 
   parameters <- file$parameters
@@ -71,7 +71,7 @@ add_alignments <- function(filename) {
 
 
   for (sti in 1:2) {
-    species_tree <- Cer2016::get_species_tree_by_index(file = file, sti = sti)
+    species_tree <- wiritttes::get_species_tree_by_index(file = file, sti = sti)
     testit::assert(!is.na(species_tree))
     for (ai in 1:n_alignments) {
       # Alignments must be different, even if species trees (oldest
@@ -98,5 +98,5 @@ add_alignments <- function(filename) {
   }
 
   # Postconditions
-  testit::assert(Cer2016::has_alignments(file))
+  testit::assert(wiritttes::has_alignments(file))
 }

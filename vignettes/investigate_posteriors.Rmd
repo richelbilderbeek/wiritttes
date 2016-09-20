@@ -10,7 +10,7 @@ vignette: >
 ---
 
 ```{r}
-library(Cer2016)
+library(wiritttes)
 options(warn = 2)
 filename <- find_path("toy_example_4.RDa")
 file <- read_file(filename)

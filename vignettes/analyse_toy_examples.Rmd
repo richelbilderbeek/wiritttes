@@ -42,7 +42,7 @@ We will need to load some libraries:
 
 ```{r, message = FALSE}
 library(ape)
-library(Cer2016)
+library(wiritttes)
 library(ggplot2)
 library(Hmisc)
 library(nLTT)

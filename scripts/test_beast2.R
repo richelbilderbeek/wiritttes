@@ -1,4 +1,4 @@
-library(Cer2016)
+library(wiritttes)
 
 print(has_beast2())
 testit::assert(has_beast2())

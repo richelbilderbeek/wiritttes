@@ -19,7 +19,7 @@ To convert an alignment to a BEAST2 posterior:
 ## Load the packages
 
 ```{r message = FALSE, warning = FALSE}
-library(Cer2016)
+library(wiritttes)
 library(nLTT)
 library(phangorn)
 library(testit)

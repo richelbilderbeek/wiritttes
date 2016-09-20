@@ -25,7 +25,7 @@ is_valid_file <- function(
   }
   file <- NULL
   tryCatch(
-    file <- Cer2016::read_file(filename),
+    file <- wiritttes::read_file(filename),
     error = function(msg) {
       if (verbose) message(msg)
     }
@@ -97,7 +97,7 @@ is_valid_file <- function(
   if (is.na(success)) return (FALSE)
 
   return(
-    Cer2016::file_has_valid_parameters(
+    wiritttes::file_has_valid_parameters(
       file = file, verbose = verbose
     )
   )

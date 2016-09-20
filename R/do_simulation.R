@@ -19,10 +19,10 @@ do_simulation <- function(
   if (!is_valid_file(filename)) {
     stop("filename must be a valid file")
   }
-  Cer2016::add_pbd_output(filename, verbose = verbose)
-  Cer2016::add_species_trees(filename)
-  Cer2016::add_alignments(filename)
-  Cer2016::add_posteriors(
+  wiritttes::add_pbd_output(filename, verbose = verbose)
+  wiritttes::add_species_trees(filename)
+  wiritttes::add_alignments(filename)
+  wiritttes::add_posteriors(
     filename = filename,
     skip_if_output_present = cache_beast_output,
     verbose = verbose

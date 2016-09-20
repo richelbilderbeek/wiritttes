@@ -16,7 +16,7 @@ get_alignment_by_index <- function(
   }
 
   alignment <- file$alignments[[i]][[1]]
-  if (!Cer2016::is_alignment(alignment)) {
+  if (!wiritttes::is_alignment(alignment)) {
     # The alignment may not be added yet
     stop(
       "alignment absent at index ",
@@ -48,11 +48,11 @@ get_alignment <- function(
   if (ai < 1) {
     stop("ai must be at least 1")
   }
-  napst <- Cer2016::extract_napst(file = file)
+  napst <- wiritttes::extract_napst(file = file)
   if (ai > napst) {
     stop("ai must at most be napst")
   }
-  i <- Cer2016::a2i(sti = sti, ai = ai, nstpist = 2, napst = napst)
+  i <- wiritttes::a2i(sti = sti, ai = ai, nstpist = 2, napst = napst)
   alignment <- NA
   tryCatch(
     alignment <- get_alignment_by_index(

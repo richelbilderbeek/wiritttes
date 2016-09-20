@@ -57,7 +57,6 @@ alignment_to_beast_input_file <- function(
     input_fasta_filename = temp_fasta_filename,
     mcmc_chainlength = nspp * 1000,
     tree_prior = "birth_death",
-    date_str = "20151027",
     output_xml_filename = beast_filename
   )
 

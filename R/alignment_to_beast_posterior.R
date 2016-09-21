@@ -101,65 +101,12 @@ alignment_to_beast_posterior <- function(
   system(cmd)
 
   has_error <- FALSE
-  # cat all errors
-  if (!file.exists(beast_trees_filename)) {
-    has_error <- TRUE
-    cat(
-      paste0("alignment_to_beast_posterior: ",
-      "file '", beast_trees_filename, "' should have been created\n"),
-      file = "testthat.log", append = TRUE
-    )
-  }
-  if (!file.exists(beast_log_filename)) {
-    has_error <- TRUE
-    cat(
-      paste0("alignment_to_beast_posterior: ",
-      "file '", beast_log_filename, "' should have been created\n"),
-      file = "testthat.log", append = TRUE
-    )
-  }
-  if (!file.exists(beast_state_filename)) {
-    has_error <- TRUE
-    cat(
-      paste0("alignment_to_beast_posterior: ",
-      "file '", beast_state_filename, "' should have been created\n"),
-      file = "testthat.log", append = TRUE
-    )
-  }
-  if (has_error) {
-    cat(
-      paste0("alignment_to_beast_posterior: cmd :", cmd, "\n"),
-      file = "testthat.log", append = TRUE
-    )
-    cmd <- paste0(
-      "java -jar ", beast_jar_path,
-      " -seed ", rng_seed,
-      " -threads 8 -beagle",
-      " -statefile ", beast_state_filename,
-      " -overwrite ",
-      " ", beast_filename, # XML filename should always be last
-      " >> testthat.log"
-    )
-    system(cmd)
-  }
 
-  # Stop on errors
+  # assert everything until I can reproduce these errors
+  testit::assert(file.exists(beast_trees_filename))
+  testit::assert(file.exists(beast_log_filename))
+  testit::assert(file.exists(beast_state_filename))
 
-  if (!file.exists(beast_trees_filename)) {
-    stop(
-      "file '", beast_trees_filename, "' should have been created"
-    )
-  }
-  if (!file.exists(beast_log_filename)) {
-    stop(
-      "file '", beast_log_filename, "' should have been created"
-    )
-  }
-  if (!file.exists(beast_state_filename)) {
-    stop(
-      "file '", beast_state_filename, "' should have been created"
-    )
-  }
   trees_posterior <- RBeast::parse_beast_trees(beast_trees_filename)
   estimates_posterior <- RBeast::parse_beast_log(beast_log_filename)
 
@@ -168,15 +115,8 @@ alignment_to_beast_posterior <- function(
   file.remove(beast_log_filename)
   file.remove(beast_state_filename)
 
-  if (!RBeast::is_trees_posterior(x = trees_posterior)) {
-    RBeast::is_trees_posterior(x = trees_posterior)
-    cat(stderr(),
-      file = "testthat.log", append = TRUE
-    )
-    stop(
-      "no posterior created"
-    )
-  }
+  testit::assert(RBeast::is_trees_posterior(x = trees_posterior))
+
   posterior <- list(
     trees = trees_posterior,
     estimates = estimates_posterior

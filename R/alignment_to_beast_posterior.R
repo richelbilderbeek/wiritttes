@@ -100,8 +100,6 @@ alignment_to_beast_posterior <- function(
   cmd <- paste0(cmd, " 1>>testthat.log 2>>testthat.log")
   system(cmd)
 
-  has_error <- FALSE
-
   # assert everything until I can reproduce these errors
   testit::assert(file.exists(beast_trees_filename))
   testit::assert(file.exists(beast_log_filename))

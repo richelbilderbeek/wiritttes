@@ -36,7 +36,6 @@ posterior <- alignment_to_beast_posterior(
   base_filename = base_filename,
   rng_seed = 42,
   beast_jar_path = beast_jar_path,
-  skip_if_output_present = FALSE,
   verbose = FALSE
 )
 

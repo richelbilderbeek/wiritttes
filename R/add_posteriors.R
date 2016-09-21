@@ -1,6 +1,5 @@
 #' Add BEAST2 posteriors to a file
 #' @param filename Parameter filename
-#' @param skip_if_output_present skip if output files are present, else remove these and start a new BEAST2 run
 #' @param verbose give verbose output, should be TRUE or FALSE
 #' @return the number of posteriors added. Also modifies the parameter file
 #' @examples
@@ -47,18 +46,10 @@
 #' @author Richel Bilderbeek
 add_posteriors <- function(
   filename,
-  skip_if_output_present = FALSE,
   verbose = FALSE
 ) {
   if (verbose != TRUE && verbose != FALSE) {
-    stop(
-      "add_posteriors: verbose should be TRUE or FALSE"
-    )
-  }
-  if (skip_if_output_present != TRUE && skip_if_output_present != FALSE) {
-    stop(
-      "add_posteriors: skip_if_output_present should be TRUE or FALSE"
-    )
+    stop("verbose should be TRUE or FALSE")
   }
   if (!is_valid_file(filename)) {
     stop("invalid filename")
@@ -116,7 +107,6 @@ add_posteriors <- function(
           base_filename = basefilename,
           nspp = nspp,
           rng_seed = new_seed,
-          skip_if_output_present = skip_if_output_present,
           verbose = verbose
         )
         testit::assert(RBeast::is_posterior(posterior))

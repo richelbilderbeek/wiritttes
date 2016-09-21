@@ -25,7 +25,6 @@ do_test_simulations <- function(
     wiritttes::add_alignments(filename)
     wiritttes::add_posteriors(
       filename = filename,
-      skip_if_output_present = TRUE,
       verbose = verbose
     )
   }

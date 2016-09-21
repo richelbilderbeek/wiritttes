@@ -61,7 +61,6 @@ test_that("are_identical_trees_posteriors: use from local simulation", {
     base_filename = base_filename,
     rng_seed = 42,
     beast_jar_path = beast_jar_path,
-    skip_if_output_present = FALSE,
     verbose = FALSE
   )
   posterior_2 <- alignment_to_beast_posterior(
@@ -70,7 +69,6 @@ test_that("are_identical_trees_posteriors: use from local simulation", {
     base_filename = base_filename,
     rng_seed = 42,
     beast_jar_path = beast_jar_path,
-    skip_if_output_present = FALSE,
     verbose = FALSE
   )
   posterior_3 <- alignment_to_beast_posterior(
@@ -79,7 +77,6 @@ test_that("are_identical_trees_posteriors: use from local simulation", {
     base_filename = base_filename,
     rng_seed = 314,
     beast_jar_path = beast_jar_path,
-    skip_if_output_present = FALSE,
     verbose = FALSE
   )
 

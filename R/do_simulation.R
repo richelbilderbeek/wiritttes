@@ -1,13 +1,11 @@
 #' Run the full simulation pipeline on a parameter file on a local computer.
 #' @param filename name of the parameter file
-#' @param cache_beast_output if the BEAST2 output files exist, do not recalculate
 #' @param verbose give verbose output, should be TRUE or FALSE
 #' @return Nothing. It does modify the input filename
 #' @export
 #' @author Richel Bilderbeek
 do_simulation <- function(
   filename,
-  cache_beast_output = FALSE,
   verbose = FALSE
 ) {
   if (verbose != TRUE && verbose != FALSE) {
@@ -24,7 +22,6 @@ do_simulation <- function(
   wiritttes::add_alignments(filename)
   wiritttes::add_posteriors(
     filename = filename,
-    skip_if_output_present = cache_beast_output,
     verbose = verbose
   )
 }

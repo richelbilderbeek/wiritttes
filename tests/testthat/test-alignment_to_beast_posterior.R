@@ -32,7 +32,6 @@ test_that("alignment_to_beast_posterior: basic", {
     base_filename = base_filename,
     rng_seed = 42,
     beast_jar_path = beast_jar_path,
-    skip_if_output_present = FALSE,
     verbose = FALSE
   )
 
@@ -61,7 +60,6 @@ test_that("alignment_to_beast_posterior: abuse", {
       base_filename = base_filename,
       rng_seed = 42,
       beast_jar_path = find_beast_jar_path(),
-      skip_if_output_present = FALSE,
       verbose = FALSE
     ),
     "alignment must be of class DNAbin"
@@ -74,7 +72,6 @@ test_that("alignment_to_beast_posterior: abuse", {
       base_filename = base_filename,
       rng_seed = 42,
       beast_jar_path = find_beast_jar_path(),
-      skip_if_output_present = FALSE,
       verbose = FALSE
     ),
     "nspp must be a whole number"
@@ -87,7 +84,6 @@ test_that("alignment_to_beast_posterior: abuse", {
       base_filename = base_filename,
       rng_seed = 42,
       beast_jar_path = find_beast_jar_path(),
-      skip_if_output_present = FALSE,
       verbose = FALSE
     ),
     "nspp must non-zero and positive"
@@ -99,7 +95,6 @@ test_that("alignment_to_beast_posterior: abuse", {
       base_filename = c(1, 2, 3), # Not a character string
       rng_seed = 42,
       beast_jar_path = find_beast_jar_path(),
-      skip_if_output_present = FALSE,
       verbose = FALSE
     ),
     "base_filename must be a character string"
@@ -111,7 +106,6 @@ test_that("alignment_to_beast_posterior: abuse", {
       base_filename = base_filename,
       rng_seed = 3.14,   # Not a whole number
       beast_jar_path = find_beast_jar_path(),
-      skip_if_output_present = FALSE,
       verbose = FALSE
     ),
     "rng_seed must be a whole number"
@@ -123,7 +117,6 @@ test_that("alignment_to_beast_posterior: abuse", {
       base_filename = base_filename,
       rng_seed = 42,
       beast_jar_path = c(1, 2, 3), # Not NULL nor a character string
-      skip_if_output_present = FALSE,
       verbose = FALSE
     ),
     "beast_jar_path must be NULL or a character string" # nolint sometimes error messages are long
@@ -135,7 +128,6 @@ test_that("alignment_to_beast_posterior: abuse", {
       base_filename = base_filename,
       rng_seed = 42,
       beast_jar_path = "invalid/path_too",
-      skip_if_output_present = FALSE,
       verbose = FALSE
     ),
     "beast_jar_path not found" # nolint sometimes error messages are long
@@ -147,7 +139,6 @@ test_that("alignment_to_beast_posterior: abuse", {
       base_filename = base_filename,
       rng_seed = 42,
       beast_jar_path = find_beast_jar_path(),
-      skip_if_output_present = FALSE,
       verbose = "not TRUE not FALSE"
     ),
     "verbose should be TRUE or FALSE" # nolint sometimes error messages are long

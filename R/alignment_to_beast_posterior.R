@@ -5,7 +5,6 @@
 #' @param base_filename The base of the filename (the part without the extension)
 #' @param rng_seed The random number generator seed used by BEAST2
 #' @param beast_jar_path Where the jar 'beast.jar' can be found
-#' @param skip_if_output_present skip if output files are present, else remove these and start a new BEAST2 run
 #' @param verbose give verbose output, should be TRUE or FALSE
 #' @return the phylogenies of the BEAST2 posterior
 #' @examples
@@ -34,7 +33,6 @@
 #'     base_filename = base_filename,
 #'     rng_seed = 42,
 #'     beast_jar_path = beast_jar_path,
-#'     skip_if_output_present = FALSE,
 #'     verbose = FALSE
 #'   )
 #'
@@ -50,7 +48,6 @@ alignment_to_beast_posterior <- function(
   base_filename,
   rng_seed = 42,
   beast_jar_path = find_beast_jar_path(),
-  skip_if_output_present = FALSE,
   verbose = FALSE
 ) {
   if (!ribir::is_alignment(alignment_dnabin)) {
@@ -101,16 +98,6 @@ alignment_to_beast_posterior <- function(
   beast_trees_filename <- paste0(base_filename, ".trees")
   beast_state_filename <- paste0(base_filename, ".xml.state")
   temp_fasta_filename <- paste0(base_filename, ".fasta")
-
-  # Use the posterior already present?
-  if (skip_if_output_present &&
-    file.exists(beast_trees_filename) &&
-    file.exists(beast_log_filename) &&
-    file.exists(beast_state_filename)) {
-    posterior <- RBeast::parse_beast_trees(beast_trees_filename)
-    testit::assert(RBeast::is_trees_posterior(posterior))
-    return(posterior)
-  }
 
   # Create a BEAST2 XML input file
   alignment_to_beast_input_file(

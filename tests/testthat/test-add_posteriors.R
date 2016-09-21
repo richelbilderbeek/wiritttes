@@ -42,7 +42,6 @@ test_that("add_posteriors: two posteriors are added", {
 
   n_posteriors_added <- add_posteriors(
     filename = filename,
-    skip_if_output_present = FALSE,
     verbose = TRUE
   )
 
@@ -125,7 +124,6 @@ test_that("four posteriors are added", {
 
   n_posteriors_added <- add_posteriors(
     filename = filename,
-    skip_if_output_present = FALSE,
     verbose = FALSE
   )
   expect_equal(n_posteriors_added, 4)
@@ -215,7 +213,6 @@ test_that("three posteriors are added, middle is deleted and added again", {
 
   n_posteriors_added <- add_posteriors(
     filename = filename,
-    skip_if_output_present = FALSE,
     verbose = FALSE
   )
 
@@ -268,10 +265,7 @@ test_that("three posteriors are added, middle is deleted and added again", {
   )
 
   # Add middle again
-  n_posteriors_added <- add_posteriors(
-    filename = filename,
-    skip_if_output_present = FALSE
-  )
+  n_posteriors_added <- add_posteriors(filename = filename)
 
   expect_equal(n_posteriors_added, 1)
   expect_silent(
@@ -304,13 +298,6 @@ test_that("add_posteriors: abuse", {
   expect_error(
     add_posteriors(filename = "inva.lid", verbose = "TRUE not FALSE"),
     "verbose should be TRUE or FALSE"
-  )
-  expect_error(
-    add_posteriors(
-      filename = "inva.lid",
-      skip_if_output_present = "TRUE not FALSE"
-    ),
-    "skip_if_output_present should be TRUE or FALSE"
   )
   expect_error(
     add_posteriors(filename = "inva.lid"),

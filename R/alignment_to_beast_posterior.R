@@ -1,11 +1,10 @@
 #' Convert an alignment to a BEAST2 XML input file
-#' @param alignment_dnabin The alignmnet
+#' @param alignment The alignment of type DNAbin
 #' @param nspp The number of states in the MCMC chain BEAST2 will generate,
 #'   typically one state per one thousand moves
 #' @param base_filename The base of the filename (the part without the extension)
 #' @param rng_seed The random number generator seed used by BEAST2
 #' @param beast_jar_path Where the jar 'beast.jar' can be found
-#' @param verbose give verbose output, should be TRUE or FALSE
 #' @return the phylogenies of the BEAST2 posterior
 #' @examples
 #'
@@ -28,12 +27,11 @@
 #'
 #'   # Run BEAST2 and extract the phylogenies of its posterior
 #'   posterior <- alignment_to_beast_posterior(
-#'     alignment_dnabin = alignment,
+#'     alignment = alignment,
 #'     nspp = 10,
 #'     base_filename = base_filename,
 #'     rng_seed = 42,
-#'     beast_jar_path = beast_jar_path,
-#'     verbose = FALSE
+#'     beast_jar_path = beast_jar_path
 #'   )
 #'
 #'   # Check the posterior
@@ -43,52 +41,32 @@
 #' @export
 #' @author Richel Bilderbeek
 alignment_to_beast_posterior <- function(
-  alignment_dnabin,
+  alignment,
   nspp,
   base_filename,
   rng_seed = 42,
-  beast_jar_path = find_beast_jar_path(),
-  verbose = FALSE
+  beast_jar_path = find_beast_jar_path()
 ) {
-  if (!ribir::is_alignment(alignment_dnabin)) {
-    stop(
-      "alignment must be of class DNAbin"
-    )
+  if (!ribir::is_alignment(alignment)) {
+    stop("alignment must be an alignment")
   }
   if (!ribir::is_whole_number(nspp)) {
-    stop(
-      "nspp must be a whole number"
-    )
+    stop("nspp must be a whole number")
   }
   if (nspp <= 0) {
-    stop(
-      "nspp must non-zero and positive"
-    )
+    stop("nspp must non-zero and positive")
   }
   if (!is.character(base_filename)) {
-    stop(
-      "base_filename must be a character string"
-    )
+    stop("base_filename must be a character string")
   }
   if (!ribir::is_whole_number(rng_seed)) {
-    stop(
-      "rng_seed must be a whole number"
-    )
+    stop("rng_seed must be a whole number")
   }
   if (!is.null(beast_jar_path) && !is.character(beast_jar_path)) {
-    stop(
-      "beast_jar_path must be NULL or a character string"
-    )
+    stop("beast_jar_path must be NULL or a character string")
   }
   if (!file.exists(beast_jar_path)) {
-    stop(
-      "beast_jar_path not found"
-    )
-  }
-  if (verbose != TRUE && verbose != FALSE) {
-    stop(
-      "verbose should be TRUE or FALSE"
-    )
+    stop("beast_jar_path not found")
   }
 
   # File paths
@@ -101,12 +79,11 @@ alignment_to_beast_posterior <- function(
 
   # Create a BEAST2 XML input file
   alignment_to_beast_input_file(
-    alignment_dnabin = alignment_dnabin,
+    alignment = alignment,
     nspp = nspp,
     rng_seed = rng_seed,
     beast_filename = beast_filename,
-    temp_fasta_filename = temp_fasta_filename,
-    verbose = verbose
+    temp_fasta_filename = temp_fasta_filename
   )
   testit::assert(file.exists(beast_filename))
 
@@ -192,7 +169,7 @@ alignment_to_beast_posterior <- function(
   file.remove(beast_state_filename)
 
   if (!RBeast::is_trees_posterior(x = trees_posterior)) {
-    RBeast::is_trees_posterior(x = trees_posterior, verbose = TRUE)
+    RBeast::is_trees_posterior(x = trees_posterior)
     cat(stderr(),
       file = "testthat.log", append = TRUE
     )

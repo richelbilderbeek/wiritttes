@@ -27,12 +27,11 @@ test_that("alignment_to_beast_posterior: basic", {
   expect_true(file.exists(beast_jar_path))
 
   posterior <- alignment_to_beast_posterior(
-    alignment_dnabin = alignment,
+    alignment = alignment,
     nspp = 10,
     base_filename = base_filename,
     rng_seed = 42,
-    beast_jar_path = beast_jar_path,
-    verbose = FALSE
+    beast_jar_path = beast_jar_path
   )
 
   expect_true(RBeast::is_posterior(posterior))
@@ -55,92 +54,74 @@ test_that("alignment_to_beast_posterior: abuse", {
 
   expect_error(
     alignment_to_beast_posterior(
-      alignment_dnabin = "not an alignment",
+      alignment = "not an alignment",
       nspp = 10,
       base_filename = base_filename,
       rng_seed = 42,
-      beast_jar_path = find_beast_jar_path(),
-      verbose = FALSE
+      beast_jar_path = find_beast_jar_path()
     ),
-    "alignment must be of class DNAbin"
+    "alignment must be an alignment"
   )
 
   expect_error(
     alignment_to_beast_posterior(
-      alignment_dnabin = alignment,
+      alignment = alignment,
       nspp = 3.14, # Not a whole number
       base_filename = base_filename,
       rng_seed = 42,
-      beast_jar_path = find_beast_jar_path(),
-      verbose = FALSE
+      beast_jar_path = find_beast_jar_path()
     ),
     "nspp must be a whole number"
   )
 
   expect_error(
     alignment_to_beast_posterior(
-      alignment_dnabin = alignment,
+      alignment = alignment,
       nspp = -10000, # Not a positive non-zero value
       base_filename = base_filename,
       rng_seed = 42,
-      beast_jar_path = find_beast_jar_path(),
-      verbose = FALSE
+      beast_jar_path = find_beast_jar_path()
     ),
     "nspp must non-zero and positive"
   )
   expect_error(
     alignment_to_beast_posterior(
-      alignment_dnabin = alignment,
+      alignment = alignment,
       nspp = 10,
       base_filename = c(1, 2, 3), # Not a character string
       rng_seed = 42,
-      beast_jar_path = find_beast_jar_path(),
-      verbose = FALSE
+      beast_jar_path = find_beast_jar_path()
     ),
     "base_filename must be a character string"
   )
   expect_error(
     alignment_to_beast_posterior(
-      alignment_dnabin = alignment,
+      alignment = alignment,
       nspp = 10,
       base_filename = base_filename,
       rng_seed = 3.14,   # Not a whole number
-      beast_jar_path = find_beast_jar_path(),
-      verbose = FALSE
+      beast_jar_path = find_beast_jar_path()
     ),
     "rng_seed must be a whole number"
   )
   expect_error(
     alignment_to_beast_posterior(
-      alignment_dnabin = alignment,
+      alignment = alignment,
       nspp = 10,
       base_filename = base_filename,
       rng_seed = 42,
-      beast_jar_path = c(1, 2, 3), # Not NULL nor a character string
-      verbose = FALSE
+      beast_jar_path = c(1, 2, 3) # Not NULL nor a character string
     ),
     "beast_jar_path must be NULL or a character string" # nolint sometimes error messages are long
   )
   expect_error(
     alignment_to_beast_posterior(
-      alignment_dnabin = alignment,
+      alignment = alignment,
       nspp = 10,
       base_filename = base_filename,
       rng_seed = 42,
-      beast_jar_path = "invalid/path_too",
-      verbose = FALSE
+      beast_jar_path = "invalid/path_too"
     ),
     "beast_jar_path not found" # nolint sometimes error messages are long
-  )
-  expect_error(
-    alignment_to_beast_posterior(
-      alignment_dnabin = alignment,
-      nspp = 10,
-      base_filename = base_filename,
-      rng_seed = 42,
-      beast_jar_path = find_beast_jar_path(),
-      verbose = "not TRUE not FALSE"
-    ),
-    "verbose should be TRUE or FALSE" # nolint sometimes error messages are long
   )
 })

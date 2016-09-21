@@ -4,12 +4,10 @@
 \alias{do_simulation}
 \title{Run the full simulation pipeline on a parameter file on a local computer.}
 \usage{
-do_simulation(filename, verbose = FALSE)
+do_simulation(filename)
 }
 \arguments{
 \item{filename}{name of the parameter file}
-
-\item{verbose}{give verbose output, should be TRUE or FALSE}
 }
 \value{
 Nothing. It does modify the input filename

@@ -31,12 +31,11 @@ beast_jar_path <- find_beast_jar_path()
 testit::assert(file.exists(beast_jar_path))
 
 posterior <- alignment_to_beast_posterior(
-  alignment_dnabin = alignment,
+  alignment = alignment,
   nspp = 10,
   base_filename = base_filename,
   rng_seed = 42,
-  beast_jar_path = beast_jar_path,
-  verbose = FALSE
+  beast_jar_path = beast_jar_path
 )
 
 print(posterior)

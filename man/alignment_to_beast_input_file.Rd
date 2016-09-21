@@ -4,11 +4,11 @@
 \alias{alignment_to_beast_input_file}
 \title{Convert an alignment and parameters to a BEAST XML input file}
 \usage{
-alignment_to_beast_input_file(alignment_dnabin, nspp, rng_seed = 42,
-  beast_filename, temp_fasta_filename, verbose = FALSE)
+alignment_to_beast_input_file(alignment, nspp, rng_seed = 42, beast_filename,
+  temp_fasta_filename)
 }
 \arguments{
-\item{alignment_dnabin}{the DNA alignment of type DNAbin}
+\item{alignment}{the DNA alignment of type DNAbin}
 
 \item{nspp}{the number of states in a BEAST2 MCMC chain,
 typically there is one state per one thousand generations}
@@ -18,8 +18,6 @@ typically there is one state per one thousand generations}
 \item{beast_filename}{the filename of the XML BEAST2 input file created}
 
 \item{temp_fasta_filename}{the name of a temporary file created}
-
-\item{verbose}{give verbose output, should be TRUE or FALSE}
 }
 \value{
 Nothing, creates a file called 'beast_filename'
@@ -42,7 +40,7 @@ Convert an alignment and parameters to a BEAST XML input file
   beast_xml_input_file <- "alignment_to_beast_input_file_example.xml"
   fasta_filename <- "alignment_to_beast_input_file_examp.fasta"
   alignment_to_beast_input_file(
-    alignment_dnabin = alignment,
+    alignment = alignment,
     nspp = 10,
     rng_seed = 42,
     beast_filename = beast_xml_input_file,

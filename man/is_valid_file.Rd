@@ -4,12 +4,10 @@
 \alias{is_valid_file}
 \title{Checks if a file is a valid parameter file}
 \usage{
-is_valid_file(filename, verbose = FALSE)
+is_valid_file(filename)
 }
 \arguments{
 \item{filename}{the name of the file to be checked}
-
-\item{verbose}{give verbose output, should be TRUE or FALSE}
 }
 \value{
 TRUE or FALSE

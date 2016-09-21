@@ -13,7 +13,7 @@ test_that("creates an XML", {
   fasta_filename <- "test-alignment_to_beast_input_file.fasta"
 
   alignment_to_beast_input_file(
-    alignment_dnabin = alignment,
+    alignment = alignment,
     nspp = 10,
     rng_seed = 42,
     beast_filename = beast_xml_input_file,
@@ -31,13 +31,11 @@ test_that("alignment_to_beast_input_file: abuse", {
 
   expect_error(
     alignment_to_beast_input_file(
-      alignment_dnabin = "",
+      alignment = "",
       nspp = 1,
       rng_seed = 42,
       beast_filename = "",
-      temp_fasta_filename = "",
-      verbose = "not TRUE nor FALSE"
-    ),
-    "verbose should be TRUE or FALSE"
+      temp_fasta_filename = ""
+    )
   )
 })

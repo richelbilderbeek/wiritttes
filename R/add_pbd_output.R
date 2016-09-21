@@ -1,6 +1,5 @@
 #' Adds a pbd_sim result to a file
 #' @param filename Parameter filename
-#' @param verbose give verbose output, should be TRUE or FALSE
 #' @return Nothing, modifies the parameter file
 #' @examples
 #'   # Create a parameter file
@@ -34,27 +33,14 @@
 #'   file.remove(filename)
 #' @export
 #' @author Richel Bilderbeek
-add_pbd_output <- function(
-  filename,
-  verbose = FALSE
-) {
+add_pbd_output <- function(filename) {
 
-  if (verbose != TRUE && verbose != FALSE) {
-    stop(
-      "verbose should be TRUE or FALSE"
-    )
-  }
   if (!is_valid_file(filename)) {
     stop("invalid filename")
   }
 
   file <- wiritttes::read_file(filename)
-  if (ribir::is_pbd_sim_output(file$pbd_output)) {
-    if (verbose) {
-      message("file already has a pbd_output")
-    }
-    return()
-  }
+
   parameters <- file$parameters
   rng_seed <- as.numeric(parameters$rng_seed[2])
   sirg  <- as.numeric(parameters$sirg[2])

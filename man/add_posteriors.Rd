@@ -4,12 +4,10 @@
 \alias{add_posteriors}
 \title{Add BEAST2 posteriors to a file}
 \usage{
-add_posteriors(filename, verbose = FALSE)
+add_posteriors(filename)
 }
 \arguments{
 \item{filename}{Parameter filename}
-
-\item{verbose}{give verbose output, should be TRUE or FALSE}
 }
 \value{
 the number of posteriors added. Also modifies the parameter file

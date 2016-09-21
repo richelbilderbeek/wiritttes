@@ -56,28 +56,25 @@ test_that("are_identical_trees_posteriors: use from local simulation", {
   testit::assert(file.exists(beast_jar_path))
 
   posterior_1 <- alignment_to_beast_posterior(
-    alignment_dnabin = alignment,
+    alignment = alignment,
     nspp = 10,
     base_filename = base_filename,
     rng_seed = 42,
-    beast_jar_path = beast_jar_path,
-    verbose = FALSE
+    beast_jar_path = beast_jar_path
   )
   posterior_2 <- alignment_to_beast_posterior(
-    alignment_dnabin = alignment,
+    alignment = alignment,
     nspp = 10,
     base_filename = base_filename,
     rng_seed = 42,
-    beast_jar_path = beast_jar_path,
-    verbose = FALSE
+    beast_jar_path = beast_jar_path
   )
   posterior_3 <- alignment_to_beast_posterior(
-    alignment_dnabin = alignment,
+    alignment = alignment,
     nspp = 10,
     base_filename = base_filename,
     rng_seed = 314,
-    beast_jar_path = beast_jar_path,
-    verbose = FALSE
+    beast_jar_path = beast_jar_path
   )
 
   expect_true(RBeast::is_trees_posterior(posterior_1$trees))
@@ -102,16 +99,8 @@ test_that("are_identical_trees_posteriors: abuse", {
 
   expect_error(
     are_identical_trees_posteriors(
-      p = NULL, q = NULL,
-      verbose = "not TRUE nor FALSE"
-    ),
-    "verbose should be TRUE or FALSE"
-  )
-  expect_error(
-    are_identical_trees_posteriors(
       p = "not a BEAST2 posterior",
-      q = posterior_2,
-      verbose = FALSE
+      q = posterior_2
     ),
     "p must be a BEAST2 posterior"
   )
@@ -119,8 +108,7 @@ test_that("are_identical_trees_posteriors: abuse", {
   expect_error(
     are_identical_trees_posteriors(
       p = posterior_1,
-      q = "not a BEAST2 posterior",
-      verbose = FALSE
+      q = "not a BEAST2 posterior"
     ),
     "q must be a BEAST2 posterior"
   )

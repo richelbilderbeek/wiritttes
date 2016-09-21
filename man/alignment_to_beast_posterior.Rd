@@ -4,11 +4,11 @@
 \alias{alignment_to_beast_posterior}
 \title{Convert an alignment to a BEAST2 XML input file}
 \usage{
-alignment_to_beast_posterior(alignment_dnabin, nspp, base_filename,
-  rng_seed = 42, beast_jar_path = find_beast_jar_path(), verbose = FALSE)
+alignment_to_beast_posterior(alignment, nspp, base_filename, rng_seed = 42,
+  beast_jar_path = find_beast_jar_path())
 }
 \arguments{
-\item{alignment_dnabin}{The alignmnet}
+\item{alignment}{The alignment of type DNAbin}
 
 \item{nspp}{The number of states in the MCMC chain BEAST2 will generate,
 typically one state per one thousand moves}
@@ -18,8 +18,6 @@ typically one state per one thousand moves}
 \item{rng_seed}{The random number generator seed used by BEAST2}
 
 \item{beast_jar_path}{Where the jar 'beast.jar' can be found}
-
-\item{verbose}{give verbose output, should be TRUE or FALSE}
 }
 \value{
 the phylogenies of the BEAST2 posterior
@@ -48,12 +46,11 @@ Convert an alignment to a BEAST2 XML input file
 
   # Run BEAST2 and extract the phylogenies of its posterior
   posterior <- alignment_to_beast_posterior(
-    alignment_dnabin = alignment,
+    alignment = alignment,
     nspp = 10,
     base_filename = base_filename,
     rng_seed = 42,
-    beast_jar_path = beast_jar_path,
-    verbose = FALSE
+    beast_jar_path = beast_jar_path
   )
 
   # Check the posterior

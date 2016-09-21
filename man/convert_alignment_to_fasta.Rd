@@ -4,10 +4,10 @@
 \alias{convert_alignment_to_fasta}
 \title{Convert an alignment (of type DNAbin) to a FASTA file}
 \usage{
-convert_alignment_to_fasta(alignment_dnabin, filename)
+convert_alignment_to_fasta(alignment, filename)
 }
 \arguments{
-\item{alignment_dnabin}{DNA alignment of type DNAbin}
+\item{alignment}{DNA alignment of type DNAbin}
 
 \item{filename}{FASTA filename the alignment will be saved to}
 }

@@ -37,14 +37,6 @@ test_that("do_test_simulations: abuse", {
 
   expect_error(
     do_test_simulations(
-      filenames = filenames,
-      verbose = "TRUE nor FALSE"
-    ),
-    "verbose should be TRUE or FALSE"
-  )
-
-  expect_error(
-    do_test_simulations(
       filenames = c("too", "few")
     ),
     "must have exactly four filenames"

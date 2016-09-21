@@ -29,38 +29,6 @@ test_that("pbd_output is added", {
   expect_false(file.exists(filename))
 })
 
-test_that("add_pbd_output: add twice", {
-
-  filename <- "test-add_pbd_output.RDa"
-  save_parameters_to_file(
-    rng_seed = 42,
-    sirg = 0.5,
-    siri = 0.5,
-    scr = 0.5,
-    erg = 0.5,
-    eri = 0.5,
-    age = 5,
-    mutation_rate = 0.1,
-    n_alignments = 1,
-    sequence_length = 10,
-    nspp = 10,
-    n_beast_runs = 1,
-    filename = filename
-  )
-  add_pbd_output(filename)
-  testit::assert(ribir::is_pbd_sim_output(read_file(filename)$pbd_output))
-
-  expect_message(
-    add_pbd_output(filename = filename, verbose = TRUE),
-    "file already has a pbd_output"
-  )
-  file.remove(filename)
-  expect_false(file.exists(filename))
-
-})
-
-
-
 test_that("add_pbd_output: demonstrate PBD::pbd_sim to freeze", {
 
   if (1 == 2) {
@@ -86,7 +54,7 @@ test_that("add_pbd_output: demonstrate PBD::pbd_sim to freeze", {
     )
 
     # Freeze
-    add_pbd_output(filename, verbose = TRUE)
+    add_pbd_output(filename)
 
     file.remove(filename)
     expect_false(file.exists(filename))
@@ -98,17 +66,7 @@ test_that("add_pbd_output: demonstrate PBD::pbd_sim to freeze", {
 test_that("add_pbd_output: abuse", {
 
   expect_error(
-    add_pbd_output(
-      filename = find_path("toy_example_1.RDa"),
-      verbose = "not TRUE nor FALSE"
-    ),
-    "verbose should be TRUE or FALSE"
-  )
-
-  expect_error(
-    add_pbd_output(
-      filename = "inval.lid",
-    ),
+    add_pbd_output(filename = "inval.lid"),
     "invalid filename"
   )
 

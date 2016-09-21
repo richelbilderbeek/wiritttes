@@ -1,6 +1,5 @@
 #' Add BEAST2 posteriors to a file
 #' @param filename Parameter filename
-#' @param verbose give verbose output, should be TRUE or FALSE
 #' @return the number of posteriors added. Also modifies the parameter file
 #' @examples
 #'   # Create a parameter file
@@ -44,13 +43,8 @@
 #'   file.remove(filename)
 #' @export
 #' @author Richel Bilderbeek
-add_posteriors <- function(
-  filename,
-  verbose = FALSE
-) {
-  if (verbose != TRUE && verbose != FALSE) {
-    stop("verbose should be TRUE or FALSE")
-  }
+add_posteriors <- function(filename) {
+
   if (!is_valid_file(filename)) {
     stop("invalid filename")
   }
@@ -85,12 +79,7 @@ add_posteriors <- function(
             ai = ai,
             pi = pi
           ),
-          error = function(msg) {
-            if (verbose) {
-              print(msg) # Is not allowed to be 'message'
-              cat(paste0(msg, "\n"), file = "add_posteriors.log")
-            }
-          }
+          error = function(msg) {} # nolint
         )
         if (RBeast::is_posterior(posterior)) {
           next
@@ -103,11 +92,10 @@ add_posteriors <- function(
           sti, "_", ai, "_", pi
         )
         posterior <- alignment_to_beast_posterior(
-          alignment_dnabin = alignment,
+          alignment = alignment,
           base_filename = basefilename,
           nspp = nspp,
-          rng_seed = new_seed,
-          verbose = verbose
+          rng_seed = new_seed
         )
         testit::assert(RBeast::is_posterior(posterior))
 

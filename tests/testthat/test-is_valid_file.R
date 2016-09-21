@@ -7,60 +7,48 @@ test_that("is_valid_file: use", {
 })
 
 test_that("is_valid_file: abuse", {
-  expect_error(
-    is_valid_file(filename = "inva.lid", verbose = "TRUE nor FALSE"),
-    "verbose should be TRUE or FALSE"
-  )
 
-  expect_message(
-    is_valid_file(filename = "inva.lid", verbose = TRUE),
-    "file 'inva.lid' not found"
+  expect_false(
+    is_valid_file(filename = "inva.lid")
   )
   # Rest is a lot of work to check
 
   filename <- "test-is_valid_file.RDa"
   saveRDS("I am not a list", file = filename)
-  expect_message(
-    is_valid_file(filename = filename, verbose = TRUE),
-    "file must be a list\n"
+  expect_false(
+    is_valid_file(filename = filename)
   )
   df <- list()
   saveRDS(df, file = filename)
-  expect_message(
-    is_valid_file(filename = filename, verbose = TRUE),
-    "file\\$parameters absent" # regex
+  expect_false(
+    is_valid_file(filename = filename)
   )
   df$parameters <- list()
   saveRDS(df, file = filename)
-  expect_message(
-    is_valid_file(filename = filename, verbose = TRUE),
-    "file\\$pbd_output absent\n"
+  expect_false(
+    is_valid_file(filename = filename)
   )
   df$pbd_output <- list()
   saveRDS(df, file = filename)
-  expect_message(
-    is_valid_file(filename = filename, verbose = TRUE),
-    "file\\$species_trees absent\n"
+  expect_false(
+    is_valid_file(filename = filename)
   )
   df$species_trees <- list()
   saveRDS(df, file = filename)
-  expect_message(
-    is_valid_file(filename = filename, verbose = TRUE),
-    "file\\$alignments absent\n"
+  expect_false(
+    is_valid_file(filename = filename)
   )
   df$alignments <- list()
   saveRDS(df, file = filename)
-  expect_message(
-    is_valid_file(filename = filename, verbose = TRUE),
-    "file\\$posteriors absent\n"
+  expect_false(
+    is_valid_file(filename = filename)
   )
   df$posteriors <- list()
   saveRDS(df, file = filename)
 
-  # Should become: expect_message, no idea why this fails yet
-  expect_error(
-    is_valid_file(filename = filename, verbose = TRUE),
-    "file\\$parameters not found"
+  # Should become: expect_false, no idea why this fails yet
+  expect_false(
+    is_valid_file(filename = filename)
   )
 
   file.remove(filename)

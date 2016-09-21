@@ -4,13 +4,10 @@
 \alias{do_test_simulations}
 \title{Run the full simulation pipeline on the test parameters}
 \usage{
-do_test_simulations(filenames = paste0("toy_example_", seq(1, 4), ".RDa"),
-  verbose = FALSE)
+do_test_simulations(filenames = paste0("toy_example_", seq(1, 4), ".RDa"))
 }
 \arguments{
 \item{filenames}{the name of the four files created}
-
-\item{verbose}{give verbose output, should be TRUE or FALSE}
 }
 \value{
 Nothing. It creates the four files

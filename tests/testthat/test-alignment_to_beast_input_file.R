@@ -96,32 +96,5 @@ test_that("alignment_to_beast_input_file: abuse", {
       temp_fasta_filename = ape::rcoal(4) # Error
     )
   )
-  expect_error(
-    alignment_to_beast_input_file(
-      alignment = alignment,
-      nspp = 1,
-      rng_seed = 42,
-      beast_filename = beast_xml_input_file,
-      temp_fasta_filename = fasta_filename
-    )
-  )
-  expect_error(
-    alignment_to_beast_input_file(
-      alignment = alignment,
-      nspp = 1,
-      rng_seed = 42,
-      beast_filename = beast_xml_input_file,
-      temp_fasta_filename = fasta_filename
-    )
-  )
-  expect_error(
-    alignment_to_beast_input_file(
-      alignment = alignment,
-      nspp = 1,
-      rng_seed = 42,
-      beast_filename = beast_xml_input_file,
-      temp_fasta_filename = fasta_filename
-    )
-  )
 
 })

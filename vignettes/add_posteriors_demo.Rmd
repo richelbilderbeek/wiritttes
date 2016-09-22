@@ -31,14 +31,6 @@ Here, we create the four parameter filenames:
 filename <- "add_posterior_demo.RDa"
 ```
 
-To be sure to have a fresh analysis, we delete the files if they exist:
-
-```{r message = FALSE}
-if (file.exists(filename)) {
-  file.remove(filename)
-}
-```
-
 Now the parameter files are created with the desired parameters:
 
 ```{r}

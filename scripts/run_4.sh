@@ -19,5 +19,7 @@ do
   jobids+=(`$cmd | cut -d ' ' -f 4`)
 done
 
-txt=$(printf ":%s" "${jobids[@]}")
-txt=${txt:1}
+jobid=$(printf ":%s" "${jobids[@]}")
+jobid=${jobid:1}
+echo "jobid: "$jobid
+

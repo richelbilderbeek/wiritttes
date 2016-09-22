@@ -5,7 +5,7 @@
 #SBATCH --ntasks=1
 #SBATCH --mem=1G
 #SBATCH --job-name=run_0
-#SBATCH --output=run.log
+#SBATCH --output=run_0.log
 
 ##########################
 # Clean up
@@ -16,6 +16,7 @@ rm *.RDa
 rm *.csv
 rm *.pdf
 rm *.md
+rm *.csv
 
 ##########################
 # Update other packages

@@ -20,7 +20,7 @@ do
 done
 
 jobid=$(printf ":%s" "${jobids[@]}")
-jobid=${txt:1}
+jobid=${jobid:1}
 echo "jobid: "$jobid
 
 ##########################

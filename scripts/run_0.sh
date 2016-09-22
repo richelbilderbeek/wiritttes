@@ -40,9 +40,9 @@ echo "jobid: "$jobid
 
 
 # Trivial test runs
-# cmd="sbatch --dependency=afterok:$jobid create_test_parameter_files.sh"
+cmd="sbatch --dependency=afterok:$jobid create_test_parameter_files.sh"
 # 1% of MCMC run
-cmd="sbatch --dependency=afterok:$jobid create_parameter_files_timings.sh"
+#cmd="sbatch --dependency=afterok:$jobid create_parameter_files_timings.sh"
 # Full run
 #cmd="sbatch --dependency=afterok:$jobid create_parameter_files_article.sh"
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 ######################
-# Add pbd_sim_output #
+echo "Add pbd_sim_output"
 ######################
 #SBATCH --time=2:00:00
 #SBATCH --nodes=1
@@ -22,11 +22,10 @@ jobid=${jobid:1}
 echo "jobid: "$jobid
 
 ##########################
-# Add species trees
-# This is a parallel job, 
-# which is started in run_2.sh
+echo "Add species trees"
+echo "This is a parallel job,"
+echo "which is started in run_2.sh"
 ##########################
-
 cmd="sbatch --dependency=afterany:$jobid run_2.sh"
 echo "cmd: "$cmd
 jobid=`$cmd | cut -d ' ' -f 4`

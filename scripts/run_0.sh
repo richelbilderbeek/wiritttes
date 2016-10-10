@@ -8,7 +8,7 @@
 #SBATCH --output=run_0.log
 
 ##########################
-# Clean up
+echo "Clean up"
 ##########################
 rm *.txt
 rm *.log
@@ -19,7 +19,7 @@ rm *.md
 rm *.csv
 
 ##########################
-# Update other packages
+echo "Update other packages"
 ##########################
 
 jobid=`sbatch install_r_packages.sh | cut -d ' ' -f 4`
@@ -27,7 +27,7 @@ echo "jobid: "$jobid
 
 
 ##########################
-# Update this package
+echo "Update this package"
 ##########################
 
 cmd="sbatch --dependency=afterok:$jobid install_this_r_package.sh"
@@ -36,7 +36,7 @@ jobid=`$cmd | cut -d ' ' -f 4`
 echo "jobid: "$jobid
 
 ##########################
-# Create parameter files
+echo "Create parameter files"
 ##########################
 
 
@@ -52,9 +52,9 @@ jobid=`$cmd | cut -d ' ' -f 4`
 echo "jobid: "$jobid
 
 ##########################
-# Add pbd_sim_output
-# This is a parallel job, 
-# which is started in run_1.sh
+echo "Add pbd_sim_output"
+echo "This is a parallel job,"
+echo "which is started in run_1.sh"
 ##########################
 
 cmd="sbatch --dependency=afterany:$jobid run_1.sh"

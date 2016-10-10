@@ -6,4 +6,5 @@
 #SBATCH --mem=1G
 #SBATCH --job-name=run
 #SBATCH --output=run.log
+echo "Submiting run_0.sh to queue"
 sbatch run_0.sh

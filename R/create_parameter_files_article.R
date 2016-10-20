@@ -15,30 +15,35 @@ create_parameter_files_article <- function() {
         for (r in c(0.1, 0.01, 0.001)) {
           l_index <- 0
           for (l in c(1000, 10000)) {
-            filename <- paste0(
-              "article_",
-              b_index, "_",
-              lambda_index, "_",
-              mu_index, "_",
-              r_index, "_",
-              l_index, ".RDa"
-            )
-            filenames <- c(filenames, filename)
-            save_parameters_to_file(
-              rng_seed = 1,
-              sirg = b,
-              siri = b,
-              scr = lambda,
-              erg = mu,
-              eri = mu,
-              age = 15,
-              mutation_rate = r,
-              n_alignments = 2,
-              sequence_length = l,
-              nspp = 1000,
-              n_beast_runs = 2,
-              filename = filename
-            )
+            s_index <- 1 # Skip first
+            for (seed in seq(2,3)) { # Skip first
+              filename <- paste0(
+                "article_",
+                b_index, "_",
+                lambda_index, "_",
+                mu_index, "_",
+                r_index, "_",
+                l_index, "_",
+                seed_index, ".RDa"
+              )
+              filenames <- c(filenames, filename)
+              save_parameters_to_file(
+                rng_seed = seed,
+                sirg = b,
+                siri = b,
+                scr = lambda,
+                erg = mu,
+                eri = mu,
+                age = 15,
+                mutation_rate = r,
+                n_alignments = 2,
+                sequence_length = l,
+                nspp = 1000,
+                n_beast_runs = 2,
+                filename = filename
+              )
+              seed_index <- seed_index + 1
+            } # l
             l_index <- l_index + 1
           } # l
           r_index <- r_index + 1

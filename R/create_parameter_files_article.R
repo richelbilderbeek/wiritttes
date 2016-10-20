@@ -15,8 +15,8 @@ create_parameter_files_article <- function() {
         for (r in c(0.1, 0.01, 0.001)) {
           l_index <- 0
           for (l in c(1000, 10000)) {
-            s_index <- 1 # Skip first
-            for (seed in seq(2,3)) { # Skip first
+            seed_index <- 1
+            for (seed in seq(2,3)) {
               filename <- paste0(
                 "article_",
                 b_index, "_",

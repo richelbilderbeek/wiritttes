@@ -11,12 +11,13 @@ create_parameter_files_article <- function() {
       mu_index <- 0
       for (mu in c(0.0, 0.1, 0.2, 0.4)) {
         if (mu > b) next
-        r_index <- 0
-        for (r in c(0.1, 0.01, 0.001)) {
+        r_index <- 3
+        #for (r in c(0.1, 0.01, 0.001)) {
+        for (r in c(0.5)) {
           l_index <- 0
           for (l in c(1000, 10000)) {
             seed_index <- 1
-            for (seed in seq(2, 3)) {
+            for (seed in seq(1, 3)) {
               filename <- paste0(
                 "article_",
                 b_index, "_",

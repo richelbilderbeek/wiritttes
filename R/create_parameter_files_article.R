@@ -3,7 +3,7 @@
 #' @return The filenames of all parameter files created
 #' @export
 #' @author Richel Bilderbeek
-create_parameter_files_article_20161228 <- function() {
+create_parameter_files_article <- function() {
   filenames <- NULL
   b_index <- 0
   seed <- 100

@@ -23,4 +23,3 @@ Read multiple parameter (.RDa) files
 \author{
 Richel Bilderbeek
 }
-

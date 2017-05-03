@@ -50,4 +50,3 @@ Add a species tree with/without outgroup to a file
 \author{
 Richel Bilderbeek
 }
-

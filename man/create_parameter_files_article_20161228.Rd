@@ -17,4 +17,3 @@ Now every parameter setting has its own seed
 \author{
 Richel Bilderbeek
 }
-

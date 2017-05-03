@@ -15,4 +15,3 @@ Creates the parameter files in the article
 \author{
 Richel Bilderbeek
 }
-

@@ -20,4 +20,3 @@ Extract the BEAST2 posterior phyogenies
 \author{
 Richel Bilderbeek
 }
-

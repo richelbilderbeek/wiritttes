@@ -61,4 +61,3 @@ Convert an alignment to a BEAST2 XML input file
 \author{
 Richel Bilderbeek
 }
-

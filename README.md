@@ -1,10 +1,11 @@
 # wiritttes
 
-[![Build Status](https://travis-ci.org/richelbilderbeek/wiritttes.svg?branch=master)](https://travis-ci.org/richelbilderbeek/wiritttes)
-[![codecov.io](https://codecov.io/github/richelbilderbeek/wiritttes/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/wiritttes?branch=master)
-[![gplv3](http://www.gnu.org/graphics/gplv3-88x31.png)](http://www.gnu.org/licenses/gpl.html)
+Branch|[![Travis CI logo](TravisCI.png)](https://travis-ci.org)|AppVeyor[![Codecov logo](Codecov.png)](https://www.codecov.io)
+---|---|---|---
+master|[![Build Status](https://travis-ci.org/richelbilderbeek/wiritttes.svg?branch=master)](https://travis-ci.org/richelbilderbeek/wiritttes)|[![Build status](https://ci.appveyor.com/api/projects/status/6fagvemftjv3fena/branch/master?svg=true)](https://ci.appveyor.com/project/richelbilderbeek/wiritttes/branch/master)|[![codecov.io](https://codecov.io/github/richelbilderbeek/wiritttes/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/wiritttes/branch/master)
+develop|[![Build Status](https://travis-ci.org/richelbilderbeek/wiritttes.svg?branch=develop)](https://travis-ci.org/richelbilderbeek/wiritttes)|[![Build status](https://ci.appveyor.com/api/projects/status/6fagvemftjv3fena/branch/master?svg=true)](https://ci.appveyor.com/project/richelbilderbeek/wiritttes/branch/develop)|[![codecov.io](https://codecov.io/github/richelbilderbeek/wiritttes/coverage.svg?branch=develop)](https://codecov.io/github/richelbilderbeek/wiritttes/branch/develop)
 
-Community Ecology Research course 2016.
+What If Reproductive Isolation Takes Time To Establish Simulations.
 
 ## Installing `wiritttes`
 

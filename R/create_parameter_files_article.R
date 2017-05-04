@@ -43,6 +43,7 @@ create_parameter_files_article <- function() {
                 n_beast_runs = 2,
                 filename = filename
               )
+              # Every simulation has its unique seed
               seed <- seed + 1
             } # l
             l_index <- l_index + 1

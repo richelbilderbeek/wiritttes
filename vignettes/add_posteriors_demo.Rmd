@@ -17,7 +17,6 @@ We will need to load some libraries:
 library(ape)
 library(wiritttes)
 library(ggplot2)
-library(Hmisc)
 library(nLTT)
 library(phangorn)
 options(warn = 2)

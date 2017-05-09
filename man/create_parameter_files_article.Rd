@@ -2,7 +2,8 @@
 % Please edit documentation in R/create_parameter_files_article.R
 \name{create_parameter_files_article}
 \alias{create_parameter_files_article}
-\title{Creates the parameter files in the article}
+\title{Creates the parameter files in the article
+Now every parameter setting has its own seed}
 \usage{
 create_parameter_files_article()
 }
@@ -11,6 +12,7 @@ The filenames of all parameter files created
 }
 \description{
 Creates the parameter files in the article
+Now every parameter setting has its own seed
 }
 \author{
 Richel Bilderbeek

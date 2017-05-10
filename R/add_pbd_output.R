@@ -71,3 +71,52 @@ add_pbd_output <- function(filename) {
 
   saveRDS(file, file = filename)
 }
+
+
+#' Adds a pbd_sim result to a file, if and only if
+#' it is absent
+#' @return TRUE of FALSE, indicating if the file was modified yes or no
+#'   # Create a parameter file
+#'   filename <- "add_pbd_output_example.RDa"
+#'   save_parameters_to_file(
+#'     rng_seed = 42,
+#'     sirg = 0.5,
+#'     siri = 0.5,
+#'     scr = 0.5,
+#'     erg = 0.5,
+#'     eri = 0.5,
+#'     age = 5,
+#'     mutation_rate = 0.1,
+#'     n_alignments = 1,
+#'     sequence_length = 10,
+#'     nspp = 10,
+#'     n_beast_runs = 1,
+#'     filename = filename
+#'   )
+#'
+#'   # File does not have an incipient species tree yet
+#'   testit::assert(!ribir::is_pbd_sim_output(read_file(filename)$pbd_output))
+#'
+#'   # Add an incipient species tree
+#'   is_added <- add_pbd_output_iff_absent(filename)
+#'
+#'   # Empty file will have an incipient species tree added
+#'   testit::assert(is_added)
+#'
+#'   # Try to add an incipient species tree again
+#'   is_added_again <- add_pbd_output_iff_absent(filename)
+#'
+#'   # Incipient species tree wil not have been added
+#'   testit::assert(!is_added_again)
+#'
+#'   # Cleanup
+#'   file.remove(filename)
+#' @export
+#' @author Richel Bilderbeek
+add_pbd_output_iff_absent <- function(filename) {
+  if (ribir::is_pbd_sim_output(read_file(filename)$pbd_output)) {
+    return(FALSE)
+  }
+  add_pbd_output(filename)
+  return(TRUE)
+}

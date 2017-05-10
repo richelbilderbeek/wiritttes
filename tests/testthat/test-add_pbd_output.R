@@ -71,3 +71,45 @@ test_that("add_pbd_output: abuse", {
   )
 
 })
+
+test_that("pbd_output is added iff absent", {
+
+
+  filename <- "test-add_pbd_output_iff_absent.RDa"
+  save_parameters_to_file(
+    rng_seed = 42,
+    sirg = 0.5,
+    siri = 0.5,
+    scr = 0.5,
+    erg = 0.5,
+    eri = 0.5,
+    age = 5,
+    mutation_rate = 0.1,
+    n_alignments = 1,
+    sequence_length = 10,
+    nspp = 10,
+    n_beast_runs = 1,
+    filename = filename
+  )
+  expect_true(file.exists(filename))
+  expect_false(
+    ribir::is_pbd_sim_output(read_file(filename)$pbd_output)
+  )
+  is_added_first <- add_pbd_output_iff_absent(filename)
+
+  expect_true(
+    ribir::is_pbd_sim_output(read_file(filename)$pbd_output)
+  )
+  expect_true(is_added_first)
+
+  is_added_second <- add_pbd_output_iff_absent(filename)
+  expect_true(
+    ribir::is_pbd_sim_output(read_file(filename)$pbd_output)
+  )
+
+  expect_false(is_added_second)
+
+  file.remove(filename)
+  expect_false(file.exists(filename))
+
+})

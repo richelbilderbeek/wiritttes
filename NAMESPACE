@@ -3,6 +3,7 @@
 export(a2i)
 export(add_alignments)
 export(add_pbd_output)
+export(add_pbd_output_iff_absent)
 export(add_posteriors)
 export(add_species_trees)
 export(alignment_to_beast_input_file)

@@ -10,13 +10,15 @@ find_paths(filenames)
 \item{filenames}{the names of files}
 }
 \value{
-the full path of the filenames if an existing file could be found, stops otherwise
+the full path of the filenames if an existing file could be found,
+  stops otherwise
 }
 \description{
 Finds the full path of files
 }
 \examples{
-  filenames <- wiritttes::find_paths(c("toy_example_1.RDa", "toy_example_2.RDa"))
+  filenames <- wiritttes::find_paths(
+    c("toy_example_1.RDa", "toy_example_2.RDa"))
   testit::assert(file.exists(filenames[1]))
   testit::assert(file.exists(filenames[2]))
 }

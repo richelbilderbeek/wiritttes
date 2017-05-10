@@ -15,6 +15,12 @@ the PBD simulation output
 \description{
 Get the PBD simulation output
 }
+\examples{
+  filename <- wiritttes::find_path("toy_example_1.RDa")
+  file <- wiritttes::read_file(filename)
+  pbd_output <- wiritttes::get_pbd_output(file)
+  testit::assert(ribir::is_pbd_sim_output(pbd_output))
+}
 \author{
 Richel Bilderbeek
 }

@@ -3,7 +3,8 @@
 #' @return the file as R data
 #' @export
 #' @examples
-#'   files <- read_files(find_paths(c("toy_example_1.RDa", "toy_example_2.RDa")))
+#'   files <- read_files(
+#'     find_paths(c("toy_example_1.RDa", "toy_example_2.RDa")))
 #'   testit::assert(extract_sirg(files[[1]]) > 0.0)
 #'   testit::assert(extract_siri(files[[2]]) > 0.0)
 #' @author Richel Bilderbeek

@@ -6,12 +6,14 @@
 #' @param erg the rate at which good species get extinct
 #' @param eri the rate at which incipient species get extinct
 #' @param age crown age of the phylogeny
-#' @param mutation_rate the probability per nucleotide to mutate at a DNA replication
+#' @param mutation_rate the probability per nucleotide to
+#'   mutate at a DNA replication
 #' @param n_alignments the number of alignments simulated per species tree
 #' @param sequence_length the simulated DNA sequence length in nucleotides
 #' @param nspp the number of states in the MCMC chain that BEAST2 will run
 #' @param n_beast_runs the number of BEAST2 runs per DNA alignments
-#' @param filename the name of the parameter file that will be created by this function
+#' @param filename the name of the parameter file that will be created
+#'   by this function
 #' @return Nothing, it will create a file with filename `filename`
 #' @examples
 #' filename <- "save_parameters_to_file_example.RDa"
@@ -48,7 +50,7 @@ save_parameters_to_file <- function(
   n_beast_runs,
   filename
 ) {
-  my_table <- data.frame( row.names = c("Description", "Value"))
+  my_table <- data.frame(row.names = c("Description", "Value"))
   my_table[, "rng_seed"] <- c(
     "Random number generate seed", rng_seed
   )

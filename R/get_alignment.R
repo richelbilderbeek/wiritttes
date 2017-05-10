@@ -63,5 +63,5 @@ get_alignment <- function(
       stop(msg$message)
     }
   )
-  return (alignment)
+  alignment
 }

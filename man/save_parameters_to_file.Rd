@@ -22,7 +22,8 @@ save_parameters_to_file(rng_seed, sirg, siri, scr, erg, eri, age, mutation_rate,
 
 \item{age}{crown age of the phylogeny}
 
-\item{mutation_rate}{the probability per nucleotide to mutate at a DNA replication}
+\item{mutation_rate}{the probability per nucleotide to
+mutate at a DNA replication}
 
 \item{n_alignments}{the number of alignments simulated per species tree}
 
@@ -32,7 +33,8 @@ save_parameters_to_file(rng_seed, sirg, siri, scr, erg, eri, age, mutation_rate,
 
 \item{n_beast_runs}{the number of BEAST2 runs per DNA alignments}
 
-\item{filename}{the name of the parameter file that will be created by this function}
+\item{filename}{the name of the parameter file that will be created
+by this function}
 }
 \value{
 Nothing, it will create a file with filename `filename`

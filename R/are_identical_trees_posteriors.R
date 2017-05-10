@@ -14,14 +14,14 @@ are_identical_trees_posteriors <- function(p, q) {
     stop("q must be a BEAST2 posterior")
   }
   if (length(p) != length(q)) {
-    return (FALSE)
+    return(FALSE)
   }
 
   for (i in seq(1, length(p))) {
     if (!isTRUE(all.equal(p[[i]], q[[i]]))) {
-      return (FALSE)
+      return(FALSE)
     }
   }
 
-  return (TRUE)
+  return(TRUE)
 }

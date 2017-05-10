@@ -43,27 +43,27 @@ is_valid_file <- function(
     success <- extract_erg(file),
     error = function(msg) {} # nolint
   )
-  if (is.na(success)) return (FALSE)
+  if (is.na(success)) return(FALSE)
   tryCatch(
     success <- extract_eri(file),
     error = function(msg) {} # nolint
   )
-  if (is.na(success)) return (FALSE)
+  if (is.na(success)) return(FALSE)
   tryCatch(
     success <- extract_scr(file),
     error = function(msg) {} # nolint
   )
-  if (is.na(success)) return (FALSE)
+  if (is.na(success)) return(FALSE)
   tryCatch(
     success <- extract_sirg(file),
     error = function(msg) {} # nolint
   )
-  if (is.na(success)) return (FALSE)
+  if (is.na(success)) return(FALSE)
   tryCatch(
     success <- extract_siri(file),
     error = function(msg) {} # nolint
   )
-  if (is.na(success)) return (FALSE)
+  if (is.na(success)) return(FALSE)
 
   return(
     wiritttes::file_has_valid_parameters(

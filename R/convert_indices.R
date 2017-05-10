@@ -31,10 +31,9 @@ a2i <- function(
   nstpist,
   napst
 ) {
-  i <- 1 + (sti - 1) + ( (ai - 1) * nstpist)
-  return (i)
+  i <- 1 + (sti - 1) + ((ai - 1) * nstpist)  # nolint, removing '((' reduces readbaility
+  i
 }
-
 
 #' Convert a posterior position to an index
 #' @param sti the species tree index, a value from 1 to and including 2
@@ -60,8 +59,6 @@ p2i <- function(
   napst,
   nppa
 ) {
-  i <- 1 + (sti - 1) +
-    ( (ai - 1) * nstpist        ) +
-    ( (pi - 1) * nstpist * napst)
-  return (i)
+  i <- 1 + (sti - 1) + ((ai - 1) * nstpist) + ((pi - 1) * nstpist * napst) # nolint, removing '((' reduces readbaility
+  i
 }

@@ -11,7 +11,7 @@ test_that("nrbs: identical trees have no difference", {
   phylogeny1 <- ape::rcoal(10)
   phylogeny2 <- phylogeny1
   difference <- nrbs(phylogeny1, phylogeny2)
-  expect_true(difference >= 0.0    )
+  expect_true(difference >= 0.0)
   expect_true(difference  < 0.00001)
 })
 
@@ -32,7 +32,7 @@ test_that("nrbs: abuse", {
   )
 
   p <- ape::rcoal(5)
-  p$tip.label <- paste0("s", 1:5)
+  p$tip.label <- paste0("s", 1:5) # nolint, phylo$tip.label is from ape
   q <- ape::rcoal(5)
   expect_error(
     nrbs(phylogeny1 = p, phylogeny2 = q),
@@ -42,8 +42,8 @@ test_that("nrbs: abuse", {
   p <- ape::rcoal(5)
   q <- ape::rcoal(5)
   new_labels <- c(NA, paste0("s", 1:4))
-  p$tip.label <- new_labels
-  q$tip.label <- new_labels
+  p$tip.label <- new_labels # nolint, phylo$tip.label is from ape
+  q$tip.label <- new_labels # nolint, phylo$tip.label is from ape
 
   expect_error(
     nrbs(phylogeny1 = p, phylogeny2 = q),

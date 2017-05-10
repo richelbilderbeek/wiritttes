@@ -89,6 +89,5 @@ get_posterior <- function(
       stop(msg$message)
     }
   )
-  return (posterior)
-
+  posterior
 }

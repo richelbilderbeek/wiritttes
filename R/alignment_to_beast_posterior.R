@@ -2,7 +2,8 @@
 #' @param alignment The alignment of type DNAbin
 #' @param nspp The number of states in the MCMC chain BEAST2 will generate,
 #'   typically one state per one thousand moves
-#' @param base_filename The base of the filename (the part without the extension)
+#' @param base_filename The base of the filename
+#'   (the part without the extension)
 #' @param rng_seed The random number generator seed used by BEAST2
 #' @param beast_jar_path Where the jar 'beast.jar' can be found
 #' @return the phylogenies of the BEAST2 posterior

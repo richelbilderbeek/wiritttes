@@ -60,7 +60,7 @@ set_posterior <- function(
   nstpist <- 2 # Number species trees per incipient species tree
   i <- p2i(sti = sti, pi = pi, ai = ai, nstpist = nstpist, napst = napst, nppa = nppa) # nolint
 
-  return (
+  return(
     set_posterior_by_index(
       file = file,
       i = i,

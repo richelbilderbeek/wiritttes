@@ -11,5 +11,5 @@ has_beast2 <- function(
 
     }
   )
-  return (!is.na(beast_path))
+  return(!is.na(beast_path))
 }

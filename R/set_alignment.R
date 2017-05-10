@@ -53,7 +53,7 @@ set_alignment <- function(
 
   i <- wiritttes::a2i(sti = sti, ai = ai, nstpist = 2, napst = napst)
 
-  return (
+  return(
     set_alignment_by_index(
       file = file,
       i = i,

@@ -13,7 +13,8 @@ alignment_to_beast_posterior(alignment, nspp, base_filename, rng_seed = 42,
 \item{nspp}{The number of states in the MCMC chain BEAST2 will generate,
 typically one state per one thousand moves}
 
-\item{base_filename}{The base of the filename (the part without the extension)}
+\item{base_filename}{The base of the filename
+(the part without the extension)}
 
 \item{rng_seed}{The random number generator seed used by BEAST2}
 

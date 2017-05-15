@@ -37,6 +37,6 @@
 #' @export
 #' @author Richel Bilderbeek
 has_species_trees <- function(file) {
-  return(!is.na(read_file(filename)$species_trees[1]) &&
-    !is.na(read_file(filename)$species_trees[2]))
+  return(!is.na(file$species_trees[1]) &&
+    !is.na(file$species_trees[2]))
 }

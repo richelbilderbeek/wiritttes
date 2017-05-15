@@ -24,19 +24,23 @@
 #'   add_pbd_output(filename)
 #'
 #'   # No species tree added yet
-#'   testit::assert(is.na(read_file(filename)$species_trees[1]))
 #'   testit::assert(!has_species_trees(read_file(filename)))
 #'
 #'   # Add the species trees
 #'   add_species_trees(filename = filename)
 #'
 #'   # Now species tree is added
-#'   testit::assert(!is.na(read_file(filename)$species_trees[1]))
-#'   testit::assert( has_species_trees(read_file(filename)))
+#'   testit::assert(has_species_trees(read_file(filename)))
 #'
 #' @export
 #' @author Richel Bilderbeek
 has_species_trees <- function(file) {
-  return(!is.na(file$species_trees[1]) &&
-    !is.na(file$species_trees[2]))
+  tryCatch( {
+      get_species_tree_youngest(file)
+      get_species_tree_oldest(file)
+      return(TRUE)
+    },
+    error = function(cond) {} # nolint
+  )
+  return(FALSE)
 }

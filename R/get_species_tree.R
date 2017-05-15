@@ -23,3 +23,23 @@ get_species_tree_by_index <- function(file, sti) {
   }
   species_tree
 }
+
+#' Get the species tree with youngest subspecies representing each good species
+#' @param file A loaded parameter file
+#' @return the species_tree
+#' @export
+#' @author Richel Bilderbeek
+get_species_tree_youngest <- function(file) {
+
+  return(get_species_tree_by_index(file, sti = 1))
+}
+
+#' Get the species tree with oldest subspecies representing each good species
+#' @param file A loaded parameter file
+#' @return the species_tree
+#' @export
+#' @author Richel Bilderbeek
+get_species_tree_oldest <- function(file) {
+
+  return(get_species_tree_by_index(file, sti = 2))
+}

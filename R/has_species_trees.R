@@ -1,9 +1,9 @@
-#' Add a species tree with/without outgroup to a file
-#' @param filename Parameter filename
-#' @return Nothing, modifies the parameter file
+#' Sees if a the sampled species tree are present in the file
+#' @param file File, as read by wiritttes::read_file
+#' @return TRUE if the sampled species trees are present
 #' @examples
 #'  # Create a parameter file
-#'   filename <- "add_species_trees_example.RDa"
+#'   filename <- "has_species_trees"
 #'   save_parameters_to_file(
 #'     rng_seed = 42,
 #'     sirg = 0.5,
@@ -36,23 +36,7 @@
 #'
 #' @export
 #' @author Richel Bilderbeek
-add_species_trees <- function(filename) {
-
-  if (!is_valid_file(filename)) {
-    stop("invalid file")
-  }
-  file <- wiritttes::read_file(filename)
-  if (is.na(file$pbd_output[1])) {
-    stop(
-      "file '", filename, "' needs a pbd_output"
-    )
-  }
-
-  file <- set_species_tree_by_index(
-    file = file, sti = 1, species_tree = file$pbd_output$stree_youngest
-  )
-  file <- set_species_tree_by_index(
-    file = file, sti = 2, species_tree = file$pbd_output$stree_oldest
-  )
-  saveRDS(file, file = filename)
+has_species_trees <- function(file) {
+  return(!is.na(read_file(filename)$species_trees[1]) &&
+    !is.na(read_file(filename)$species_trees[2]))
 }

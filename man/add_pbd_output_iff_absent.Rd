@@ -7,6 +7,9 @@ it is absent}
 \usage{
 add_pbd_output_iff_absent(filename)
 }
+\arguments{
+\item{filename}{Parameter filename}
+}
 \value{
 TRUE of FALSE, indicating if the file was modified yes or no
   # Create a parameter file

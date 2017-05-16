@@ -212,3 +212,28 @@ extract_nspp <- function(file) {
   }
   return(nspp)
 }
+
+
+#' Extract the mutation rate parameter value from a file
+#' @param file A loaded parameter file
+#' @return the mutation rate
+#' @export
+#' @examples
+#'   file <- read_file(find_path("toy_example_1.RDa"))
+#'   mutation_rate <- extract_mutation_rate(file)
+#'   testit::assert(mutation_rate == 0.01)
+#' @author Richel Bilderbeek
+extract_mutation_rate <- function(file) {
+
+  if (is.null(names(file$parameters))) {
+    stop("file$parameters not found")
+  }
+  mutation_rate <- NA
+  if ("mutation_rate" %in% names(file$parameters)) {
+    mutation_rate <- as.numeric(file$parameters$mutation_rate[2])
+  }
+  if (is.na(mutation_rate)) {
+    stop("parameter 'mutation_rate' absent")
+  }
+  mutation_rate
+}

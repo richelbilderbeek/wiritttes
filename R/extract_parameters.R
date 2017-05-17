@@ -237,3 +237,51 @@ extract_mutation_rate <- function(file) {
   }
   mutation_rate
 }
+
+#' Extract the RNG seed parameter value from a file
+#' @param file A loaded parameter file
+#' @return the RNG seed rate
+#' @export
+#' @examples
+#'   file <- read_file(find_path("toy_example_1.RDa"))
+#'   rng_seed <- extract_seed(file)
+#'   testit::assert(rng_seed == 1)
+#' @author Richel Bilderbeek
+extract_seed <- function(file) {
+
+  if (is.null(names(file$parameters))) {
+    stop("file$parameters not found")
+  }
+  rng_seed <- NA
+  if ("rng_seed" %in% names(file$parameters)) {
+    rng_seed <- as.numeric(file$parameters$rng_seed[2])
+  }
+  if (is.na(rng_seed)) {
+    stop("parameter 'rng_seed' absent")
+  }
+  rng_seed
+}
+
+#' Extract the DNA aligment sequence length parameter value from a file
+#' @param file A loaded parameter file
+#' @return the sequence length
+#' @export
+#' @examples
+#'   file <- read_file(find_path("toy_example_1.RDa"))
+#'   sequence_length <- extract_sequence_length(file)
+#'   testit::assert(sequence_length == 1000)
+#' @author Richel Bilderbeek
+extract_sequence_length <- function(file) {
+
+  if (is.null(names(file$parameters))) {
+    stop("file$parameters not found")
+  }
+  sequence_length <- NA
+  if ("sequence_length" %in% names(file$parameters)) {
+    sequence_length <- as.numeric(file$parameters$sequence_length[2])
+  }
+  if (is.na(sequence_length)) {
+    stop("parameter 'sequence_length' absent")
+  }
+  sequence_length
+}

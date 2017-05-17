@@ -35,9 +35,9 @@
 #' @export
 #' @author Richel Bilderbeek
 has_species_trees <- function(file) {
-  tryCatch( {
-      get_species_tree_youngest(file)
-      get_species_tree_oldest(file)
+  tryCatch({
+      wiritttes::get_species_tree_youngest(file)
+      wiritttes::get_species_tree_oldest(file)
       return(TRUE)
     },
     error = function(cond) {} # nolint

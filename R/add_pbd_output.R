@@ -118,6 +118,6 @@ add_pbd_output_iff_absent <- function(filename) {
   if (ribir::is_pbd_sim_output(read_file(filename)$pbd_output)) {
     return(FALSE)
   }
-  add_pbd_output(filename)
+  wiritttes::add_pbd_output(filename)
   return(TRUE)
 }

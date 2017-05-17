@@ -31,7 +31,7 @@ get_species_tree_by_index <- function(file, sti) {
 #' @author Richel Bilderbeek
 get_species_tree_youngest <- function(file) {
 
-  return(get_species_tree_by_index(file, sti = 1))
+  return(wiritttes::get_species_tree_by_index(file, sti = 1))
 }
 
 #' Get the species tree with oldest subspecies representing each good species
@@ -41,5 +41,5 @@ get_species_tree_youngest <- function(file) {
 #' @author Richel Bilderbeek
 get_species_tree_oldest <- function(file) {
 
-  return(get_species_tree_by_index(file, sti = 2))
+  return(wiritttes::get_species_tree_by_index(file, sti = 2))
 }

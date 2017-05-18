@@ -1,4 +1,8 @@
-#' Add a species tree with/without outgroup to a file
+#' Add two reconstructed species trees to a file that already has an incipient
+#'   species tree. These two species trees are sampled from the incipient
+#'   species tree. One sampling method selects the youngest subspecies to
+#'   represent each good species. The other tree has the oldest subspecies
+#'   selected to represent the good species. These two tree may differ.
 #' @param filename Parameter filename
 #' @return Nothing, modifies the parameter file
 #' @examples
@@ -24,15 +28,13 @@
 #'   add_pbd_output(filename)
 #'
 #'   # No species tree added yet
-#'   testit::assert(is.na(read_file(filename)$species_trees[1]))
 #'   testit::assert(!has_species_trees(read_file(filename)))
 #'
 #'   # Add the species trees
 #'   add_species_trees(filename = filename)
 #'
 #'   # Now species tree is added
-#'   testit::assert(!is.na(read_file(filename)$species_trees[1]))
-#'   testit::assert( has_species_trees(read_file(filename)))
+#'   testit::assert(has_species_trees(read_file(filename)))
 #'
 #' @export
 #' @author Richel Bilderbeek

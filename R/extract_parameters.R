@@ -1,3 +1,22 @@
+#' Extract the parameters from a file created by wiritttes::read_file
+#' @param file A loaded parameter file
+#' @return the value of the ERG parameter
+#' @export
+#' @examples
+#'   file <- read_file(find_path("toy_example_1.RDa"))
+#'   parameters <- extract_parameters(file)
+#'   testit::assert(nrow(parameters) > 1)
+#'   testit::assert(ncol(parameters) > 1)
+#' @author Richel Bilderbeek
+extract_parameters <- function(file) {
+
+  if (is.null(names(file$parameters))) {
+    stop("file$parameters not found")
+  }
+  file$parameters
+}
+
+
 #' Extract the ERG ('Extinction Rate of a Good species')
 #'   parameter value from a file
 #' @param file A loaded parameter file
@@ -10,13 +29,11 @@
 #' @author Richel Bilderbeek
 extract_erg <- function(file) {
 
-  if (is.null(names(file$parameters))) {
-    stop("file$parameters not found")
-  }
+  parameters <- extract_parameters(file)
 
   erg <- NA
-  if ("erg" %in% names(file$parameters)) {
-    erg <- as.numeric(file$parameters$erg[2])
+  if ("erg" %in% names(parameters)) {
+    erg <- as.numeric(parameters$erg[2])
   }
   if (is.na(erg)) {
     stop("parameter 'erg' absent")

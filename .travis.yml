@@ -1,7 +1,7 @@
-language: r
-
-r_packages:
-  - geiger
+language: R
+cache: packages
+sudo: true
+dist: trusty
 
 r_github_packages:
   - jimhester/covr

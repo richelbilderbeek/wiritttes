@@ -36,6 +36,9 @@ convert_phylogeny_to_alignment <- function(
     )
   }
 
+  # Jukes-Cantor 1969 model:
+  #  * equal base frequencies
+  #  * equal transition rates
   alignment_phydat <- phangorn::simSeq(
     phylogeny,
     l = sequence_length,
@@ -44,5 +47,9 @@ convert_phylogeny_to_alignment <- function(
   testit::assert(class(alignment_phydat) == "phyDat")
 
   alignment_dnabin <- ape::as.DNAbin(alignment_phydat)
+
+  testit::assert(nrow(alignment_dnabin) == length(phylogeny$tip.label))
+  testit::assert(ncol(alignment_dnabin) == sequence_length)
+
   return(alignment_dnabin)
 }

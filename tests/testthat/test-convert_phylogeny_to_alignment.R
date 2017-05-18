@@ -1,12 +1,20 @@
 context("convert_phylogeny_to_alignment")
 
 test_that("convert_phylogeny_to_alignment: basic", {
-  alignment <- convert_phylogeny_to_alignment(
-    phylogeny = ape::rcoal(5),
-    sequence_length = 10,
+  n_taxa <- 5
+  sequence_length <- 10
+  phylogeny <- ape::rcoal(n_taxa)
+  testit::assert(length(phylogeny$tip.label) == n_taxa)
+
+  alignment <- wiritttes::convert_phylogeny_to_alignment(
+    phylogeny = phylogeny,
+    sequence_length = sequence_length,
     mutation_rate = 1
   )
-  expect_true(ribir::is_alignment(alignment))
+  testthat::expect_true(class(alignment) == "DNAbin")
+  testthat::expect_true(nrow(alignment) == n_taxa)
+  testthat::expect_true(ncol(alignment) == sequence_length)
+  testthat::expect_true(ribir::is_alignment(alignment))
 })
 
 test_that("convert_phylogeny_to_alignment: abuse", {

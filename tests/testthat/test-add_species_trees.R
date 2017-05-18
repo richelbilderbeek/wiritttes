@@ -20,13 +20,15 @@ test_that("add_species_trees: use", {
   wiritttes::add_pbd_output(filename)
 
   # Must not have a species tree yet
-  testthat::expect_true(!wiritttes::has_species_trees(wiritttes::read_file(filename)))
+  testthat::expect_true(
+    !wiritttes::has_species_trees(wiritttes::read_file(filename)))
 
   # Add the species trees
   wiritttes::add_species_trees(filename = filename)
 
   # Must now have a species tree
-  testthat::expect_true(wiritttes::has_species_trees(wiritttes::read_file(filename)))
+  testthat::expect_true(
+    wiritttes::has_species_trees(wiritttes::read_file(filename)))
 
   # Cleanup
   file.remove(filename)
@@ -91,14 +93,6 @@ test_that("species trees must be reconstructed", {
   stree_youngest <- wiritttes::get_species_tree_youngest(
     wiritttes::read_file(filename))
   ape::plot.phylo(stree_oldest)
-
-  if (1 == 2) {
-    p1 <- geiger::sim.bdtree(b=0.2, d=0.1, stop="time", seed=1, t=30)
-    ape::plot.phylo(p1)
-    geiger::is.extinct(p1)
-    p2 <- geiger::drop.extinct(p1)
-    geiger::is.extinct(p2)
-  }
 
   testthat::expect_null(geiger::is.extinct(stree_oldest))
   testthat::expect_null(geiger::is.extinct(stree_youngest))

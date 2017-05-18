@@ -29,7 +29,7 @@ extract_parameters <- function(file) {
 #' @author Richel Bilderbeek
 extract_erg <- function(file) {
 
-  parameters <- extract_parameters(file)
+  parameters <- wiritttes::extract_parameters(file)
 
   erg <- NA
   if ("erg" %in% names(parameters)) {

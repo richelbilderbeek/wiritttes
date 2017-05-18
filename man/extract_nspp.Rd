@@ -25,3 +25,4 @@ Extract the number of states per posterior
 \author{
 Richel Bilderbeek
 }
+

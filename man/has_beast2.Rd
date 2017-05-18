@@ -15,3 +15,4 @@ Determines if BEAST2 is installed
 \author{
 Richel Bilderbeek
 }
+

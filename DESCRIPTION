@@ -5,60 +5,58 @@ Version: 1.0
 Author: Richel Bilderbeek <richel@richelbilderbeek.nl>
 Maintainer: Richel Bilderbeek <richel@richelbilderbeek.nl>
 Description: What if reproduction isolation takes time to establish?
-  This package first simulates a PBD phylogeny, in which reproductive
-  isolation does take time to establish. From those phylogenies, DNA
-  sequences are simulation and analysed using BEAST2. BEAST2 does not
-  assume that reproductive isolation takes time to establish. The
-  analysis of the resulting data is done by the wiritttea package.
+    This package first simulates a PBD phylogeny, in which reproductive
+    isolation does take time to establish. From those phylogenies, DNA
+    sequences are simulation and analysed using BEAST2. BEAST2 does not
+    assume that reproductive isolation takes time to establish. The
+    analysis of the resulting data is done by the wiritttea package.
 License: file LICENSE
 LazyData: TRUE
-Requires:
-  adephylo,
-  ape,
-  beastscriptr,
-  dplyr,
-  geiger,
-  PBD,
-  phangorn,
-  testit,
-  tidyr,
-  tools,
-  TreeSim
+Requires: adephylo,
+    ape,
+    beastscriptr,
+    dplyr,
+    geiger,
+    PBD,
+    phangorn,
+    testit,
+    tidyr,
+    tools,
+    TreeSim
 Imports:
-  beastscriptr,
-  geiger,
-  nLTT,
-  PBD,
-  phangorn,
-  phytools,
-  RBeast,
-  ribir
+    beastscriptr,
+    geiger,
+    nLTT,
+    PBD,
+    phangorn,
+    phytools,
+    RBeast,
+    ribir
 Suggests:
-  ape,
-  coda,
-  dplyr,
-  ggplot2,
-  gridExtra,
-  lintr,
-  lubridate,
-  plyr,
-  reshape2,
-  rmarkdown,
-  stringr,
-  testit,
-  testthat,
-  tidyr,
-  knitr
-Remotes:
-  beast-dev/RBeast,
-  jimhester/covr,
-  jimhester/lintr,
-  richelbilderbeek/beastscriptr,
-  richelbilderbeek/nLTT,
-  richelbilderbeek/ribir,
-  rsetienne/PBD/PBD,
-  MangoTheCat/goodpractice
-RoxygenNote: 6.0.1
+    ape,
+    coda,
+    dplyr,
+    ggplot2,
+    gridExtra,
+    lintr,
+    lubridate,
+    plyr,
+    reshape2,
+    rmarkdown,
+    stringr,
+    testit,
+    testthat,
+    tidyr,
+    knitr
+Remotes: beast-dev/RBeast,
+    jimhester/covr,
+    jimhester/lintr,
+    richelbilderbeek/beastscriptr,
+    richelbilderbeek/nLTT,
+    richelbilderbeek/ribir,
+    rsetienne/PBD/PBD,
+    MangoTheCat/goodpractice
+RoxygenNote: 5.0.1
 URL: https://github.com/richelbilderbeek/wiritttes
 BugReports: https://github.com/richelbilderbeek/wiritttes/issues
 VignetteBuilder: knitr

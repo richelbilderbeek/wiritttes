@@ -32,3 +32,4 @@ alignment <- convert_phylogeny_to_alignment(
 \author{
 Richel Bilderbeek
 }
+

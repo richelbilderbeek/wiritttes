@@ -12,3 +12,4 @@ the path of the BEAST2 jar file
 \description{
 Find the path of the BEAST2 jar file
 }
+

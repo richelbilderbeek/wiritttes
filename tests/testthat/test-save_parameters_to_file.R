@@ -2,7 +2,7 @@ context("save_parameters_to_file")
 
 test_that("save_parameters_to_file", {
   filename <- "test-save_parameters_to_file.RDa"
-  save_parameters_to_file(
+  wiritttes::save_parameters_to_file(
     rng_seed = 42,
     sirg = 0.5,
     siri = 0.5,
@@ -17,8 +17,8 @@ test_that("save_parameters_to_file", {
     n_beast_runs = 1,
     filename = filename
   )
-  expect_true(file.exists(filename))
-  expect_true(is_valid_file(filename))
+  testthat::expect_true(file.exists(filename))
+  testthat::expect_true(wiritttes::is_valid_file(filename))
   file.remove(filename)
-  expect_false(file.exists(filename))
+  testthat::expect_false(file.exists(filename))
 })

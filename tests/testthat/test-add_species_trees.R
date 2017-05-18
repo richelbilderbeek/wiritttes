@@ -2,7 +2,7 @@ context("add_species_trees")
 
 test_that("add_species_trees: use", {
   filename <- "test-add_species_trees.RDa"
-  save_parameters_to_file(
+  wiritttes::save_parameters_to_file(
     rng_seed = 42,
     sirg = 0.5,
     siri = 0.5,
@@ -17,16 +17,20 @@ test_that("add_species_trees: use", {
     n_beast_runs = 1,
     filename = filename
   )
-  add_pbd_output(filename)
-  expect_true(
-    is.na(read_file(filename)$species_trees[1])
-  )
+  wiritttes::add_pbd_output(filename)
 
-  add_species_trees(filename = filename)
+  # Must not have a species tree yet
+  testthat::expect_true(
+    !wiritttes::has_species_trees(wiritttes::read_file(filename)))
 
-  expect_false(
-    is.na(read_file(filename)$species_trees[1])
-  )
+  # Add the species trees
+  wiritttes::add_species_trees(filename = filename)
+
+  # Must now have a species tree
+  testthat::expect_true(
+    wiritttes::has_species_trees(wiritttes::read_file(filename)))
+
+  # Cleanup
   file.remove(filename)
   expect_false(file.exists(filename))
 })
@@ -60,4 +64,40 @@ test_that("add_species_trees: abuse", {
     paste0("file '", filename, "' needs a pbd_output")
   )
   file.remove(filename)
+})
+
+
+test_that("species trees must be reconstructed", {
+  filename <- "test-add_species_trees.RDa"
+  wiritttes::save_parameters_to_file(
+    rng_seed = 860,
+    sirg = 0.5,
+    siri = 0.5,
+    scr = 1,
+    erg = 0.1,
+    eri = 0.1,
+    age = 15,
+    mutation_rate = 0.5,
+    n_alignments = 2,
+    sequence_length = 1000,
+    nspp = 1000,
+    n_beast_runs = 2,
+    filename = filename
+  )
+  wiritttes::add_pbd_output(filename)
+  wiritttes::add_species_trees(filename = filename)
+
+  # Both species trees must be reconstructed species trees
+  stree_oldest <- wiritttes::get_species_tree_oldest(
+    wiritttes::read_file(filename))
+  stree_youngest <- wiritttes::get_species_tree_youngest(
+    wiritttes::read_file(filename))
+  ape::plot.phylo(stree_oldest)
+
+  testthat::expect_null(geiger::is.extinct(stree_oldest))
+  testthat::expect_null(geiger::is.extinct(stree_youngest))
+
+  # Cleanup
+  file.remove(filename)
+  expect_false(file.exists(filename))
 })

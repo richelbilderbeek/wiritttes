@@ -1,8 +1,10 @@
 context("add_pbd_output")
 
 test_that("pbd_output is added", {
+
+  # Create file
   filename <- "test-add_pbd_output.RDa"
-  save_parameters_to_file(
+  wiritttes::save_parameters_to_file(
     rng_seed = 42,
     sirg = 0.5,
     siri = 0.5,
@@ -17,14 +19,21 @@ test_that("pbd_output is added", {
     n_beast_runs = 1,
     filename = filename
   )
-  expect_true(file.exists(filename))
-  expect_false(
-    ribir::is_pbd_sim_output(read_file(filename)$pbd_output)
+
+  # PBD sim output must first be absent
+  testthat::expect_false(
+    ribir::is_pbd_sim_output(wiritttes::read_file(filename)$pbd_output)
   )
-  add_pbd_output(filename)
-  expect_true(
-    ribir::is_pbd_sim_output(read_file(filename)$pbd_output)
+
+  # Add it
+  wiritttes::add_pbd_output(filename)
+
+  # PBD sim output must now be present
+  testthat::expect_true(
+    ribir::is_pbd_sim_output(wiritttes::read_file(filename)$pbd_output)
   )
+
+  # Cleanup
   file.remove(filename)
   expect_false(file.exists(filename))
 })

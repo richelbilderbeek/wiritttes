@@ -2,7 +2,11 @@
 % Please edit documentation in R/add_species_trees.R
 \name{add_species_trees}
 \alias{add_species_trees}
-\title{Add a species tree with/without outgroup to a file}
+\title{Add two reconstructed species trees to a file that already has an incipient
+  species tree. These two species trees are sampled from the incipient
+  species tree. One sampling method selects the youngest subspecies to
+  represent each good species. The other tree has the oldest subspecies
+  selected to represent the good species. These two tree may differ.}
 \usage{
 add_species_trees(filename)
 }
@@ -13,7 +17,11 @@ add_species_trees(filename)
 Nothing, modifies the parameter file
 }
 \description{
-Add a species tree with/without outgroup to a file
+Add two reconstructed species trees to a file that already has an incipient
+  species tree. These two species trees are sampled from the incipient
+  species tree. One sampling method selects the youngest subspecies to
+  represent each good species. The other tree has the oldest subspecies
+  selected to represent the good species. These two tree may differ.
 }
 \examples{
  # Create a parameter file
@@ -38,15 +46,16 @@ Add a species tree with/without outgroup to a file
   add_pbd_output(filename)
 
   # No species tree added yet
-  testit::assert(is.na(read_file(filename)$species_trees[1]))
+  testit::assert(!has_species_trees(read_file(filename)))
 
   # Add the species trees
   add_species_trees(filename = filename)
 
   # Now species tree is added
-  testit::assert(!is.na(read_file(filename)$species_trees[1]))
+  testit::assert(has_species_trees(read_file(filename)))
 
 }
 \author{
 Richel Bilderbeek
 }
+

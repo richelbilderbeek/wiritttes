@@ -75,6 +75,7 @@ add_pbd_output <- function(filename) {
 
 #' Adds a pbd_sim result to a file, if and only if
 #' it is absent
+#' @param filename Parameter filename
 #' @return TRUE of FALSE, indicating if the file was modified yes or no
 #'   # Create a parameter file
 #'   filename <- "add_pbd_output_example.RDa"
@@ -117,6 +118,6 @@ add_pbd_output_iff_absent <- function(filename) {
   if (ribir::is_pbd_sim_output(read_file(filename)$pbd_output)) {
     return(FALSE)
   }
-  add_pbd_output(filename)
+  wiritttes::add_pbd_output(filename)
   return(TRUE)
 }

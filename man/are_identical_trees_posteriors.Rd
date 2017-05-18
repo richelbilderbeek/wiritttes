@@ -22,3 +22,4 @@ as parsed by olli's rBEAST package its function beast2out.read.trees
 \author{
 Richel Bilderbeek
 }
+

@@ -22,3 +22,4 @@ Set a BEAST2 posterior of a file
 \author{
 Richel Bilderbeek
 }
+

@@ -44,4 +44,18 @@ test_that("convert_phylogeny_to_alignment: abuse", {
     ),
     "parameter 'mutation_rate' must be a non-zero and positive value" # nolint
   )
+
+  set.seed(42)
+  p_with_extant <- ape::rtree(5)
+  testit::assert(geiger::is.extinct(p_with_extant))
+
+  testthat::expect_error(
+    convert_phylogeny_to_alignment(
+      phylogeny = p_with_extant,
+      sequence_length = 10, # Must be positive
+      mutation_rate = 1
+    ),
+    "phylogeny must not contain extant species"
+  )
+
 })

@@ -35,6 +35,9 @@ convert_phylogeny_to_alignment <- function(
       "parameter 'mutation_rate' must be a non-zero and positive value"
     )
   }
+  if (!is.null(geiger::is.extinct(phylogeny))) {
+    stop("phylogeny must not contain extant species")
+  }
 
   # Jukes-Cantor 1969 model:
   #  * equal base frequencies

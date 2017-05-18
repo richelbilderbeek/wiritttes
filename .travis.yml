@@ -3,6 +3,7 @@ cache: packages
 
 r_packages:
   - dplyr
+  - geiger
   - tidyr
 
 r_github_packages:

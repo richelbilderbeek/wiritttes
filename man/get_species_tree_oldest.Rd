@@ -18,4 +18,3 @@ Get the species tree with oldest subspecies representing each good species
 \author{
 Richel Bilderbeek
 }
-

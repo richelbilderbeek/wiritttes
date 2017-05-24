@@ -32,4 +32,3 @@ Set an posterior to a file
 \author{
 Richel Bilderbeek
 }
-

@@ -27,4 +27,3 @@ Set an alignment from an index from a file
 \author{
 Richel Bilderbeek
 }
-

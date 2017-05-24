@@ -18,4 +18,3 @@ Run the full simulation pipeline on the test parameters
 \author{
 Richel Bilderbeek
 }
-

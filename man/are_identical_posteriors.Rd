@@ -29,4 +29,3 @@ Determines if the input is a wiritttes posterior,
 \author{
 Richel Bilderbeek
 }
-

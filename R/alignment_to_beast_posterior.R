@@ -109,11 +109,6 @@ alignment_to_beast_posterior <- function(
   trees_posterior <- RBeast::parse_beast_trees(beast_trees_filename)
   estimates_posterior <- RBeast::parse_beast_log(beast_log_filename)
 
-  file.remove(beast_filename)
-  file.remove(beast_trees_filename)
-  file.remove(beast_log_filename)
-  file.remove(beast_state_filename)
-
   testit::assert(RBeast::is_trees_posterior(x = trees_posterior))
 
   posterior <- list(
@@ -122,7 +117,6 @@ alignment_to_beast_posterior <- function(
   )
 
   testit::assert(RBeast::is_posterior(posterior))
-  testit::assert(RBeast::is_trees_posterior(trees_posterior))
 
   return(posterior)
 }

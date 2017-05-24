@@ -25,4 +25,3 @@ Extract the ERG ('Extinction Rate of a Good species')
 \author{
 Richel Bilderbeek
 }
-

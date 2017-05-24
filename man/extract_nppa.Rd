@@ -25,4 +25,3 @@ Extract the number of posteriors per alignment
 \author{
 Richel Bilderbeek
 }
-

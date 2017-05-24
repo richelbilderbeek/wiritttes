@@ -25,4 +25,3 @@ Extract the SIRG ('Speciation Initial Rate of a Good species')
 \author{
 Richel Bilderbeek
 }
-

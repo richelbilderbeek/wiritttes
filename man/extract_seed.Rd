@@ -23,4 +23,3 @@ Extract the RNG seed parameter value from a file
 \author{
 Richel Bilderbeek
 }
-

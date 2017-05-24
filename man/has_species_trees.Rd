@@ -50,4 +50,3 @@ Sees if a the sampled species tree are present in the file
 \author{
 Richel Bilderbeek
 }
-

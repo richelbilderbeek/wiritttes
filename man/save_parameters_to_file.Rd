@@ -64,4 +64,3 @@ testit::assert(is_valid_file(filename) == TRUE)
 \author{
 Richel Bilderbeek
 }
-

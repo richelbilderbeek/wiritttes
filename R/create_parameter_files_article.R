@@ -13,8 +13,8 @@ create_parameter_files_article <- function() {
       mu_index <- 0
       for (mu in c(0.0, 0.1, 0.2)) {
         if (mu > b) next
-        r_index <- 3
-        for (r in c(0.1)) {
+        r_index <- 0
+        for (r in c(0.05)) {
           l_index <- 0
           for (l in c(1000, 10000)) {
             for (replicate in seq(1, 20)) {

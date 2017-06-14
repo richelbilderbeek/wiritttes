@@ -60,3 +60,4 @@ doc/*.eps
 doc/*.tex
 .nfs*
 tests/testthat/*.fasta
+has_species_trees

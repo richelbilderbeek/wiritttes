@@ -19,7 +19,7 @@ are_valid_files <- function(
   for (i in seq_along(filenames)) {
     tryCatch({
       v[i] <- wiritttes::is_valid_file(filenames[i])
-    }, error = function() {}
+    }, error = function() {} # nolint
     )
   }
   v

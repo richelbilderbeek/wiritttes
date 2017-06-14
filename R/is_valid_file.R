@@ -1,4 +1,4 @@
-#' Checks if a file is a valid parameter file
+#' Checks if one or more files are valid parameter files
 #' @param filename the name of the file to be checked
 #' @return TRUE or FALSE
 #' @examples
@@ -8,6 +8,9 @@
 is_valid_file <- function(
   filename
 ) {
+  if (length(filename) > 1) {
+    return(wiritttes::are_valid_files(filename))
+  }
 
   if (!file.exists(filename)) {
     return(FALSE)

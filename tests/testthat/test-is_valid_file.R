@@ -1,9 +1,18 @@
 context("is_valid_file")
 
-test_that("is_valid_file: use", {
+test_that("is_valid_file: use on one file", {
   filename <- find_path("toy_example_1.RDa")
   expect_true(file.exists(filename))
   expect_true(is_valid_file(filename))
+})
+
+test_that("is_valid_file: use on two files", {
+  filenames <- c(
+    wiritttes::find_path("toy_example_1.RDa"),
+    wiritttes::find_path("toy_example_2.RDa")
+  )
+  is_valids <- wiritttes::is_valid_file(filenames)
+  testthat::expect_true(length(is_valids) == 2)
 })
 
 test_that("is_valid_file: abuse", {

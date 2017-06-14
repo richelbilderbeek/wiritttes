@@ -2,7 +2,7 @@
 % Please edit documentation in R/is_valid_file.R
 \name{is_valid_file}
 \alias{is_valid_file}
-\title{Checks if a file is a valid parameter file}
+\title{Checks if one or more files are valid parameter files}
 \usage{
 is_valid_file(filename)
 }
@@ -13,7 +13,7 @@ is_valid_file(filename)
 TRUE or FALSE
 }
 \description{
-Checks if a file is a valid parameter file
+Checks if one or more files are valid parameter files
 }
 \examples{
   testit::assert(is_valid_file(find_path("toy_example_1.RDa")))

@@ -7,7 +7,7 @@ create_parameter_files_article <- function() {
   filenames <- NULL
   b_index <- 0
   seed <- 100
-  for (b in c(0.3, 0.5)) {
+  for (b in c(0.2, 0.4)) {
     lambda_index <- 0
     for (lambda in c(0.1, 0.3, 1.0, 1000000)) {
       mu_index <- 0

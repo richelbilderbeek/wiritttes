@@ -1,9 +1,9 @@
 context("get_posterior")
 
 test_that("get_posterior: #1", {
-  file <- read_file(find_path("toy_example_1.RDa"))
-  posterior_1 <- get_posterior(file = file, sti = 1, ai = 1, pi = 1)
-  posterior_2 <- get_posterior(file = file, sti = 2, ai = 1, pi = 1)
+  file <- wiritttes::read_file(wiritttes::find_path("toy_example_1.RDa"))
+  posterior_1 <- wiritttes::get_posterior(file = file, sti = 1, ai = 1, pi = 1)
+  posterior_2 <- wiritttes::get_posterior(file = file, sti = 2, ai = 1, pi = 1)
   expect_true(RBeast::is_posterior(posterior_1))
   expect_true(RBeast::is_posterior(posterior_2))
 })

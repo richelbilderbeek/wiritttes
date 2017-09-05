@@ -2,10 +2,12 @@ context("get_posteriors")
 
 test_that("get_posteriors: toy examples 1", {
 
-  filename <- find_path("toy_example_1.RDa")
-  file <- read_file(filename)
-  posteriors <- get_posteriors(file)
-
+  filename <- wiritttes::find_path("toy_example_1.RDa")
+  file <- wiritttes::read_file(filename)
+  posteriors <- wiritttes::get_posteriors(file)
+  length(posteriors)
+  names(posteriors[[1]][[1]])
+  names(posteriors[[1]][[1]]$estimates)
   expect_equal(length(posteriors), 2)
   expect_true(RBeast::is_posterior(posteriors[[1]][[1]]))
 

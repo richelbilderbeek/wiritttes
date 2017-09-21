@@ -203,3 +203,20 @@ test_that("extract_nspp: abuse", {
   )
 
 })
+
+test_that("extract_fixed_crown_age: use", {
+  file <- read_file(find_path("toy_example_1.RDa"))
+  nspp <- extract_fixed_crown_age(file)
+  expect_equal(nspp, FALSE)
+})
+
+
+test_that("extract_fixed_crown_age: abuse", {
+
+  file <- read_file(find_path("toy_example_1.RDa"))
+  file$parameters <- NULL
+  expect_error(
+    extract_fixed_crown_age(file),
+    "file\\$parameters not found"
+  )
+})

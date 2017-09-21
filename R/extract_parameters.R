@@ -302,3 +302,31 @@ extract_sequence_length <- function(file) {
   }
   sequence_length
 }
+
+
+
+
+
+#' Extract if the crown age is fixed from a file
+#' @param file A loaded parameter file
+#' @return a boolean indicating if the crown age is fixed
+#' @export
+#' @examples
+#'   file <- read_file(find_path("toy_example_1.RDa"))
+#'   fixed_crown_age <- extract_fixed_crown_age(file)
+#'   testit::assert(fixed_crown_age == FALSE)
+#' @author Richel Bilderbeek
+extract_fixed_crown_age <- function(file) {
+
+  if (is.null(names(file$parameters))) {
+    stop("file$parameters not found")
+  }
+  fixed_crown_age <- NA
+  if ("fixed_crown_age" %in% names(file$parameters)) {
+    fixed_crown_age <- as.logical(file$parameters$fixed_crown_age[2])
+  }
+  if (is.na(sequence_length)) {
+    return(FALSE)
+  }
+  TRUE
+}

@@ -14,6 +14,8 @@
 #' @param n_beast_runs the number of BEAST2 runs per DNA alignments
 #' @param filename the name of the parameter file that will be created
 #'   by this function
+#' @param fixed_crown_age the crown age is fixed (for TRUE) or estimated
+#'   with lambda and mu (for FALSE)
 #' @return Nothing, it will create a file with filename `filename`
 #' @examples
 #' filename <- "save_parameters_to_file_example.RDa"
@@ -48,8 +50,15 @@ save_parameters_to_file <- function(
   sequence_length,
   nspp,
   n_beast_runs,
-  filename
+  filename,
+  fixed_crown_age = FALSE
 ) {
+  if (!is.numeric(rng_seed)) {
+    stop("rng_seed must be a whole number")
+  }
+  if (!is.logical(fixed_crown_age)) {
+    stop("fixed_crown_age must be a TRUE or FALSE")
+  }
   my_table <- data.frame(row.names = c("Description", "Value"))
   my_table[, "rng_seed"] <- c(
     "Random number generate seed", rng_seed
@@ -86,6 +95,9 @@ save_parameters_to_file <- function(
   )
   my_table[, "n_beast_runs"] <- c(
     "Number of BEAST2 runs per alignment", n_beast_runs
+  )
+  my_table[, "fixed_crown_age"] <- c(
+    "Is the crown age fixed yes or no", fixed_crown_age
   )
   # Create the slots for the results
   my_list <- list(

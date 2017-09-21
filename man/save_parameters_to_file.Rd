@@ -5,7 +5,8 @@
 \title{Creates a valid parameter file}
 \usage{
 save_parameters_to_file(rng_seed, sirg, siri, scr, erg, eri, age, mutation_rate,
-  n_alignments, sequence_length, nspp, n_beast_runs, filename)
+  n_alignments, sequence_length, nspp, n_beast_runs, filename,
+  fixed_crown_age = FALSE)
 }
 \arguments{
 \item{rng_seed}{the random number generator seed}
@@ -35,6 +36,9 @@ mutate at a DNA replication}
 
 \item{filename}{the name of the parameter file that will be created
 by this function}
+
+\item{fixed_crown_age}{the crown age is fixed (for TRUE) or estimated
+with lambda and mu (for FALSE)}
 }
 \value{
 Nothing, it will create a file with filename `filename`

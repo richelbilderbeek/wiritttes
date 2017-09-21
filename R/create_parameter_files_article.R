@@ -41,7 +41,8 @@ create_parameter_files_article <- function() {
                 sequence_length = l,
                 nspp = 1000,
                 n_beast_runs = 2,
-                filename = filename
+                filename = filename,
+                fixed_crown_age = TRUE
               )
               # Every simulation has its unique seed
               seed <- seed + 1

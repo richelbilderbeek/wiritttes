@@ -207,8 +207,33 @@ test_that("extract_nspp: abuse", {
 test_that("extract_fixed_crown_age returns FALSE per default", {
   file <- wiritttes::read_file(wiritttes::find_path("toy_example_1.RDa"))
   fixed_crown_age <- wiritttes::extract_fixed_crown_age(file)
-  expect_equal(fixed_crown_age, FALSE)
+  testthat::expect_false(fixed_crown_age)
 })
+
+test_that("extract_fixed_crown_age returns TRUE when set", {
+  filename <- tempfile("extract_fixed_crown_age_true")
+  wiritttes::save_parameters_to_file(
+    rng_seed = 42,
+    sirg = 0.2,
+    siri = 0.2,
+    scr = 0.2,
+    erg = 0.1,
+    eri = 0.1,
+    age = 10,
+    mutation_rate  = 0.01,
+    n_alignments = 1,
+    sequence_length = 5,
+    nspp = 2,
+    n_beast_runs = 1,
+    filename = filename,
+    fixed_crown_age = TRUE
+  )
+  fixed_crown_age <- wiritttes::extract_fixed_crown_age(
+    wiritttes::read_file(filename = filename))
+  testthat::expect_true(fixed_crown_age)
+  file.remove(filename)
+})
+
 
 
 test_that("extract_fixed_crown_age: abuse", {

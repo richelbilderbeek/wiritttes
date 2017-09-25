@@ -63,6 +63,7 @@ get_posterior_tree <- function(
     stop("si must at most be nspp")
   }
 
-  phylogeny <- get_posterior(file = file, sti = sti, ai = ai, pi = pi)$trees[[si]]
+  phylogeny <- wiritttes::get_posterior(
+    file = file, sti = sti, ai = ai, pi = pi)$trees[[si]]
   phylogeny
 }

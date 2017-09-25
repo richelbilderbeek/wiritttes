@@ -325,7 +325,7 @@ extract_fixed_crown_age <- function(file) {
   if ("fixed_crown_age" %in% names(file$parameters)) {
     fixed_crown_age <- as.logical(file$parameters$fixed_crown_age[2])
   }
-  if (is.na(sequence_length)) {
+  if (is.na(fixed_crown_age)) {
     return(FALSE)
   }
   TRUE

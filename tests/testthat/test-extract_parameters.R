@@ -204,10 +204,10 @@ test_that("extract_nspp: abuse", {
 
 })
 
-test_that("extract_fixed_crown_age: use", {
-  file <- read_file(find_path("toy_example_1.RDa"))
-  nspp <- extract_fixed_crown_age(file)
-  expect_equal(nspp, FALSE)
+test_that("extract_fixed_crown_age returns FALSE per default", {
+  file <- wiritttes::read_file(wiritttes::find_path("toy_example_1.RDa"))
+  fixed_crown_age <- wiritttes::extract_fixed_crown_age(file)
+  expect_equal(fixed_crown_age, FALSE)
 })
 
 

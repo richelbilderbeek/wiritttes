@@ -245,3 +245,32 @@ test_that("extract_fixed_crown_age: abuse", {
     "file\\$parameters not found"
   )
 })
+
+
+
+
+
+test_that("extract_age: use", {
+  file <- wiritttes::read_file(wiritttes::find_path("toy_example_1.RDa"))
+  age <- wiritttes::extract_age(file)
+  testthat::expect_equal(age, 5)
+})
+
+
+test_that("extract_age abuse", {
+
+  file <- wiritttes::read_file(wiritttes::find_path("toy_example_1.RDa"))
+  file$parameters <- NULL
+  testthat::expect_error(
+    wiritttes::extract_age(file),
+    "file\\$parameters not found"
+  )
+
+  file <- wiritttes::read_file(wiritttes::find_path("toy_example_1.RDa"))
+  file$parameters$age <- NULL
+  testthat::expect_error(
+    wiritttes::extract_age(file),
+    "parameter 'age' absent"
+  )
+
+})

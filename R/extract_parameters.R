@@ -330,3 +330,44 @@ extract_fixed_crown_age <- function(file) {
   }
   TRUE
 }
+
+#' Extract the crown age from a file
+#' @param file A loaded parameter file
+#' @return a floating point value for the crown age in time units
+#' @export
+#' @examples
+#'   file <- read_file(find_path("toy_example_1.RDa"))
+#'   age <- extract_age(file)
+#'   testit::assert(age == 5)
+#' @author Richel Bilderbeek
+#' @note  extract_crown_age does exactly the same
+extract_age <- function(file) {
+
+  extract_crown_age(file)
+}
+
+#' Extract the crown age from a file
+#' @param file A loaded parameter file
+#' @return a floating point value for the crown age in time units
+#' @export
+#' @examples
+#'   file <- read_file(find_path("toy_example_1.RDa"))
+#'   age <- extract_crown_age(file)
+#'   testit::assert(age == 5)
+#' @author Richel Bilderbeek
+#' @note  extract_age does exactly the same
+extract_crown_age <- function(file) {
+
+  if (is.null(names(file$parameters))) {
+    stop("file$parameters not found")
+  }
+  age <- NA
+  if ("age" %in% names(file$parameters)) {
+    age <- as.numeric(file$parameters$age[2])
+  }
+  if (is.na(age)) {
+    stop("parameter 'age' absent")
+  }
+  age
+}
+

@@ -343,7 +343,7 @@ extract_fixed_crown_age <- function(file) {
 #' @note  extract_crown_age does exactly the same
 extract_age <- function(file) {
 
-  extract_crown_age(file)
+  wiritttes::extract_crown_age(file)
 }
 
 #' Extract the crown age from a file
@@ -370,4 +370,3 @@ extract_crown_age <- function(file) {
   }
   age
 }
-

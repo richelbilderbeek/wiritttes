@@ -21,13 +21,25 @@
 #'   )
 #'
 #'   # File does not have an incipient species tree yet
-#'   testit::assert(!ribir::is_pbd_sim_output(read_file(filename)$pbd_output))
+#'   testit::assert(
+#'     !ribir::is_pbd_sim_output(
+#'       wiritttes::get_pbd_output(
+#'         wiritttes::read_file(filename)
+#'       )
+#'     )
+#'   )
 #'
 #'   # Add an incipient species tree
 #'   add_pbd_output(filename)
 #'
 #'   # File does have an incipient species tree now
-#'   testit::assert(ribir::is_pbd_sim_output(read_file(filename)$pbd_output))
+#'   testit::assert(
+#'     ribir::is_pbd_sim_output(
+#'       wiritttes::get_pbd_output(
+#'         wiritttes::read_file(filename)
+#'       )
+#'     )
+#'   )
 #'
 #'   # Cleanup
 #'   file.remove(filename)
@@ -67,7 +79,9 @@ add_pbd_output <- function(filename) {
     soc = 2,
     plotit = FALSE
   )
-  testit::assert(length(file$pbd_output$igtree.extant$tip.label) > 0)
+  testit::assert(
+    length(
+      wiritttes::get_pbd_output(file)$igtree.extant$tip.label) > 0)
 
   saveRDS(file, file = filename)
 }
@@ -96,7 +110,13 @@ add_pbd_output <- function(filename) {
 #'   )
 #'
 #'   # File does not have an incipient species tree yet
-#'   testit::assert(!ribir::is_pbd_sim_output(read_file(filename)$pbd_output))
+#'   testit::assert(!
+#'     ribir::is_pbd_sim_output(
+#'       wiritttes::get_pbd_output(
+#'         read_file(filename)
+#'       )
+#'     )
+#'   )
 #'
 #'   # Add an incipient species tree
 #'   is_added <- add_pbd_output_iff_absent(filename)
@@ -115,7 +135,12 @@ add_pbd_output <- function(filename) {
 #' @export
 #' @author Richel Bilderbeek
 add_pbd_output_iff_absent <- function(filename) {
-  if (ribir::is_pbd_sim_output(read_file(filename)$pbd_output)) {
+  if (ribir::is_pbd_sim_output(
+      wiritttes::get_pbd_output(
+        wiritttes::read_file(filename)
+      )
+    )
+  ) {
     return(FALSE)
   }
   wiritttes::add_pbd_output(filename)

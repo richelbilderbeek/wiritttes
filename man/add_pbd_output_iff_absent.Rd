@@ -31,7 +31,13 @@ TRUE of FALSE, indicating if the file was modified yes or no
   )
 
   # File does not have an incipient species tree yet
-  testit::assert(!ribir::is_pbd_sim_output(read_file(filename)$pbd_output))
+  testit::assert(!
+    ribir::is_pbd_sim_output(
+      wiritttes::get_pbd_output(
+        read_file(filename)
+      )
+    )
+  )
 
   # Add an incipient species tree
   is_added <- add_pbd_output_iff_absent(filename)

@@ -22,7 +22,11 @@ test_that("pbd_output is added", {
 
   # PBD sim output must first be absent
   testthat::expect_false(
-    ribir::is_pbd_sim_output(wiritttes::read_file(filename)$pbd_output)
+    ribir::is_pbd_sim_output(
+      wiritttes::get_pbd_output(
+        wiritttes::read_file(filename)
+      )
+    )
   )
 
   # Add it
@@ -30,7 +34,11 @@ test_that("pbd_output is added", {
 
   # PBD sim output must now be present
   testthat::expect_true(
-    ribir::is_pbd_sim_output(wiritttes::read_file(filename)$pbd_output)
+    ribir::is_pbd_sim_output(
+      wiritttes::get_pbd_output(
+        wiritttes::read_file(filename)
+      )
+    )
   )
 
   # Cleanup
@@ -102,18 +110,28 @@ test_that("pbd_output is added iff absent", {
   )
   expect_true(file.exists(filename))
   expect_false(
-    ribir::is_pbd_sim_output(read_file(filename)$pbd_output)
+    ribir::is_pbd_sim_output(
+      wiritttes::get_pbd_output(
+        read_file(filename)
+      )
+    )
   )
   is_added_first <- add_pbd_output_iff_absent(filename)
 
   expect_true(
-    ribir::is_pbd_sim_output(read_file(filename)$pbd_output)
+    ribir::is_pbd_sim_output(
+      wiritttes::get_pbd_output(
+        read_file(filename)
+      )
+    )
   )
   expect_true(is_added_first)
 
   is_added_second <- add_pbd_output_iff_absent(filename)
   expect_true(
-    ribir::is_pbd_sim_output(read_file(filename)$pbd_output)
+    ribir::is_pbd_sim_output(
+      wiritttes::get_pbd_output(read_file(filename))
+    )
   )
 
   expect_false(is_added_second)

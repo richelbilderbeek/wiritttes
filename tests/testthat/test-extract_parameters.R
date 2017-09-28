@@ -274,3 +274,73 @@ test_that("extract_age abuse", {
   )
 
 })
+
+test_that("extract_mutation_rate: use", {
+  file <- wiritttes::read_file(wiritttes::find_path("toy_example_1.RDa"))
+  mutation_rate <- wiritttes::extract_mutation_rate(file)
+  testthat::expect_equal(mutation_rate, 0.01, tolerance = 0.0001)
+})
+
+test_that("extract_mutation_rate abuse", {
+
+  file <- wiritttes::read_file(wiritttes::find_path("toy_example_1.RDa"))
+  file$parameters <- NULL
+  testthat::expect_error(
+    wiritttes::extract_mutation_rate(file),
+    "file\\$parameters not found"
+  )
+
+  file <- wiritttes::read_file(wiritttes::find_path("toy_example_1.RDa"))
+  file$parameters$mutation_rate <- NULL
+  testthat::expect_error(
+    wiritttes::extract_mutation_rate(file),
+    "parameter 'mutation_rate' absent"
+  )
+})
+
+
+test_that("extract_seed: use", {
+  file <- wiritttes::read_file(wiritttes::find_path("toy_example_1.RDa"))
+  seed <- wiritttes::extract_seed(file)
+  testthat::expect_equal(seed, 1)
+})
+
+test_that("extract_seed abuse", {
+
+  file <- wiritttes::read_file(wiritttes::find_path("toy_example_1.RDa"))
+  file$parameters <- NULL
+  testthat::expect_error(
+    wiritttes::extract_seed(file),
+    "file\\$parameters not found"
+  )
+
+  file <- wiritttes::read_file(wiritttes::find_path("toy_example_1.RDa"))
+  file$parameters$rng_seed <- NULL
+  testthat::expect_error(
+    wiritttes::extract_seed(file),
+    "parameter 'rng_seed' absent"
+  )
+})
+
+test_that("extract_sequence_length: use", {
+  file <- wiritttes::read_file(wiritttes::find_path("toy_example_1.RDa"))
+  sequence_length <- wiritttes::extract_sequence_length(file)
+  testthat::expect_equal(sequence_length, 1000)
+})
+
+test_that("extract_sequence_length abuse", {
+
+  file <- wiritttes::read_file(wiritttes::find_path("toy_example_1.RDa"))
+  file$parameters <- NULL
+  testthat::expect_error(
+    wiritttes::extract_sequence_length(file),
+    "file\\$parameters not found"
+  )
+
+  file <- wiritttes::read_file(wiritttes::find_path("toy_example_1.RDa"))
+  file$parameters$sequence_length <- NULL
+  testthat::expect_error(
+    wiritttes::extract_sequence_length(file),
+    "parameter 'sequence_length' absent"
+  )
+})

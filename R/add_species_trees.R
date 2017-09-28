@@ -51,10 +51,14 @@ add_species_trees <- function(filename) {
   }
 
   file <- set_species_tree_by_index(
-    file = file, sti = 1, species_tree = wiritttes::get_pbd_output(file)$stree_youngest
+    file = file,
+    sti = 1,
+    species_tree = wiritttes::get_pbd_output(file)$stree_youngest
   )
   file <- set_species_tree_by_index(
-    file = file, sti = 2, species_tree = wiritttes::get_pbd_output(file)$stree_oldest
+    file = file,
+    sti = 2,
+    species_tree = wiritttes::get_pbd_output(file)$stree_oldest
   )
   saveRDS(file, file = filename)
 }

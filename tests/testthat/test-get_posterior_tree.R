@@ -10,7 +10,8 @@ test_that("examples", {
   pi   <- 1 # Posterior index
   si   <- 1 # Posterior state index
   # Extract the posterior
-  tree <- wiritttes::get_posterior_tree(file = file, sti = sti, ai = 1, pi = 1, si = 1)
+  tree <- wiritttes::get_posterior_tree(
+    file = file, sti = sti, ai = 1, pi = 1, si = 1)
   # Check that it is indeed a phylogeny
   testthat::expect_true(ribir::is_phylogeny(tree))
 

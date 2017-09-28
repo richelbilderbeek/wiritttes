@@ -322,7 +322,9 @@ test_that(paste("add_posteriors with fixed crown age",
   add_alignments(filename = filename)
   add_posteriors(filename = filename)
 
-  posterior <- wiritttes::get_posterior(file = wiritttes::read_file(filename), sti = 1, ai = 1, pi = 1)
+  posterior <- wiritttes::get_posterior(
+    file = wiritttes::read_file(filename),
+    sti = 1, ai = 1, pi = 1)
   crown_age_estimates <- posterior$estimates$TreeHeight
   testthat::expect_equivalent(crown_age_estimates, rep(crown_age, 3))
 

@@ -45,7 +45,7 @@ test_that("get_posteriors: add one", {
     mutation_rate = 0.1,
     n_alignments = 1,
     sequence_length = 10,
-    nspp = 10,
+    nspp = 2,
     n_beast_runs = 1,
     filename = filename
   )
@@ -87,7 +87,7 @@ test_that("get_posteriors: add two", {
     mutation_rate = 0.1,
     n_alignments = 1,
     sequence_length = 10,
-    nspp = 10,
+    nspp = 2,
     n_beast_runs = n_posteriors,
     filename = filename
   )

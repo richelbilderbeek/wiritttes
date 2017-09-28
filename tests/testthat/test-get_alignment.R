@@ -98,7 +98,7 @@ test_that("get_alignment from fresh file", {
     mutation_rate = 0.1,
     n_alignments = napst,
     sequence_length = 10,
-    nspp = 10,
+    nspp = 2,
     n_beast_runs = 1,
     filename = filename
   )

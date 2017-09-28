@@ -24,7 +24,7 @@ test_that("add_posteriors: two posteriors are added", {
     mutation_rate = 0.1,
     n_alignments = 1,
     sequence_length = 10,
-    nspp = 10,
+    nspp = 2,
     n_beast_runs = 1,
     filename = filename
   )
@@ -96,7 +96,7 @@ test_that("four posteriors are added", {
     mutation_rate = 0.1,
     n_alignments = 1,
     sequence_length = 10,
-    nspp = 10,
+    nspp = 2,
     n_beast_runs = 2,
     filename = filename
   )
@@ -177,7 +177,7 @@ test_that("three posteriors are added, middle is deleted and added again", {
     mutation_rate = 0.1,
     n_alignments = 1,
     sequence_length = 10,
-    nspp = 10,
+    nspp = 2,
     n_beast_runs = 3,
     filename = filename
   )

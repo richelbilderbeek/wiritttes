@@ -28,7 +28,7 @@ test_that("alignment_to_beast_posterior: basic", {
 
   posterior <- alignment_to_beast_posterior(
     alignment = alignment,
-    nspp = 10,
+    nspp = 2,
     base_filename = base_filename,
     rng_seed = 42,
     beast_jar_path = beast_jar_path
@@ -52,7 +52,7 @@ test_that("alignment_to_beast_posterior: abuse", {
   expect_error(
     alignment_to_beast_posterior(
       alignment = "not an alignment",
-      nspp = 10,
+      nspp = 2,
       base_filename = base_filename,
       rng_seed = 42,
       beast_jar_path = find_beast_jar_path()
@@ -84,7 +84,7 @@ test_that("alignment_to_beast_posterior: abuse", {
   expect_error(
     alignment_to_beast_posterior(
       alignment = alignment,
-      nspp = 10,
+      nspp = 2,
       base_filename = c(1, 2, 3), # Not a character string
       rng_seed = 42,
       beast_jar_path = find_beast_jar_path()
@@ -94,7 +94,7 @@ test_that("alignment_to_beast_posterior: abuse", {
   expect_error(
     alignment_to_beast_posterior(
       alignment = alignment,
-      nspp = 10,
+      nspp = 2,
       base_filename = base_filename,
       rng_seed = 3.14,   # Not a whole number
       beast_jar_path = find_beast_jar_path()
@@ -104,7 +104,7 @@ test_that("alignment_to_beast_posterior: abuse", {
   expect_error(
     alignment_to_beast_posterior(
       alignment = alignment,
-      nspp = 10,
+      nspp = 2,
       base_filename = base_filename,
       rng_seed = 42,
       beast_jar_path = c(1, 2, 3) # Not NULL nor a character string
@@ -114,7 +114,7 @@ test_that("alignment_to_beast_posterior: abuse", {
   expect_error(
     alignment_to_beast_posterior(
       alignment = alignment,
-      nspp = 10,
+      nspp = 2,
       base_filename = base_filename,
       rng_seed = 42,
       beast_jar_path = "invalid/path_too"

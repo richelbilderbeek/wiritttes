@@ -15,7 +15,7 @@ test_that("pbd_output is added", {
     mutation_rate = 0.1,
     n_alignments = 1,
     sequence_length = 10,
-    nspp = 10,
+    nspp = 2,
     n_beast_runs = 1,
     filename = filename
   )
@@ -57,7 +57,7 @@ test_that("add_pbd_output: demonstrate PBD::pbd_sim to freeze", {
       mutation_rate = 0.1,
       n_alignments = 1,
       sequence_length = 10,
-      nspp = 10,
+      nspp = 2,
       n_beast_runs = 1,
       filename = filename
     )
@@ -96,7 +96,7 @@ test_that("pbd_output is added iff absent", {
     mutation_rate = 0.1,
     n_alignments = 1,
     sequence_length = 10,
-    nspp = 10,
+    nspp = 2,
     n_beast_runs = 1,
     filename = filename
   )

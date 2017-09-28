@@ -57,21 +57,21 @@ test_that("are_identical_trees_posteriors: use from local simulation", {
 
   posterior_1 <- alignment_to_beast_posterior(
     alignment = alignment,
-    nspp = 10,
+    nspp = 2,
     base_filename = base_filename,
     rng_seed = 42,
     beast_jar_path = beast_jar_path
   )
   posterior_2 <- alignment_to_beast_posterior(
     alignment = alignment,
-    nspp = 10,
+    nspp = 2,
     base_filename = base_filename,
     rng_seed = 42,
     beast_jar_path = beast_jar_path
   )
   posterior_3 <- alignment_to_beast_posterior(
     alignment = alignment,
-    nspp = 10,
+    nspp = 2,
     base_filename = base_filename,
     rng_seed = 314,
     beast_jar_path = beast_jar_path

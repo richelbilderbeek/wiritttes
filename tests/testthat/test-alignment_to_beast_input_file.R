@@ -14,7 +14,7 @@ test_that("creates an XML", {
 
   alignment_to_beast_input_file(
     alignment = alignment,
-    nspp = 10,
+    nspp = 2,
     rng_seed = 42,
     beast_filename = beast_xml_input_file,
     temp_fasta_filename = fasta_filename

@@ -13,7 +13,7 @@ test_that("do_simulation: use", {
     mutation_rate = 0.1,
     n_alignments = 1,
     sequence_length = 10,
-    nspp = 10,
+    nspp = 2,
     n_beast_runs = 1,
     filename = filename
   )
@@ -24,7 +24,8 @@ test_that("do_simulation: use", {
 })
 
 test_that("do_simulation: create full toy_example_x.RDa", {
-  if (1 == 2) {
+  need_to_recreate <- FALSE
+  if (need_to_recreate == TRUE) {
     filenames <- paste0("toy_example_", 1:4, ".RDa")
     create_test_parameter_files(filenames = filenames)
     for (filename in filenames) {

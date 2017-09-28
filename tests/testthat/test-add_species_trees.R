@@ -13,7 +13,7 @@ test_that("add_species_trees: use", {
     mutation_rate = 0.1,
     n_alignments = 1,
     sequence_length = 10,
-    nspp = 10,
+    nspp = 2,
     n_beast_runs = 1,
     filename = filename
   )
@@ -55,7 +55,7 @@ test_that("add_species_trees: abuse", {
     mutation_rate = 0.1,
     n_alignments = 1,
     sequence_length = 10,
-    nspp = 10,
+    nspp = 2,
     n_beast_runs = 1,
     filename = filename
   )
@@ -80,7 +80,7 @@ test_that("species trees must be reconstructed", {
     mutation_rate = 0.5,
     n_alignments = 2,
     sequence_length = 1000,
-    nspp = 1000,
+    nspp = 2,
     n_beast_runs = 2,
     filename = filename
   )

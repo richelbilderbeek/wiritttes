@@ -5,15 +5,9 @@ test_that("add_posteriors: two posteriors are added", {
     skip("BEAST2 absent")
   }
 
-  filename <- "test-add_posteriors_1.RDa"
+  filename <- tempfile(pattern = "test-add_posteriors_1_", fileext = ".RDa")
 
-  # Pre clean
-  if (file.exists(filename)) {
-    file.remove(filename)
-  }
-
-  expect_false(file.exists(filename))
-  save_parameters_to_file(
+  wiritttes::save_parameters_to_file(
     rng_seed = 42,
     sirg = 0.5,
     siri = 0.5,
@@ -28,23 +22,23 @@ test_that("add_posteriors: two posteriors are added", {
     n_beast_runs = 1,
     filename = filename
   )
-  add_pbd_output(filename = filename)
-  add_species_trees(filename = filename)
-  add_alignments(filename = filename)
+  wiritttes::add_pbd_output(filename = filename)
+  wiritttes::add_species_trees(filename = filename)
+  wiritttes::add_alignments(filename = filename)
 
-  expect_error(
-    get_posterior(
-      file = read_file(filename),
+  testthat::expect_error(
+    wiritttes::get_posterior(
+      file = wiritttes::read_file(filename),
       sti = 1, ai = 1, pi = 1
     ),
     "posterior absent at index 1"
   )
 
-  n_posteriors_added <- add_posteriors(filename = filename)
+  n_posteriors_added <- wiritttes::add_posteriors(filename = filename)
 
-  expect_equal(n_posteriors_added, 2)
+  testthat::expect_equal(n_posteriors_added, 2)
 
-  posterior_1 <- get_posterior_by_index(
+  posterior_1 <- wiritttes::get_posterior_by_index(
     file = read_file(filename),
     i = 1
   )

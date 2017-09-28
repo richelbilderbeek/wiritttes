@@ -5,7 +5,7 @@
 \title{Convert an alignment and parameters to a BEAST XML input file}
 \usage{
 alignment_to_beast_input_file(alignment, nspp, rng_seed = 42, beast_filename,
-  temp_fasta_filename)
+  temp_fasta_filename, crown_age = NA)
 }
 \arguments{
 \item{alignment}{the DNA alignment of type DNAbin}
@@ -18,6 +18,9 @@ typically there is one state per one thousand generations}
 \item{beast_filename}{the filename of the XML BEAST2 input file created}
 
 \item{temp_fasta_filename}{the name of a temporary file created}
+
+\item{crown_age}{a postive value should the crown age be fixed at that value,
+NA if BEAST2 needs to estimate it}
 }
 \value{
 Nothing, creates a file called 'beast_filename'
@@ -44,7 +47,8 @@ Convert an alignment and parameters to a BEAST XML input file
     nspp = 10,
     rng_seed = 42,
     beast_filename = beast_xml_input_file,
-    temp_fasta_filename = fasta_filename
+    temp_fasta_filename = fasta_filename,
+    crown_age = NA
   )
 
   # Check that the BEAST2 input file really exists

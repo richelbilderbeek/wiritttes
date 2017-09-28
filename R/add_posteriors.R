@@ -91,11 +91,19 @@ add_posteriors <- function(filename) {
           tools::file_path_sans_ext(filename), "_",
           sti, "_", ai, "_", pi
         )
+
+        crown_age <- ifelse(
+          test = wiritttes::extract_fixed_crown_age(file) == TRUE,
+          yes = wiritttes::extract_crown_age(file),
+          no = NA
+        )
+
         posterior <- alignment_to_beast_posterior(
           alignment = alignment,
           base_filename = basefilename,
           nspp = nspp,
-          rng_seed = new_seed
+          rng_seed = new_seed,
+          crown_age = crown_age
         )
         testit::assert(RBeast::is_posterior(posterior))
 

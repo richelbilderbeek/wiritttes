@@ -4,8 +4,8 @@
 \alias{alignment_to_beast_posterior}
 \title{Convert an alignment to a BEAST2 XML input file}
 \usage{
-alignment_to_beast_posterior(alignment, nspp, base_filename, rng_seed = 42,
-  beast_jar_path = find_beast_jar_path())
+alignment_to_beast_posterior(alignment, nspp, base_filename, crown_age = NA,
+  rng_seed = 42, beast_jar_path = find_beast_jar_path())
 }
 \arguments{
 \item{alignment}{The alignment of type DNAbin}
@@ -15,6 +15,9 @@ typically one state per one thousand moves}
 
 \item{base_filename}{The base of the filename
 (the part without the extension)}
+
+\item{crown_age}{a positive value if the phylogeny needs a fixed crown
+age, NA if the crown age needs to be estimated by BEAST2}
 
 \item{rng_seed}{The random number generator seed used by BEAST2}
 
@@ -49,6 +52,7 @@ Convert an alignment to a BEAST2 XML input file
   posterior <- alignment_to_beast_posterior(
     alignment = alignment,
     nspp = 10,
+    crown_age = 5,
     base_filename = base_filename,
     rng_seed = 42,
     beast_jar_path = beast_jar_path

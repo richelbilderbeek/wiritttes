@@ -2,6 +2,8 @@
 #' @param alignment The alignment of type DNAbin
 #' @param nspp The number of states in the MCMC chain BEAST2 will generate,
 #'   typically one state per one thousand moves
+#' @param crown_age a positive value if the phylogeny needs a fixed crown
+#'   age, NA if the crown age needs to be estimated by BEAST2
 #' @param base_filename The base of the filename
 #'   (the part without the extension)
 #' @param rng_seed The random number generator seed used by BEAST2
@@ -30,6 +32,7 @@
 #'   posterior <- alignment_to_beast_posterior(
 #'     alignment = alignment,
 #'     nspp = 10,
+#'     crown_age = 5,
 #'     base_filename = base_filename,
 #'     rng_seed = 42,
 #'     beast_jar_path = beast_jar_path
@@ -45,6 +48,7 @@ alignment_to_beast_posterior <- function(
   alignment,
   nspp,
   base_filename,
+  crown_age = NA,
   rng_seed = 42,
   beast_jar_path = find_beast_jar_path()
 ) {
@@ -84,7 +88,8 @@ alignment_to_beast_posterior <- function(
     nspp = nspp,
     rng_seed = rng_seed,
     beast_filename = beast_filename,
-    temp_fasta_filename = temp_fasta_filename
+    temp_fasta_filename = temp_fasta_filename,
+    crown_age = crown_age
   )
   testit::assert(file.exists(beast_filename))
 

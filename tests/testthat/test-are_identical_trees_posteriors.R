@@ -1,30 +1,26 @@
 context("are_identical_trees_posteriors")
 
 test_that("are_identical_trees_posteriors: use from file", {
-  filename <- find_path("toy_example_4.RDa")
-  file <- read_file(filename)
-  posterior_1 <- get_posterior_by_index(file, 1)
-  posterior_2 <- get_posterior_by_index(file, 2)
-  posterior_3 <- get_posterior_by_index(file, 3)
-  posterior_4 <- get_posterior_by_index(file, 4)
-  expect_true(RBeast::is_trees_posterior(posterior_1$trees))
-  expect_true(RBeast::is_trees_posterior(posterior_2$trees))
-  expect_true(RBeast::is_trees_posterior(posterior_3$trees))
-  expect_true(RBeast::is_trees_posterior(posterior_4$trees))
+  filename <- wiritttes::find_path("toy_example_4.RDa")
+  file <- wiritttes::read_file(filename)
+  posterior_1 <- wiritttes::get_posterior_by_index(file, 1)
+  posterior_2 <- wiritttes::get_posterior_by_index(file, 2)
+  testthat::expect_true(RBeast::is_trees_posterior(posterior_1$trees))
+  testthat::expect_true(RBeast::is_trees_posterior(posterior_2$trees))
 
   # All same posteriors are identical
-  expect_true(are_identical_trees_posteriors(posterior_1$trees, posterior_1$trees)) # nolint
-  expect_true(are_identical_trees_posteriors(posterior_2$trees, posterior_2$trees)) # nolint
-  expect_true(are_identical_trees_posteriors(posterior_3$trees, posterior_3$trees)) # nolint
-  expect_true(are_identical_trees_posteriors(posterior_4$trees, posterior_4$trees)) # nolint
+  testthat::expect_true(wiritttes::are_identical_trees_posteriors(posterior_1$trees, posterior_1$trees)) # nolint
+  testthat::expect_true(wiritttes::are_identical_trees_posteriors(posterior_2$trees, posterior_2$trees)) # nolint
 
   # All different posteriors are different
-  expect_false(are_identical_trees_posteriors(posterior_1$trees, posterior_2$trees)) # nolint
-  expect_false(are_identical_trees_posteriors(posterior_1$trees, posterior_3$trees)) # nolint
-  expect_false(are_identical_trees_posteriors(posterior_1$trees, posterior_4$trees)) # nolint
-  expect_false(are_identical_trees_posteriors(posterior_2$trees, posterior_3$trees)) # nolint
-  expect_false(are_identical_trees_posteriors(posterior_2$trees, posterior_4$trees)) # nolint
-  expect_false(are_identical_trees_posteriors(posterior_3$trees, posterior_4$trees)) # nolint
+  testthat::expect_false(wiritttes::are_identical_trees_posteriors(posterior_1$trees, posterior_2$trees)) # nolint
+
+  # Different lengths
+  posterior_1_short <- posterior_1
+  posterior_1_short$trees <- head(posterior_1$trees)
+  testthat::expect_false(
+    wiritttes::are_identical_trees_posteriors(
+      posterior_1$trees, posterior_1_short$trees))
 
 })
 

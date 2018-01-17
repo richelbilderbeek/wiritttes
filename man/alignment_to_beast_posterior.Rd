@@ -14,7 +14,8 @@ alignment_to_beast_posterior(alignment, nspp, base_filename, crown_age = NA,
 typically one state per one thousand moves}
 
 \item{base_filename}{The base of the filename
-(the part without the extension)}
+(the part without the extension). Must not start with '/tmp/'
+(in '/tmp/' the intermediate files are deleted)}
 
 \item{crown_age}{a positive value if the phylogeny needs a fixed crown
 age, NA if the crown age needs to be estimated by BEAST2}

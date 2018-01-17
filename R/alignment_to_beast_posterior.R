@@ -5,7 +5,8 @@
 #' @param crown_age a positive value if the phylogeny needs a fixed crown
 #'   age, NA if the crown age needs to be estimated by BEAST2
 #' @param base_filename The base of the filename
-#'   (the part without the extension)
+#'   (the part without the extension). Must not start with '/tmp/'
+#'   (in '/tmp/' the intermediate files are deleted)
 #' @param rng_seed The random number generator seed used by BEAST2
 #' @param beast_jar_path Where the jar 'beast.jar' can be found
 #' @return the phylogenies of the BEAST2 posterior
@@ -58,8 +59,8 @@ alignment_to_beast_posterior <- function(
   if (!ribir::is_whole_number(nspp)) {
     stop("nspp must be a whole number")
   }
-  if (nspp <= 0) {
-    stop("nspp must non-zero and positive")
+  if (nspp < 10) {
+    stop("nspp must be at least 10")
   }
   if (!is.character(base_filename)) {
     stop("base_filename must be a character string")
@@ -73,10 +74,14 @@ alignment_to_beast_posterior <- function(
   if (!file.exists(beast_jar_path)) {
     stop("beast_jar_path not found")
   }
+  if (nchar(base_filename) >= 5 &&
+      substr(base_filename, start = 1, stop = 5) == "/tmp/") {
+    stop("base_filename must not start with '/tmp/'")
+  }
+
 
   # File paths
   beast_filename <- paste0(base_filename, ".xml")
-
   beast_log_filename <- paste0(base_filename, ".log")
   beast_trees_filename <- paste0(base_filename, ".trees")
   beast_state_filename <- paste0(base_filename, ".xml.state")

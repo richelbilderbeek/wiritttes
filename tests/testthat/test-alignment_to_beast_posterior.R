@@ -79,7 +79,7 @@ test_that("alignment_to_beast_posterior: abuse", {
       rng_seed = 42,
       beast_jar_path = find_beast_jar_path()
     ),
-    "nspp must non-zero and positive"
+    "nspp must be at least 10"
   )
   expect_error(
     alignment_to_beast_posterior(
@@ -90,6 +90,16 @@ test_that("alignment_to_beast_posterior: abuse", {
       beast_jar_path = find_beast_jar_path()
     ),
     "base_filename must be a character string"
+  )
+  expect_error(
+    alignment_to_beast_posterior(
+      alignment = alignment,
+      nspp = 10,
+      base_filename = "/tmp/something", # Not in temp folder
+      rng_seed = 42,
+      beast_jar_path = find_beast_jar_path()
+    ),
+    "base_filename must not start with '/tmp/'"
   )
   expect_error(
     alignment_to_beast_posterior(

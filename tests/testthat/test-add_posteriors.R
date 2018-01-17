@@ -5,7 +5,9 @@ test_that("add_posteriors: two posteriors are added", {
     skip("BEAST2 absent")
   }
 
-  filename <- tempfile(pattern = "test-add_posteriors_1_", fileext = ".RDa")
+  # Must not be a temporary (e.g. 'filename <- tempfile(pattern = "test-add_posteriors_1_", fileext = ".RDa")')
+  # else the intermediate BEAST2 files will be deleted in the process
+  filename <- "test-add_posteriors_1.RDa"
 
   wiritttes::save_parameters_to_file(
     rng_seed = 42,
@@ -298,9 +300,10 @@ test_that(paste("add_posteriors with fixed crown age",
     skip("BEAST2 absent")
   }
 
-  filename <- tempfile(pattern = "test-add_posteriors_2_", fileext = ".RDa")
+  # Must not be a temporary (e.g. 'filename <- tempfile(pattern = "test-add_posteriors_2_", fileext = ".RDa")')
+  # else the intermediate BEAST2 files will be deleted in the process
+  filename <- "test-add_posteriors_2.RDa"
   crown_age <- 12.34
-
   save_parameters_to_file(
     rng_seed = 42,
     sirg = 0.5,

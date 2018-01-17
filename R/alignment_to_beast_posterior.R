@@ -39,8 +39,8 @@
 #'   )
 #'
 #'   # Check the posterior
-#'   testit::assert(RBeast::is_posterior(posterior))
-#'   testit::assert(RBeast::is_trees_posterior(posterior$trees))
+#'   testit::assert(beastier::is_posterior(posterior))
+#'   testit::assert(beastier::is_trees_posterior(posterior$trees))
 #'
 #' @export
 #' @author Richel Bilderbeek
@@ -111,17 +111,17 @@ alignment_to_beast_posterior <- function(
   testit::assert(file.exists(beast_log_filename))
   testit::assert(file.exists(beast_state_filename))
 
-  trees_posterior <- RBeast::parse_beast_trees(beast_trees_filename)
-  estimates_posterior <- RBeast::parse_beast_log(beast_log_filename)
+  trees_posterior <- beastier::parse_beast_trees(beast_trees_filename)
+  estimates_posterior <- beastier::parse_beast_log(beast_log_filename)
 
-  testit::assert(RBeast::is_trees_posterior(x = trees_posterior))
+  testit::assert(beastier::is_trees_posterior(x = trees_posterior))
 
   posterior <- list(
     trees = trees_posterior,
     estimates = estimates_posterior
   )
 
-  testit::assert(RBeast::is_posterior(posterior))
+  testit::assert(beastier::is_posterior(posterior))
 
   return(posterior)
 }

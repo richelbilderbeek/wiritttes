@@ -69,26 +69,14 @@ alignment_to_beast_input_file <- function(
   # Save to FASTA file
   wiritttes::convert_alignment_to_fasta(alignment, temp_fasta_filename)
 
-  # A phylogeny may have a fixed or estimated crown age
-  fixed_crown_age <- ifelse(test = is.na(crown_age), yes = FALSE, no = TRUE)
-
-  initial_phylogeny <- NA
-  if (!is.na(crown_age)) {
-    initial_phylogeny <- beastscriptr::fasta_to_phylo(
-      fasta_filename = temp_fasta_filename,
-      crown_age = crown_age
-    )
-  }
-
   # So that mcmc_chainlength is written as 1000000 instead of 1e+7
   options(scipen = 20)
-  beastscriptr::beast_scriptr(
+  beautier::create_beast2_input_file(
     input_fasta_filename = temp_fasta_filename,
-    mcmc_chainlength = nspp * 1000,
-    tree_prior = "birth_death",
     output_xml_filename = beast_filename,
-    fixed_crown_age = fixed_crown_age,
-    initial_phylogeny = initial_phylogeny
+    mcmc = beautier::create_mcmc(chain_length = nspp * 1000),
+    tree_priors = beautier::create_bd_tree_prior(),
+    posterior_crown_age = crown_age
   )
 
   testit::assert(file.exists(beast_filename))

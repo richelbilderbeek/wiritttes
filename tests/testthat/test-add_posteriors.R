@@ -18,7 +18,7 @@ test_that("add_posteriors: two posteriors are added", {
     mutation_rate = 0.1,
     n_alignments = 1,
     sequence_length = 10,
-    nspp = 2,
+    nspp = 10, # Needs MCM chain length of 10K
     n_beast_runs = 1,
     filename = filename
   )
@@ -46,8 +46,8 @@ test_that("add_posteriors: two posteriors are added", {
     file = read_file(filename),
     i = 2
   )
-  expect_true(RBeast::is_posterior(posterior_1))
-  expect_true(RBeast::is_posterior(posterior_2))
+  expect_true(beastier::is_posterior(posterior_1))
+  expect_true(beastier::is_posterior(posterior_2))
 
   # Cleaning up
   # Post clean
@@ -87,7 +87,7 @@ test_that("four posteriors are added", {
     mutation_rate = 0.1,
     n_alignments = 1,
     sequence_length = 10,
-    nspp = 2,
+    nspp = 10,
     n_beast_runs = 2,
     filename = filename
   )
@@ -131,10 +131,10 @@ test_that("four posteriors are added", {
     file = read_file(filename),
     i = 4
   )
-  expect_true(RBeast::is_posterior(posterior_1))
-  expect_true(RBeast::is_posterior(posterior_2))
-  expect_true(RBeast::is_posterior(posterior_3))
-  expect_true(RBeast::is_posterior(posterior_4))
+  expect_true(beastier::is_posterior(posterior_1))
+  expect_true(beastier::is_posterior(posterior_2))
+  expect_true(beastier::is_posterior(posterior_3))
+  expect_true(beastier::is_posterior(posterior_4))
 
   file.remove(filename)
 
@@ -168,7 +168,7 @@ test_that("three posteriors are added, middle is deleted and added again", {
     mutation_rate = 0.1,
     n_alignments = 1,
     sequence_length = 10,
-    nspp = 2,
+    nspp = 10,
     n_beast_runs = 3,
     filename = filename
   )
@@ -217,9 +217,9 @@ test_that("three posteriors are added, middle is deleted and added again", {
     i = 3
   )
 
-  expect_true(RBeast::is_posterior(posterior_1))
-  expect_true(RBeast::is_posterior(posterior_2))
-  expect_true(RBeast::is_posterior(posterior_3))
+  expect_true(beastier::is_posterior(posterior_1))
+  expect_true(beastier::is_posterior(posterior_2))
+  expect_true(beastier::is_posterior(posterior_3))
 
   # Delete middle
   file <- read_file(filename)
@@ -312,7 +312,7 @@ test_that(paste("add_posteriors with fixed crown age",
     mutation_rate = 0.1,
     n_alignments = 1,
     sequence_length = 10,
-    nspp = 2,
+    nspp = 10,
     n_beast_runs = 1,
     filename = filename,
     fixed_crown_age = TRUE

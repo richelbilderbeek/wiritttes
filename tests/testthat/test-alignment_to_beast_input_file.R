@@ -16,7 +16,7 @@ test_that("creates an XML, non-fixed crown age", {
 
   wiritttes::alignment_to_beast_input_file(
     alignment = alignment,
-    nspp = 2,
+    nspp = 10,
     rng_seed = 42,
     beast_filename = beast_xml_input_file,
     temp_fasta_filename = fasta_filename
@@ -40,7 +40,7 @@ test_that("creates an XML, fixed crown age", {
 
   wiritttes::alignment_to_beast_input_file(
     alignment = alignment,
-    nspp = 2,
+    nspp = 10,
     rng_seed = 42,
     crown_age = 15,
     beast_filename = beast_xml_input_file,
@@ -65,7 +65,7 @@ test_that("alignment_to_beast_input_file: abuse", {
   testthat::expect_silent(
     alignment_to_beast_input_file(
       alignment = alignment,
-      nspp = 1,
+      nspp = 10,
       rng_seed = 42,
       beast_filename = beast_xml_input_file,
       temp_fasta_filename = fasta_filename
@@ -75,7 +75,7 @@ test_that("alignment_to_beast_input_file: abuse", {
   testthat::expect_error(
     alignment_to_beast_input_file(
       alignment = "not an alignment", # Error
-      nspp = 1,
+      nspp = 10,
       rng_seed = 42,
       beast_filename = beast_xml_input_file,
       temp_fasta_filename = fasta_filename
@@ -105,7 +105,7 @@ test_that("alignment_to_beast_input_file: abuse", {
   testthat::expect_error(
     alignment_to_beast_input_file(
       alignment = alignment,
-      nspp = 1,
+      nspp = 10,
       rng_seed = "not numeric", # Error
       beast_filename = beast_xml_input_file,
       temp_fasta_filename = fasta_filename
@@ -114,7 +114,7 @@ test_that("alignment_to_beast_input_file: abuse", {
   testthat::expect_error(
     alignment_to_beast_input_file(
       alignment = alignment,
-      nspp = 1,
+      nspp = 10,
       rng_seed = 42,
       beast_filename = ape::rcoal(4), # Error
       temp_fasta_filename = fasta_filename
@@ -123,7 +123,7 @@ test_that("alignment_to_beast_input_file: abuse", {
   testthat::expect_error(
     alignment_to_beast_input_file(
       alignment = alignment,
-      nspp = 1,
+      nspp = 10,
       rng_seed = 42,
       beast_filename = beast_xml_input_file,
       temp_fasta_filename = ape::rcoal(4) # Error
@@ -133,7 +133,7 @@ test_that("alignment_to_beast_input_file: abuse", {
   testthat::expect_error(
     alignment_to_beast_input_file(
       alignment = alignment,
-      nspp = 1,
+      nspp = 10,
       rng_seed = 42,
       beast_filename = beast_xml_input_file,
       temp_fasta_filename = fasta_filename,

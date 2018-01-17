@@ -14,7 +14,7 @@ get_posterior_by_index <- function(file, i) {
     stop("index must be less than number of posteriors")
   }
   posterior <- file$posteriors[[i]][[1]]
-  if (!RBeast::is_posterior(posterior)) {
+  if (!beastier::is_posterior(posterior)) {
     # The posterior may not be added yet
     stop(
       "posterior absent at index ",
@@ -48,7 +48,7 @@ get_posterior_by_index <- function(file, i) {
 #'   posterior <- get_posterior(file = file, sti = sti, ai = 1, pi = 1)
 #'   # Check that it is indeed a posterior of non-zero length
 #'   testit::assert(all(names(posterior) == c("trees", "estimates")))
-#'   testit::assert(RBeast::is_posterior(posterior))
+#'   testit::assert(beastier::is_posterior(posterior))
 #'   testit::assert(length(posterior) > 0)
 #' @author Richel Bilderbeek
 get_posterior <- function(

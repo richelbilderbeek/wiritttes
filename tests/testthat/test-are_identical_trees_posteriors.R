@@ -5,8 +5,8 @@ test_that("are_identical_trees_posteriors: use from file", {
   file <- wiritttes::read_file(filename)
   posterior_1 <- wiritttes::get_posterior_by_index(file, 1)
   posterior_2 <- wiritttes::get_posterior_by_index(file, 2)
-  testthat::expect_true(RBeast::is_trees_posterior(posterior_1$trees))
-  testthat::expect_true(RBeast::is_trees_posterior(posterior_2$trees))
+  testthat::expect_true(beastier::is_trees_posterior(posterior_1$trees))
+  testthat::expect_true(beastier::is_trees_posterior(posterior_2$trees))
 
   # All same posteriors are identical
   testthat::expect_true(wiritttes::are_identical_trees_posteriors(posterior_1$trees, posterior_1$trees)) # nolint
@@ -53,29 +53,29 @@ test_that("are_identical_trees_posteriors: use from local simulation", {
 
   posterior_1 <- alignment_to_beast_posterior(
     alignment = alignment,
-    nspp = 2,
+    nspp = 10,
     base_filename = base_filename,
     rng_seed = 42,
     beast_jar_path = beast_jar_path
   )
   posterior_2 <- alignment_to_beast_posterior(
     alignment = alignment,
-    nspp = 2,
+    nspp = 10,
     base_filename = base_filename,
     rng_seed = 42,
     beast_jar_path = beast_jar_path
   )
   posterior_3 <- alignment_to_beast_posterior(
     alignment = alignment,
-    nspp = 2,
+    nspp = 10,
     base_filename = base_filename,
     rng_seed = 314,
     beast_jar_path = beast_jar_path
   )
 
-  expect_true(RBeast::is_trees_posterior(posterior_1$trees))
-  expect_true(RBeast::is_trees_posterior(posterior_2$trees))
-  expect_true(RBeast::is_trees_posterior(posterior_3$trees))
+  expect_true(beastier::is_trees_posterior(posterior_1$trees))
+  expect_true(beastier::is_trees_posterior(posterior_2$trees))
+  expect_true(beastier::is_trees_posterior(posterior_3$trees))
   expect_true(are_identical_trees_posteriors(posterior_1$trees, posterior_1$trees)) # nolint
   expect_true(are_identical_trees_posteriors(posterior_1$trees, posterior_2$trees)) # nolint
   expect_true(are_identical_trees_posteriors(posterior_2$trees, posterior_2$trees)) # nolint

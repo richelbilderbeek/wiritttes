@@ -12,9 +12,9 @@ Description: What if reproduction isolation takes time to establish?
     analysis of the resulting data is done by the wiritttea package.
 License: file LICENSE
 LazyData: TRUE
-Requires: adephylo,
+Requires: 
+    adephylo,
     ape,
-    beastscriptr,
     dplyr,
     geiger,
     PBD,
@@ -24,13 +24,14 @@ Requires: adephylo,
     tools,
     TreeSim
 Imports:
-    beastscriptr,
+    beastier,
+    beautier,
+    lumier,
     geiger,
     nLTT,
     PBD,
     phangorn,
     phytools,
-    RBeast,
     ribir
 Suggests:
     ape,
@@ -49,10 +50,11 @@ Suggests:
     tidyr,
     knitr
 Remotes: 
-    beast-dev/RBeast,
     jimhester/covr,
     jimhester/lintr,
-    richelbilderbeek/beastscriptr,
+    richelbilderbeek/beastier,
+    richelbilderbeek/beautier,
+    richelbilderbeek/lumier,
     richelbilderbeek/nLTT,
     richelbilderbeek/ribir,
     rsetienne/PBD/PBD,

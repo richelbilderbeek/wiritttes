@@ -223,7 +223,7 @@ test_that("extract_fixed_crown_age returns TRUE when set", {
     mutation_rate  = 0.01,
     n_alignments = 1,
     sequence_length = 5,
-    nspp = 2,
+    nspp = 10,
     n_beast_runs = 1,
     filename = filename,
     fixed_crown_age = TRUE

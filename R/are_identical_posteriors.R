@@ -14,12 +14,12 @@
 #' @export
 are_identical_posteriors <- function(p, q) {
 
-  if (!RBeast::is_posterior(p)) {
+  if (!beastier::is_posterior(p)) {
     stop(
       "are_identical_posteriors: p must be a wiritttes posterior"
     )
   }
-  if (!RBeast::is_posterior(q)) {
+  if (!beastier::is_posterior(q)) {
     stop(
       "are_identical_posteriors: ",
       "q must be a wiritttes posterior"

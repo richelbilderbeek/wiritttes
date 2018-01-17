@@ -67,10 +67,10 @@ do_simulation(filename)
 ```{r}
 posteriors <- get_posteriors(read_file(filename))
 testit::assert(length(posteriors) == 2 * n_beast_runs)
-testit::assert(RBeast::is_posterior(wiritttes::get_posterior(file = read_file(filename), sti = 1, ai = 1, pi = 1)))
-testit::assert(RBeast::is_posterior(wiritttes::get_posterior(file = read_file(filename), sti = 1, ai = 1, pi = 2)))
-testit::assert(RBeast::is_posterior(wiritttes::get_posterior(file = read_file(filename), sti = 2, ai = 1, pi = 1)))
-testit::assert(RBeast::is_posterior(wiritttes::get_posterior(file = read_file(filename), sti = 2, ai = 1, pi = 2)))
+testit::assert(beastier::is_posterior(wiritttes::get_posterior(file = read_file(filename), sti = 1, ai = 1, pi = 1)))
+testit::assert(beastier::is_posterior(wiritttes::get_posterior(file = read_file(filename), sti = 1, ai = 1, pi = 2)))
+testit::assert(beastier::is_posterior(wiritttes::get_posterior(file = read_file(filename), sti = 2, ai = 1, pi = 1)))
+testit::assert(beastier::is_posterior(wiritttes::get_posterior(file = read_file(filename), sti = 2, ai = 1, pi = 2)))
 
 phylogenies_1 <- wiritttes::get_posterior(file = read_file(filename), sti = 1, ai = 1, pi = 1)$trees
 phylogenies_2 <- wiritttes::get_posterior(file = read_file(filename), sti = 1, ai = 1, pi = 2)$trees

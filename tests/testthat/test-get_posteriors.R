@@ -9,7 +9,7 @@ test_that("get_posteriors: toy examples 1", {
   names(posteriors[[1]][[1]])
   names(posteriors[[1]][[1]]$estimates)
   expect_equal(length(posteriors), 2)
-  expect_true(RBeast::is_posterior(posteriors[[1]][[1]]))
+  expect_true(beastier::is_posterior(posteriors[[1]][[1]]))
 
 })
 
@@ -20,7 +20,7 @@ test_that("get_posteriors: toy examples 3", {
   posteriors <- get_posteriors(file)
 
   expect_equal(length(posteriors), 8)
-  expect_true(RBeast::is_posterior(posteriors[[8]][[1]]))
+  expect_true(beastier::is_posterior(posteriors[[8]][[1]]))
 
 })
 
@@ -45,7 +45,7 @@ test_that("get_posteriors: add one", {
     mutation_rate = 0.1,
     n_alignments = 1,
     sequence_length = 10,
-    nspp = 2,
+    nspp = 10,
     n_beast_runs = 1,
     filename = filename
   )
@@ -87,7 +87,7 @@ test_that("get_posteriors: add two", {
     mutation_rate = 0.1,
     n_alignments = 1,
     sequence_length = 10,
-    nspp = 2,
+    nspp = 10,
     n_beast_runs = n_posteriors,
     filename = filename
   )

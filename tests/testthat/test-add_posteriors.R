@@ -304,6 +304,7 @@ test_that(paste("add_posteriors with fixed crown age",
   # else the intermediate BEAST2 files will be deleted in the process
   filename <- "test-add_posteriors_2.RDa"
   crown_age <- 12.34
+  nspp <- 10
   save_parameters_to_file(
     rng_seed = 42,
     sirg = 0.5,
@@ -315,7 +316,7 @@ test_that(paste("add_posteriors with fixed crown age",
     mutation_rate = 0.1,
     n_alignments = 1,
     sequence_length = 10,
-    nspp = 10,
+    nspp = nspp,
     n_beast_runs = 1,
     filename = filename,
     fixed_crown_age = TRUE
@@ -329,7 +330,7 @@ test_that(paste("add_posteriors with fixed crown age",
     file = wiritttes::read_file(filename),
     sti = 1, ai = 1, pi = 1)
   crown_age_estimates <- posterior$estimates$TreeHeight
-  testthat::expect_equivalent(crown_age_estimates, rep(crown_age, 3))
+  testthat::expect_equivalent(crown_age_estimates, rep(crown_age, nspp + 1)) # +1, as timestep 0 is already sampled
 
   file.remove(filename)
 })

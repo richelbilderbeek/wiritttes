@@ -27,5 +27,5 @@ Determines if the input is a wiritttes posterior,
   testit::assert( are_identical_posteriors(posterior_2, posterior_2))
 }
 \author{
-Richel Bilderbeek
+Richel J.C. Bilderbeek
 }

@@ -18,6 +18,7 @@ test_that("are_identical_trees_posteriors: use from file", {
   # Different lengths
   posterior_1_short <- posterior_1
   posterior_1_short$trees <- head(posterior_1$trees)
+  class(posterior_1_short$trees) <- "multiPhylo"
   testthat::expect_false(
     wiritttes::are_identical_trees_posteriors(
       posterior_1$trees, posterior_1_short$trees))

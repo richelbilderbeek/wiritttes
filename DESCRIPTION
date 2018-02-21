@@ -26,7 +26,7 @@ Requires:
 Imports:
     beastier,
     beautier,
-    lumier,
+    tracerer,
     geiger,
     nLTT,
     PBD,
@@ -54,7 +54,7 @@ Remotes:
     jimhester/lintr,
     richelbilderbeek/beastier,
     richelbilderbeek/beautier,
-    richelbilderbeek/lumier,
+    richelbilderbeek/tracerer,
     richelbilderbeek/nLTT,
     richelbilderbeek/ribir,
     rsetienne/PBD/PBD,

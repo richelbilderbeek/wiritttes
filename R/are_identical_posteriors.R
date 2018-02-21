@@ -10,19 +10,18 @@
 #'   testit::assert(!are_identical_posteriors(posterior_1, posterior_2))
 #'   testit::assert(!are_identical_posteriors(posterior_2, posterior_1))
 #'   testit::assert( are_identical_posteriors(posterior_2, posterior_2))
-#' @author Richel Bilderbeek
+#' @author Richel J.C. Bilderbeek
 #' @export
 are_identical_posteriors <- function(p, q) {
 
-  if (!beastier::is_posterior(p)) {
+  if (!tracerer::is_posterior(p)) {
     stop(
-      "are_identical_posteriors: p must be a wiritttes posterior"
+      "p must be a posterior"
     )
   }
-  if (!beastier::is_posterior(q)) {
+  if (!tracerer::is_posterior(q)) {
     stop(
-      "are_identical_posteriors: ",
-      "q must be a wiritttes posterior"
+      "q must be a posterior"
     )
   }
   if (!are_identical_trees_posteriors(p$trees, q$trees)) {

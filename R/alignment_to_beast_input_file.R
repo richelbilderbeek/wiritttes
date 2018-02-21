@@ -72,8 +72,8 @@ alignment_to_beast_input_file <- function(
   # So that mcmc_chainlength is written as 1000000 instead of 1e+7
   options(scipen = 20)
   beautier::create_beast2_input_file(
-    input_fasta_filename = temp_fasta_filename,
-    output_xml_filename = beast_filename,
+    input_filenames = temp_fasta_filename,
+    output_filename = beast_filename,
     mcmc = beautier::create_mcmc(chain_length = nspp * 1000),
     tree_priors = beautier::create_bd_tree_prior(),
     posterior_crown_age = crown_age

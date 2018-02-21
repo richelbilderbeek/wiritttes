@@ -34,8 +34,8 @@ test_that("alignment_to_beast_posterior: basic", {
     beast_jar_path = beast_jar_path
   )
 
-  expect_true(beastier::is_posterior(posterior))
-  expect_true(beastier::is_trees_posterior(posterior$trees))
+  expect_true(tracerer::is_posterior(posterior))
+  expect_true(tracerer::is_trees_posterior(posterior$trees))
 })
 
 test_that("alignment_to_beast_posterior: abuse", {
@@ -79,7 +79,7 @@ test_that("alignment_to_beast_posterior: abuse", {
       rng_seed = 42,
       beast_jar_path = find_beast_jar_path()
     ),
-    "nspp must be at least 10"
+    "nspp must be at least 2"
   )
   expect_error(
     alignment_to_beast_posterior(

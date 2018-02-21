@@ -14,13 +14,25 @@ get_posterior_by_index <- function(file, i) {
     stop("index must be less than number of posteriors")
   }
   posterior <- file$posteriors[[i]][[1]]
-  if (!beastier::is_posterior(posterior)) {
+  if (!tracerer::is_posterior(posterior)) {
     # The posterior may not be added yet
     stop(
       "posterior absent at index ",
       i
     )
   }
+
+  # Rename any 'x_trees' to simply trees
+  for (i in seq_along(names(posterior))) {
+    if (grepl("trees$", names(posterior)[i])) {
+      new_names <- names(posterior)
+      new_names[i] <- "trees"
+      names(posterior) <- new_names
+    }
+  }
+  # Use 'multiPhylo' instead of plain list
+  class(posterior$trees) <- "multiPhylo"
+
   posterior
 }
 
@@ -48,7 +60,7 @@ get_posterior_by_index <- function(file, i) {
 #'   posterior <- get_posterior(file = file, sti = sti, ai = 1, pi = 1)
 #'   # Check that it is indeed a posterior of non-zero length
 #'   testit::assert(all(names(posterior) == c("trees", "estimates")))
-#'   testit::assert(beastier::is_posterior(posterior))
+#'   testit::assert(tracerer::is_posterior(posterior))
 #'   testit::assert(length(posterior) > 0)
 #' @author Richel Bilderbeek
 get_posterior <- function(

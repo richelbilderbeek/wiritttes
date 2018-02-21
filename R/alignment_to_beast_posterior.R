@@ -40,8 +40,8 @@
 #'   )
 #'
 #'   # Check the posterior
-#'   testit::assert(beastier::is_posterior(posterior))
-#'   testit::assert(beastier::is_trees_posterior(posterior$trees))
+#'   testit::assert(tracerer::is_posterior(posterior))
+#'   testit::assert(tracerer::is_trees_posterior(posterior$trees))
 #'
 #' @export
 #' @author Richel Bilderbeek
@@ -59,8 +59,8 @@ alignment_to_beast_posterior <- function(
   if (!ribir::is_whole_number(nspp)) {
     stop("nspp must be a whole number")
   }
-  if (nspp < 10) {
-    stop("nspp must be at least 10")
+  if (nspp < 2) {
+    stop("nspp must be at least 2")
   }
   if (!is.character(base_filename)) {
     stop("base_filename must be a character string")
@@ -116,17 +116,17 @@ alignment_to_beast_posterior <- function(
   testit::assert(file.exists(beast_log_filename))
   testit::assert(file.exists(beast_state_filename))
 
-  trees_posterior <- beastier::parse_beast_trees(beast_trees_filename)
-  estimates_posterior <- beastier::parse_beast_log(beast_log_filename)
+  trees_posterior <- tracerer::parse_beast_trees(beast_trees_filename)
+  estimates_posterior <- tracerer::parse_beast_log(beast_log_filename)
 
-  testit::assert(beastier::is_trees_posterior(x = trees_posterior))
+  testit::assert(tracerer::is_trees_posterior(x = trees_posterior))
 
   posterior <- list(
     trees = trees_posterior,
     estimates = estimates_posterior
   )
 
-  testit::assert(beastier::is_posterior(posterior))
+  testit::assert(tracerer::is_posterior(posterior))
 
   return(posterior)
 }

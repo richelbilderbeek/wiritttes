@@ -60,8 +60,8 @@ Convert an alignment to a BEAST2 XML input file
   )
 
   # Check the posterior
-  testit::assert(beastier::is_posterior(posterior))
-  testit::assert(beastier::is_trees_posterior(posterior$trees))
+  testit::assert(tracerer::is_posterior(posterior))
+  testit::assert(tracerer::is_trees_posterior(posterior$trees))
 
 }
 \author{

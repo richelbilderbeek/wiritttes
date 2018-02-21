@@ -7,10 +7,10 @@
 #' @export
 are_identical_trees_posteriors <- function(p, q) {
 
-  if (!beastier::is_trees_posterior(p)) {
+  if (!tracerer::is_trees_posterior(p)) {
     stop("p must be a BEAST2 posterior")
   }
-  if (!beastier::is_trees_posterior(q)) {
+  if (!tracerer::is_trees_posterior(q)) {
     stop("q must be a BEAST2 posterior")
   }
   if (length(p) != length(q)) {
@@ -23,5 +23,5 @@ are_identical_trees_posteriors <- function(p, q) {
     }
   }
 
-  return(TRUE)
+  TRUE
 }

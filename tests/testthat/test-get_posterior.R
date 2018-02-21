@@ -4,8 +4,8 @@ test_that("get_posterior: #1", {
   file <- wiritttes::read_file(wiritttes::find_path("toy_example_1.RDa"))
   posterior_1 <- wiritttes::get_posterior(file = file, sti = 1, ai = 1, pi = 1)
   posterior_2 <- wiritttes::get_posterior(file = file, sti = 2, ai = 1, pi = 1)
-  expect_true(beastier::is_posterior(posterior_1))
-  expect_true(beastier::is_posterior(posterior_2))
+  expect_true(tracerer::is_posterior(posterior_1))
+  expect_true(tracerer::is_posterior(posterior_2))
 })
 
 test_that("get_posterior: #4", {
@@ -18,14 +18,14 @@ test_that("get_posterior: #4", {
   posterior_6 <- get_posterior(file = file, sti = 2, ai = 1, pi = 2)
   posterior_7 <- get_posterior(file = file, sti = 2, ai = 2, pi = 1)
   posterior_8 <- get_posterior(file = file, sti = 2, ai = 2, pi = 2)
-  expect_true(beastier::is_posterior(posterior_1))
-  expect_true(beastier::is_posterior(posterior_2))
-  expect_true(beastier::is_posterior(posterior_3))
-  expect_true(beastier::is_posterior(posterior_4))
-  expect_true(beastier::is_posterior(posterior_5))
-  expect_true(beastier::is_posterior(posterior_6))
-  expect_true(beastier::is_posterior(posterior_7))
-  expect_true(beastier::is_posterior(posterior_8))
+  expect_true(tracerer::is_posterior(posterior_1))
+  expect_true(tracerer::is_posterior(posterior_2))
+  expect_true(tracerer::is_posterior(posterior_3))
+  expect_true(tracerer::is_posterior(posterior_4))
+  expect_true(tracerer::is_posterior(posterior_5))
+  expect_true(tracerer::is_posterior(posterior_6))
+  expect_true(tracerer::is_posterior(posterior_7))
+  expect_true(tracerer::is_posterior(posterior_8))
 })
 
 test_that("set_posterior: #4", {
@@ -99,17 +99,17 @@ test_that("get_posterior from fresh file", {
   file <- read_file(filename = filename)
 
   # No posterior yet
-  expect_error(
+  testthat::expect_error(
     get_posterior(file, sti = 2, ai = napst, pi = nppa),
     "posterior absent at index 24"
   )
 
   # Getting a posterior
-  posterior <- beastier::parse_beast_posterior(
+  posterior <- tracerer::parse_beast_posterior(
     trees_filename = find_path(filename = "beast2_example_output.trees"),
     log_filename   = find_path(filename = "beast2_example_output.log")
   )
-  expect_true(beastier::is_posterior(posterior))
+  testthat::expect_true(tracerer::is_posterior(posterior))
 
   file <- set_posterior(
     file = file, sti = 2, ai = napst, pi = nppa,
@@ -120,8 +120,10 @@ test_that("get_posterior from fresh file", {
     file = file,
     sti = 2, ai = napst, pi = nppa
   )
+  names(posterior) <- c("trees", "estimates")
+  names(posterior_again) <- c("trees", "estimates")
 
-  expect_true(
+  testthat::expect_true(
     are_identical_posteriors(
       posterior, posterior_again
     )

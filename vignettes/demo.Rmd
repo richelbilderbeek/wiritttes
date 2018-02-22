@@ -1,6 +1,6 @@
 ---
 title: "Demo"
-author: "Richel Bilderbeek"
+author: "Richel J.C. Bilderbeek"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
@@ -670,6 +670,7 @@ This visualization does not tell use how the error is made: is the error concent
 
 ## Cleaning up
 
-```{r clean_up}
+```{r cleanup, include = FALSE}
 file.remove(filenames)
+file.remove(dir(pattern="analyse_toy_examples_"))
 ```

@@ -5,7 +5,9 @@ test_that("add_posteriors: two posteriors are added", {
     skip("BEAST2 absent")
   }
 
-  # Must not be a temporary (e.g. 'filename <- tempfile(pattern = "test-add_posteriors_1_", fileext = ".RDa")')
+  # Must not be a temporary (e.g. 'filename <- tempfile(
+  #   pattern = "test-add_posteriors_1_", fileext = ".RDa")'
+  # )
   # else the intermediate BEAST2 files will be deleted in the process
   filename <- "test-add_posteriors_1.RDa"
 
@@ -300,7 +302,9 @@ test_that(paste("add_posteriors with fixed crown age",
     skip("BEAST2 absent")
   }
 
-  # Must not be a temporary (e.g. 'filename <- tempfile(pattern = "test-add_posteriors_2_", fileext = ".RDa")')
+  # Must not be a temporary (e.g. 'filename <- tempfile(
+  #   pattern = "test-add_posteriors_2_", fileext = ".RDa")'
+  # )
   # else the intermediate BEAST2 files will be deleted in the process
   filename <- "test-add_posteriors_2.RDa"
   crown_age <- 12.34
@@ -330,7 +334,9 @@ test_that(paste("add_posteriors with fixed crown age",
     file = wiritttes::read_file(filename),
     sti = 1, ai = 1, pi = 1)
   crown_age_estimates <- posterior$estimates$TreeHeight
-  testthat::expect_equivalent(crown_age_estimates, rep(crown_age, nspp + 1)) # +1, as timestep 0 is already sampled
+
+  # +1, as timestep 0 is already sampled
+  testthat::expect_equivalent(crown_age_estimates, rep(crown_age, nspp + 1))
 
   file.remove(filename)
 })

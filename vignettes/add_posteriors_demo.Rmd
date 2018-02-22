@@ -133,10 +133,7 @@ phangorn::densiTree(
 )
 ```
 
-## Cleaning up
-
-Delete the created files.
-
-```{r}
+```{r cleanup, include = FALSE}
 file.remove(filename)
+file.remove(dir(pattern="add_posterior_demo_"))
 ```

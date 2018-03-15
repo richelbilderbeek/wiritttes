@@ -28,5 +28,5 @@ are_identical_posteriors <- function(p, q) {
     return(FALSE)
   }
 
-  return(TRUE)
+  TRUE
 }

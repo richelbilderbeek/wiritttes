@@ -87,15 +87,22 @@ alignment_to_beast_posterior <- function(
   beast_state_filename <- paste0(base_filename, ".xml.state")
   temp_fasta_filename <- paste0(base_filename, ".fasta")
 
-  # Create a BEAST2 XML input file
-  alignment_to_beast_input_file(
-    alignment = alignment,
-    nspp = nspp,
-    rng_seed = rng_seed,
-    beast_filename = beast_filename,
-    temp_fasta_filename = temp_fasta_filename,
-    crown_age = crown_age
+  # Save to FASTA file
+  wiritttes::convert_alignment_to_fasta(alignment, temp_fasta_filename)
+
+  # So that mcmc_chainlength is written as 1000000 instead of 1e+7
+  options(scipen = 20)
+  beautier::create_beast2_input_file(
+    input_filenames = temp_fasta_filename,
+    output_filename = beast_filename,
+    mcmc = beautier::create_mcmc(chain_length = nspp * 1000),
+    tree_priors = beautier::create_bd_tree_prior(),
+    posterior_crown_age = crown_age
   )
+
+  testit::assert(file.exists(beast_filename))
+  file.remove(temp_fasta_filename)
+  testit::assert(!file.exists(temp_fasta_filename))
   testit::assert(file.exists(beast_filename))
 
   # Run BEAST2, needs the BEAST2 .XML parameter file

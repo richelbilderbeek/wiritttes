@@ -79,15 +79,8 @@ alignment_to_beast_posterior <- function(
     stop("base_filename must not start with '/tmp/'")
   }
 
-
-  # File paths
-  beast_filename <- paste0(base_filename, ".xml")
-  beast_log_filename <- paste0(base_filename, ".log")
-  beast_trees_filename <- paste0(base_filename, ".trees")
-  beast_state_filename <- paste0(base_filename, ".xml.state")
-  temp_fasta_filename <- paste0(base_filename, ".fasta")
-
   # Save to FASTA file
+  temp_fasta_filename <- paste0(base_filename, ".fasta")
   wiritttes::convert_alignment_to_fasta(alignment, temp_fasta_filename)
 
   out <- babette::run(
@@ -102,55 +95,12 @@ alignment_to_beast_posterior <- function(
     cleanup = TRUE
   )
 
+  file.remove(temp_fasta_filename)
+
   posterior <- list(
     trees = out[[grep(x = names(out), pattern = "trees")]],
     estimates = out$estimates
   )
-
-  # So that mcmc_chainlength is written as 1000000 instead of 1e+7
-  options(scipen = 20)
-  if (1 == 2) {
-    beautier::create_beast2_input_file(
-      input_filenames = temp_fasta_filename,
-      output_filename = beast_filename,
-      mcmc = beautier::create_mcmc(chain_length = nspp * 1000),
-      tree_priors = beautier::create_bd_tree_prior(),
-      posterior_crown_age = crown_age
-    )
-
-    testit::assert(file.exists(beast_filename))
-    file.remove(temp_fasta_filename)
-    testit::assert(!file.exists(temp_fasta_filename))
-    testit::assert(file.exists(beast_filename))
-
-    # Run BEAST2, needs the BEAST2 .XML parameter file
-    beastier::run_beast2(
-      input_filename = beast_filename,
-      output_log_filename = beast_log_filename,
-      output_trees_filenames = beast_trees_filename,
-      output_state_filename = beast_state_filename,
-      rng_seed = rng_seed,
-      n_threads = 8,
-      use_beagle = TRUE,
-      overwrite_state_file = TRUE,
-      verbose = FALSE
-    )
-
-    # assert everything until I can reproduce these errors
-    testit::assert(file.exists(beast_trees_filename))
-    testit::assert(file.exists(beast_log_filename))
-    testit::assert(file.exists(beast_state_filename))
-
-    trees_posterior <- tracerer::parse_beast_trees(beast_trees_filename)
-    estimates_posterior <- tracerer::parse_beast_log(beast_log_filename)
-
-    testit::assert(tracerer::is_trees_posterior(x = trees_posterior))
-
-    posterior <- list(
-      trees = trees_posterior,
-      estimates = estimates_posterior
-    )
-  }
 
   testit::assert(tracerer::is_posterior(posterior))
 

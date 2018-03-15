@@ -14,6 +14,7 @@ r_github_packages:
   - jimhester/covr
   - jimhester/lintr
   - MangoTheCat/goodpractice
+  - richelbilderbeek/babette
   - richelbilderbeek/beastier
   - richelbilderbeek/beautier
   - richelbilderbeek/tracerer

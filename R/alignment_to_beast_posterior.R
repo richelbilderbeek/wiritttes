@@ -110,17 +110,6 @@ alignment_to_beast_posterior <- function(
     overwrite_state_file = TRUE,
     verbose = FALSE
   )
-  # cmd <- paste0(
-  #   "java -jar ", beast_jar_path,
-  #   " -seed ", rng_seed,
-  #   " -threads 8 -beagle",
-  #   " -statefile ", beast_state_filename,
-  #   " -overwrite ",
-  #   " ", beast_filename # XML filename should always be last
-  # )
-  #
-  # cmd <- paste0(cmd, " 1>>testthat.log 2>>testthat.log")
-  # system(cmd)
 
   # assert everything until I can reproduce these errors
   testit::assert(file.exists(beast_trees_filename))

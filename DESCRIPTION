@@ -24,9 +24,7 @@ Requires:
     tools,
     TreeSim
 Imports:
-    beastier,
-    beautier,
-    tracerer,
+    babette,
     geiger,
     nLTT,
     PBD,
@@ -52,9 +50,7 @@ Suggests:
 Remotes: 
     jimhester/covr,
     jimhester/lintr,
-    richelbilderbeek/beastier,
-    richelbilderbeek/beautier,
-    richelbilderbeek/tracerer,
+    richelbilderbeek/babette,
     richelbilderbeek/nLTT,
     richelbilderbeek/ribir,
     rsetienne/PBD/PBD,

@@ -24,7 +24,7 @@ test_that("alignment_to_beast_posterior: basic", {
     mutation_rate = 1
   )
   beast_jar_path <- find_beast_jar_path()
-  expect_true(file.exists(beast_jar_path))
+  testthat::expect_true(file.exists(beast_jar_path))
 
   posterior <- alignment_to_beast_posterior(
     alignment = alignment,

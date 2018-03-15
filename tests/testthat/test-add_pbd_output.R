@@ -43,7 +43,7 @@ test_that("pbd_output is added", {
 
   # Cleanup
   file.remove(filename)
-  expect_false(file.exists(filename))
+  testthat::expect_false(file.exists(filename))
 })
 
 test_that("add_pbd_output: demonstrate PBD::pbd_sim to freeze", {

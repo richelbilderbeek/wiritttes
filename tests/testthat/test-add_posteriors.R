@@ -50,8 +50,8 @@ test_that("add_posteriors: two posteriors are added", {
     file = read_file(filename),
     i = 2
   )
-  expect_true(tracerer::is_posterior(posterior_1))
-  expect_true(tracerer::is_posterior(posterior_2))
+  testthat::expect_true(tracerer::is_posterior(posterior_1))
+  testthat::expect_true(tracerer::is_posterior(posterior_2))
 
   # Cleaning up
   # Post clean
@@ -62,8 +62,8 @@ test_that("add_posteriors: two posteriors are added", {
   if (file.exists(log_filename)) {
     file.remove(log_filename)
   }
-  expect_false(file.exists(filename))
-  expect_false(file.exists(log_filename))
+  testthat::expect_false(file.exists(filename))
+  testthat::expect_false(file.exists(log_filename))
 })
 
 

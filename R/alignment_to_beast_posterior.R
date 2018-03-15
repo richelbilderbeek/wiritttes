@@ -90,48 +90,67 @@ alignment_to_beast_posterior <- function(
   # Save to FASTA file
   wiritttes::convert_alignment_to_fasta(alignment, temp_fasta_filename)
 
-  # So that mcmc_chainlength is written as 1000000 instead of 1e+7
-  options(scipen = 20)
-  beautier::create_beast2_input_file(
-    input_filenames = temp_fasta_filename,
-    output_filename = beast_filename,
+  out <- babette::run(
+    fasta_filenames = temp_fasta_filename,
+    site_models = create_jc69_site_model(),
+    clock_models = create_strict_clock_model(),
+    mrca_priors = NA,
     mcmc = beautier::create_mcmc(chain_length = nspp * 1000),
     tree_priors = beautier::create_bd_tree_prior(),
-    posterior_crown_age = crown_age
-  )
-
-  testit::assert(file.exists(beast_filename))
-  file.remove(temp_fasta_filename)
-  testit::assert(!file.exists(temp_fasta_filename))
-  testit::assert(file.exists(beast_filename))
-
-  # Run BEAST2, needs the BEAST2 .XML parameter file
-  beastier::run_beast2(
-    input_filename = beast_filename,
-    output_log_filename = beast_log_filename,
-    output_trees_filenames = beast_trees_filename,
-    output_state_filename = beast_state_filename,
+    posterior_crown_age = crown_age,
     rng_seed = rng_seed,
-    n_threads = 8,
-    use_beagle = TRUE,
-    overwrite_state_file = TRUE,
-    verbose = FALSE
+    cleanup = TRUE
   )
-
-  # assert everything until I can reproduce these errors
-  testit::assert(file.exists(beast_trees_filename))
-  testit::assert(file.exists(beast_log_filename))
-  testit::assert(file.exists(beast_state_filename))
-
-  trees_posterior <- tracerer::parse_beast_trees(beast_trees_filename)
-  estimates_posterior <- tracerer::parse_beast_log(beast_log_filename)
-
-  testit::assert(tracerer::is_trees_posterior(x = trees_posterior))
 
   posterior <- list(
-    trees = trees_posterior,
-    estimates = estimates_posterior
+    trees = out[[grep(x = names(out), pattern = "trees")]],
+    estimates = out$estimates
   )
+
+  # So that mcmc_chainlength is written as 1000000 instead of 1e+7
+  options(scipen = 20)
+  if (1 == 2) {
+    beautier::create_beast2_input_file(
+      input_filenames = temp_fasta_filename,
+      output_filename = beast_filename,
+      mcmc = beautier::create_mcmc(chain_length = nspp * 1000),
+      tree_priors = beautier::create_bd_tree_prior(),
+      posterior_crown_age = crown_age
+    )
+
+    testit::assert(file.exists(beast_filename))
+    file.remove(temp_fasta_filename)
+    testit::assert(!file.exists(temp_fasta_filename))
+    testit::assert(file.exists(beast_filename))
+
+    # Run BEAST2, needs the BEAST2 .XML parameter file
+    beastier::run_beast2(
+      input_filename = beast_filename,
+      output_log_filename = beast_log_filename,
+      output_trees_filenames = beast_trees_filename,
+      output_state_filename = beast_state_filename,
+      rng_seed = rng_seed,
+      n_threads = 8,
+      use_beagle = TRUE,
+      overwrite_state_file = TRUE,
+      verbose = FALSE
+    )
+
+    # assert everything until I can reproduce these errors
+    testit::assert(file.exists(beast_trees_filename))
+    testit::assert(file.exists(beast_log_filename))
+    testit::assert(file.exists(beast_state_filename))
+
+    trees_posterior <- tracerer::parse_beast_trees(beast_trees_filename)
+    estimates_posterior <- tracerer::parse_beast_log(beast_log_filename)
+
+    testit::assert(tracerer::is_trees_posterior(x = trees_posterior))
+
+    posterior <- list(
+      trees = trees_posterior,
+      estimates = estimates_posterior
+    )
+  }
 
   testit::assert(tracerer::is_posterior(posterior))
 

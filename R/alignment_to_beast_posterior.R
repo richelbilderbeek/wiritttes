@@ -99,17 +99,28 @@ alignment_to_beast_posterior <- function(
   testit::assert(file.exists(beast_filename))
 
   # Run BEAST2, needs the BEAST2 .XML parameter file
-  cmd <- paste0(
-    "java -jar ", beast_jar_path,
-    " -seed ", rng_seed,
-    " -threads 8 -beagle",
-    " -statefile ", beast_state_filename,
-    " -overwrite ",
-    " ", beast_filename # XML filename should always be last
+  beastier::run_beast2(
+    input_filename = beast_filename,
+    output_log_filename = beast_log_filename,
+    output_trees_filenames = beast_trees_filename,
+    output_state_filename = beast_state_filename,
+    rng_seed = rng_seed,
+    n_threads = 8,
+    use_beagle = TRUE,
+    overwrite_state_file = TRUE,
+    verbose = FALSE
   )
-
-  cmd <- paste0(cmd, " 1>>testthat.log 2>>testthat.log")
-  system(cmd)
+  # cmd <- paste0(
+  #   "java -jar ", beast_jar_path,
+  #   " -seed ", rng_seed,
+  #   " -threads 8 -beagle",
+  #   " -statefile ", beast_state_filename,
+  #   " -overwrite ",
+  #   " ", beast_filename # XML filename should always be last
+  # )
+  #
+  # cmd <- paste0(cmd, " 1>>testthat.log 2>>testthat.log")
+  # system(cmd)
 
   # assert everything until I can reproduce these errors
   testit::assert(file.exists(beast_trees_filename))
@@ -128,5 +139,5 @@ alignment_to_beast_posterior <- function(
 
   testit::assert(tracerer::is_posterior(posterior))
 
-  return(posterior)
+  posterior
 }

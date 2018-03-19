@@ -9,9 +9,7 @@ convert_alignment_to_fasta <- function(
   filename
 ) {
   if (!ribir::is_alignment(alignment)) {
-    stop(
-      "alignment must be an alignment"
-    )
+    stop("alignment must be an alignment")
   }
   phangorn::write.phyDat(alignment, file = filename, format = "fasta")
 }

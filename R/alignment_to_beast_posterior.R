@@ -85,8 +85,8 @@ alignment_to_beast_posterior <- function(
 
   out <- babette::run(
     fasta_filenames = temp_fasta_filename,
-    site_models = create_jc69_site_model(),
-    clock_models = create_strict_clock_model(),
+    site_models = beautier::create_jc69_site_model(),
+    clock_models = beautier::create_strict_clock_model(),
     mrca_priors = NA,
     mcmc = beautier::create_mcmc(chain_length = nspp * 1000),
     tree_priors = beautier::create_bd_tree_prior(),

@@ -5,7 +5,7 @@
 \title{Convert an alignment to a BEAST2 XML input file}
 \usage{
 alignment_to_beast_posterior(alignment, nspp, base_filename, crown_age = NA,
-  rng_seed = 42, beast_jar_path = find_beast_jar_path())
+  rng_seed = 42, beast_jar_path = tracererfind_beast_jar_path())
 }
 \arguments{
 \item{alignment}{The alignment of type DNAbin}

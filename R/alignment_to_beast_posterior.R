@@ -51,7 +51,7 @@ alignment_to_beast_posterior <- function(
   base_filename,
   crown_age = NA,
   rng_seed = 42,
-  beast_jar_path = find_beast_jar_path()
+  beast_jar_path = tracererfind_beast_jar_path()
 ) {
   if (!ribir::is_alignment(alignment)) {
     stop("alignment must be an alignment")

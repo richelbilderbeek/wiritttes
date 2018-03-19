@@ -25,12 +25,15 @@ Requires:
     TreeSim
 Imports:
     babette,
+    beautier,
+    beastier,
     geiger,
     nLTT,
     PBD,
     phangorn,
     phytools,
-    ribir
+    ribir,
+    tracerer
 Suggests:
     ape,
     coda,
@@ -51,6 +54,9 @@ Remotes:
     jimhester/covr,
     jimhester/lintr,
     richelbilderbeek/babette,
+    richelbilderbeek/beautier,
+    richelbilderbeek/beastier,
+    richelbilderbeek/tracerer,
     richelbilderbeek/nLTT,
     richelbilderbeek/ribir,
     rsetienne/PBD/PBD,

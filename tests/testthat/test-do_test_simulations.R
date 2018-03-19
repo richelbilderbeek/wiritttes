@@ -2,6 +2,8 @@ context("do_test_simulations")
 
 test_that("do_test_simulations: create exact replicate", {
 
+  if (!beastier:::is_on_travis()) return()
+
   filenames_1 <- paste0("do_test_simulations_1_", seq(1, 4), ".RDa")
   filenames_2 <- paste0("do_test_simulations_2_", seq(1, 4), ".RDa")
 

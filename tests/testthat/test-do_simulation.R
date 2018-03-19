@@ -1,6 +1,9 @@
 context("do_simulation")
 
 test_that("do_simulation: use", {
+
+  if (!beastier:::is_on_travis()) return()
+
   filename <- "test-do_simulation.RDa"
   save_parameters_to_file(
     rng_seed = 42,
@@ -24,6 +27,9 @@ test_that("do_simulation: use", {
 })
 
 test_that("do_simulation: create full toy_example_x.RDa", {
+
+  if (!beastier:::is_on_travis()) return()
+
   need_to_recreate <- FALSE
   if (need_to_recreate == TRUE) {
     filenames <- paste0("toy_example_", 1:4, ".RDa")

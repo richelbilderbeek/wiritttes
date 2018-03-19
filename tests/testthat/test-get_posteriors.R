@@ -27,6 +27,8 @@ test_that("get_posteriors: toy examples 3", {
 
 test_that("get_posteriors: add one", {
 
+  if (!beastier:::is_on_travis()) return()
+
   filename <- "test-get_posteriors.RDa"
 
   # Pre clean
@@ -67,6 +69,8 @@ test_that("get_posteriors: add one", {
 })
 
 test_that("get_posteriors: add two", {
+
+  if (!beastier:::is_on_travis()) return()
 
   filename <- "test-get_posteriors.RDa"
   n_posteriors <- 2

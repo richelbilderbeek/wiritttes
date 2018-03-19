@@ -1,9 +1,7 @@
 context("add_posteriors")
 
 test_that("add_posteriors: two posteriors are added", {
-  if (!has_beast2()) {
-    skip("BEAST2 absent")
-  }
+  if (!beastier:::is_on_travis()) return()
 
   # Must not be a temporary (e.g. 'filename <- tempfile(
   #   pattern = "test-add_posteriors_1_", fileext = ".RDa")'
@@ -68,9 +66,7 @@ test_that("add_posteriors: two posteriors are added", {
 
 
 test_that("four posteriors are added", {
-  if (!has_beast2()) {
-    skip("BEAST2 absent")
-  }
+  if (!beastier:::is_on_travis()) return()
 
   filename <- "test-add_posteriors_2.RDa"
 
@@ -148,9 +144,7 @@ test_that("four posteriors are added", {
 
 test_that("three posteriors are added, middle is deleted and added again", {
 
-  if (!has_beast2()) {
-    skip("BEAST2 absent")
-  }
+  if (!beastier:::is_on_travis()) return()
 
   filename <- "test-add_posteriors_3.RDa"
 
@@ -290,53 +284,4 @@ test_that("add_posteriors: abuse", {
     add_posteriors(filename = "inva.lid"),
     "invalid filename"
   )
-})
-
-
-
-
-
-test_that(paste("add_posteriors with fixed crown age",
-    "should have fixed crown age in posterior"), {
-  if (!has_beast2()) {
-    skip("BEAST2 absent")
-  }
-
-  # Must not be a temporary (e.g. 'filename <- tempfile(
-  #   pattern = "test-add_posteriors_2_", fileext = ".RDa")'
-  # )
-  # else the intermediate BEAST2 files will be deleted in the process
-  filename <- "test-add_posteriors_2.RDa"
-  crown_age <- 12.34
-  nspp <- 10
-  save_parameters_to_file(
-    rng_seed = 42,
-    sirg = 0.5,
-    siri = 0.5,
-    scr = 0.5,
-    erg = 0.5,
-    eri = 0.5,
-    age = crown_age,
-    mutation_rate = 0.1,
-    n_alignments = 1,
-    sequence_length = 10,
-    nspp = nspp,
-    n_beast_runs = 1,
-    filename = filename,
-    fixed_crown_age = TRUE
-  )
-  add_pbd_output(filename = filename)
-  add_species_trees(filename = filename)
-  add_alignments(filename = filename)
-  add_posteriors(filename = filename)
-
-  posterior <- wiritttes::get_posterior(
-    file = wiritttes::read_file(filename),
-    sti = 1, ai = 1, pi = 1)
-  crown_age_estimates <- posterior$estimates$TreeHeight
-
-  # +1, as timestep 0 is already sampled
-  testthat::expect_equivalent(crown_age_estimates, rep(crown_age, nspp + 1))
-
-  file.remove(filename)
 })

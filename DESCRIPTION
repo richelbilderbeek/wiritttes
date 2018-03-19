@@ -19,7 +19,6 @@ Requires:
     geiger,
     PBD,
     phangorn,
-    pirouette,
     testit,
     tidyr,
     tools,
@@ -33,6 +32,7 @@ Imports:
     PBD,
     phangorn,
     phytools,
+    pirouette,
     ribir,
     tracerer
 Suggests:

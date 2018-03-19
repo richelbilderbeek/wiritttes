@@ -83,7 +83,7 @@ test_that("get_posterior_by_index from fresh file", {
     age = 5,
     mutation_rate = 0.1,
     n_alignments = 1,
-    sequence_length = 10,
+    sequence_length = 2,
     nspp = 10,
     n_beast_runs = n_posteriors,
     filename = filename

@@ -21,7 +21,7 @@ test_that("convert_phylogeny_to_alignment: abuse", {
   expect_error(
     convert_phylogeny_to_alignment(
       phylogeny = "not a phylogeny",
-      sequence_length = 10,
+      sequence_length = 2,
       mutation_rate = 1
     ),
     "parameter 'phylogeny' must be a phylogeny" #nolint
@@ -39,7 +39,7 @@ test_that("convert_phylogeny_to_alignment: abuse", {
   expect_error(
     convert_phylogeny_to_alignment(
       phylogeny = ape::rcoal(5),
-      sequence_length = 10,
+      sequence_length = 2,
       mutation_rate = -1 # Must be positive
     ),
     "parameter 'mutation_rate' must be a non-zero and positive value" # nolint
@@ -52,7 +52,7 @@ test_that("convert_phylogeny_to_alignment: abuse", {
   testthat::expect_error(
     convert_phylogeny_to_alignment(
       phylogeny = p_with_extant,
-      sequence_length = 10, # Must be positive
+      sequence_length = 2,
       mutation_rate = 1
     ),
     "phylogeny must not contain extant species"

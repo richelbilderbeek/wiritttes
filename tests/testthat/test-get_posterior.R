@@ -90,7 +90,7 @@ test_that("get_posterior from fresh file", {
     age = 5,
     mutation_rate = 0.1,
     n_alignments = napst,
-    sequence_length = 10,
+    sequence_length = 2,
     nspp = 10,
     n_beast_runs = nppa,
     filename = filename

@@ -20,7 +20,7 @@ test_that("alignment_to_beast_posterior: basic", {
 
   alignment <- convert_phylogeny_to_alignment(
     phylogeny = ape::rcoal(5),
-    sequence_length = 10,
+    sequence_length = 2,
     mutation_rate = 1
   )
   beast_jar_path <- find_beast_jar_path()
@@ -42,7 +42,7 @@ test_that("alignment_to_beast_posterior: abuse", {
 
   alignment <- convert_phylogeny_to_alignment(
     phylogeny = ape::rcoal(5),
-    sequence_length = 10,
+    sequence_length = 2,
     mutation_rate = 1
   )
 

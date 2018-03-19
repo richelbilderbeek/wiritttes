@@ -40,7 +40,7 @@ test_that("get_alignments: add one", {
     age = 5,
     mutation_rate = 0.1,
     n_alignments = 1,
-    sequence_length = 10,
+    sequence_length = 2,
     nspp = 10,
     n_beast_runs = n_alignments,
     filename = filename
@@ -82,7 +82,7 @@ test_that("get_alignments: add two", {
     age = 5,
     mutation_rate = 0.1,
     n_alignments = n_alignments,
-    sequence_length = 10,
+    sequence_length = 2,
     nspp = 10,
     n_beast_runs = 1,
     filename = filename

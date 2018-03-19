@@ -46,7 +46,7 @@ test_that("are_identical_trees_posteriors: use from local simulation", {
 
   alignment <- convert_phylogeny_to_alignment(
     phylogeny = ape::rcoal(5),
-    sequence_length = 10,
+    sequence_length = 2,
     mutation_rate = 1
   )
   beast_jar_path <- find_beast_jar_path()

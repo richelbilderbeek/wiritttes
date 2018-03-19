@@ -23,7 +23,7 @@ if (file.exists(beast_state_filename)) {
 
 alignment <- convert_phylogeny_to_alignment(
   phylogeny = ape::rcoal(5),
-  sequence_length = 10,
+  sequence_length = 2,
   mutation_rate = 1
 )
 

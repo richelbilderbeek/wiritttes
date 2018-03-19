@@ -12,7 +12,7 @@ test_that("add_species_trees: use", {
     age = 5,
     mutation_rate = 0.1,
     n_alignments = 1,
-    sequence_length = 10,
+    sequence_length = 2,
     nspp = 10,
     n_beast_runs = 1,
     filename = filename
@@ -54,7 +54,7 @@ test_that("add_species_trees: abuse", {
     age = 5,
     mutation_rate = 0.1,
     n_alignments = 1,
-    sequence_length = 10,
+    sequence_length = 2,
     nspp = 10,
     n_beast_runs = 1,
     filename = filename

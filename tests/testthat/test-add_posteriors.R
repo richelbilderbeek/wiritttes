@@ -19,7 +19,7 @@ test_that("add_posteriors: two posteriors are added", {
     age = 5,
     mutation_rate = 0.1,
     n_alignments = 1,
-    sequence_length = 10,
+    sequence_length = 2,
     nspp = 10, # Needs MCM chain length of 10K
     n_beast_runs = 1,
     filename = filename
@@ -86,7 +86,7 @@ test_that("four posteriors are added", {
     age = 5,
     mutation_rate = 0.1,
     n_alignments = 1,
-    sequence_length = 10,
+    sequence_length = 2,
     nspp = 10,
     n_beast_runs = 2,
     filename = filename
@@ -165,7 +165,7 @@ test_that("three posteriors are added, middle is deleted and added again", {
     age = 5,
     mutation_rate = 0.1,
     n_alignments = 1,
-    sequence_length = 10,
+    sequence_length = 2,
     nspp = 10,
     n_beast_runs = 3,
     filename = filename

@@ -81,7 +81,10 @@ run <- function(
     verbose = verbose,
     beast_jar_path = beast_jar_path
   )
-  ess <- tracerer::calc_ess(trace = out$estimates$posterior, sample_interval = 1000)
+  ess <- tracerer::calc_ess(
+    trace = out$estimates$posterior,
+    sample_interval = 1000
+  )
   if (ess < minimal_ess) {
     stop("ESS too low. Needed ", minimal_ess, " measured ", ess)
   }

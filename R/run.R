@@ -85,5 +85,5 @@ run <- function(
   if (ess < minimal_ess) {
     stop("ESS too low. Needed ", minimal_ess, " measured ", ess)
   }
-  out$trees
+  nLTT::nltts_diff(tree = true_phylogeny, trees = out$trees)
 }

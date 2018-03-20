@@ -12,6 +12,7 @@ test_that("use", {
       mutation_rate = 0.1,
       sequence_length = 100,
       mcmc_length = 2000,
+      minimal_ess = 1,
       tree_sim_rng_seed = 42,
       alignment_rng_seed = 42,
       beast2_rnd_seed = 42

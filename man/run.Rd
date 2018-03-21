@@ -8,50 +8,16 @@ run(parameters, beast_jar_path = beastier::get_default_beast2_jar_path(),
   verbose = FALSE)
 }
 \arguments{
+\item{parameters}{biological and methodological parameters,
+as created by \code{\link{create_params}}}
+
 \item{beast_jar_path}{the path of beast.jar}
 
 \item{verbose}{set to TRUE for more (debug) output}
-
-\item{speciation_initiation_rate}{speciation rate
-of good and incipient species,
-per lineage probability per time unit}
-
-\item{speciation_completion_rate}{speciation completion rate (of
-incipient species),
-per lineage probability per time unit}
-
-\item{extinction_rate}{extinction rate of good and incipient species,
-per lineage probability per time unit}
-
-\item{crown_age}{crown age, in time units}
-
-\item{crown_age_sigma}{the standard deviation of MRCA prior's
-distribution, in time units}
-
-\item{sampling_method}{method how the incipient species representing a
-species is picked. Must be 'youngest', 'oldest' or 'random'}
-
-\item{mutation_rate}{per-nucleotide probability to mutate per time unit}
-
-\item{sequence_length}{length of simulated DNA alignment,
-number of base pairs}
-
-\item{mcmc_length}{length of the MCMC chain,
-number of MCMC states}
-
-\item{minimal_ess}{the minimal Effective Sample Size the posterior
-estimate may be. Will stop if the resulting ESS is below this
-value}
-
-\item{tree_sim_rng_seed}{RNG seed used in the creation of the true
-phylogenetic tree}
-
-\item{alignment_rng_seed}{RNG seed used in the creation of the simulated
-alignment (from the true phylogenetic tree)}
-
-\item{beast2_rnd_seed}{RNG seed in the creation of the BEAST2 posterior
-(based on the alignment)}
 }
 \description{
 Run one point of the experiment
+}
+\author{
+Richel J.C. Bilderbeek
 }

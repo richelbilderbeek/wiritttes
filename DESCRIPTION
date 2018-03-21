@@ -10,7 +10,7 @@ Description: What if reproduction isolation takes time to establish?
     sequences are simulation and analysed using BEAST2. BEAST2 does not
     assume that reproductive isolation takes time to establish. The
     analysis of the resulting data is done by the wiritttea package.
-License: file LICENSE
+License: GPL-3 | file LICENSE
 LazyData: TRUE
 Requires: 
     adephylo,

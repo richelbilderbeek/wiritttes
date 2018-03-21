@@ -19,6 +19,7 @@ r_github_packages:
   - richelbilderbeek/beautier
   - richelbilderbeek/tracerer
   - richelbilderbeek/ribir
+  - richelbilderbeek/nLTT
 
 before_script:
   - sudo apt-get install -qq oracle-java8-installer # Java 8

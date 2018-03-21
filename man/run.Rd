@@ -4,13 +4,14 @@
 \alias{run}
 \title{Run one point of the experiment}
 \usage{
-run(speciation_initiation_rate, speciation_completion_rate, extinction_rate,
-  crown_age, crown_age_sigma = 0.01, sampling_method, mutation_rate,
-  sequence_length, mcmc_length, minimal_ess = 200, tree_sim_rng_seed,
-  alignment_rng_seed, beast2_rnd_seed,
-  beast_jar_path = beastier::get_default_beast2_jar_path(), verbose = FALSE)
+run(parameters, beast_jar_path = beastier::get_default_beast2_jar_path(),
+  verbose = FALSE)
 }
 \arguments{
+\item{beast_jar_path}{the path of beast.jar}
+
+\item{verbose}{set to TRUE for more (debug) output}
+
 \item{speciation_initiation_rate}{speciation rate
 of good and incipient species,
 per lineage probability per time unit}
@@ -50,10 +51,6 @@ alignment (from the true phylogenetic tree)}
 
 \item{beast2_rnd_seed}{RNG seed in the creation of the BEAST2 posterior
 (based on the alignment)}
-
-\item{beast_jar_path}{the path of beast.jar}
-
-\item{verbose}{set to TRUE for more (debug) output}
 }
 \description{
 Run one point of the experiment
